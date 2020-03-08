@@ -1,0 +1,19 @@
+{
+  "name": "sos1920-22",
+  "version": "1.0.0",
+  "description": "Esto es un commit de prueba.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gti-sos/SOS1920-22.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gti-sos/SOS1920-22/issues"
+  },
+  "homepage": "https://github.com/gti-sos/SOS1920-22#readme"
+}
