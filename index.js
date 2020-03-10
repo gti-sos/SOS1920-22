@@ -2,6 +2,8 @@ var express = require('express');
 
 var app = express(); //Por convenio se crea así la variable.
 
+var port = process.env.PORT || 3000;
+
 app.use("/", express.static(__dirname+"/public/"));
 
 app.get("/time", (req, res) => {
@@ -10,7 +12,9 @@ app.get("/time", (req, res) => {
 	
 } );
 
-app.listen(3000);
+app.listen(port, () => {
+	console.log("Server ready fake");
+});
 
-console.log("Server ready fake");
+console.log("Starting server...");
 
