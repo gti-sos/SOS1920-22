@@ -156,7 +156,7 @@ app.put(baseURL + '/swim-stats', (request, response) => {
 app.delete(baseURL + '/swim-stats', (request, response) => {
 	console.log(Date() + ' - DELETE /swim-stats');
 	//swimmers = swimmers;
-	swimmers = [];
+	nadadores = [];
 	response.sendStatus(200);
 });
 
@@ -230,7 +230,7 @@ app.put(baseURL + '/og-basket-stats', (request, response) => {
 
 app.delete(baseURL + '/og-basket-stats', (request, response) => {
 	console.log(Date() + ' - DELETE /og-basket-stats');
-	basket = []; 
+	baloncesto = []; 
 	response.sendStatus(200);
 });
 
