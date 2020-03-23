@@ -1,13 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var baseURL = "api/v1";
-
-app.use(bodyParser.json());
+var baseURL = "/api/v1";
 
 var app = express(); //Por convenio se crea así la variable.
 
 var port = process.env.PORT || 3000; //Anyadido para Heroku L05.
+
+app.use(bodyParser.json());
 
 app.use("/", express.static(__dirname+"/public/"));
 
