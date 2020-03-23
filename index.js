@@ -202,7 +202,7 @@ app.put(baseURL + '/swimmers/:position', (request, response) => {
 });
 
 //Cargar datos iniciales - Baloncesto - loadInitialData.
-app.get(baseURL+"/formula-stats/loadInitialData", (req,res) => {
+app.get(baseURL+"/og-basket-stats/loadInitialData", (req,res) => {
 	res.send(JSON.stringify(baloncesto,null,2));
 	console.log("Data sent: "+JSON.stringify(baloncesto,null,2));
 })
