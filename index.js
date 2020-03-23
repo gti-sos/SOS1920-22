@@ -202,7 +202,7 @@ app.put(baseURL + '/swim-stats/:position', (request, response) => {
 });
 
 //Cargar datos iniciales - Baloncesto - loadInitialData.
-app.get(baseURL+"/og-basket-stats/loadInitialData", (req,res) => {
+app.get(baseURL+"/formula-stats/loadInitialData", (req,res) => {
 	res.send(JSON.stringify(baloncesto,null,2));
 	console.log("Data sent: "+JSON.stringify(baloncesto,null,2));
 })
@@ -219,19 +219,23 @@ app.get(baseURL + '/og-basket-stats', (request, response) => {
 app.post(baseURL + '/og-basket-stats', (request, response) => {
 	console.log(Date() + ' - POST /og-basket-stats');
 	var aux = request.body;
-	baloncesto.push(aux);
-	response.sendStatus(201);
+	if((aux.year == null)|| (aux.year == "") || (aux == "") ){
+		response.sendStatus(400, "Bad Request");
+	}else{
+		baloncesto.push(aux);
+		response.sendStatus(201, "Created");
+	}
 });
 
 app.put(baseURL + '/og-basket-stats', (request, response) => {
 	console.log(Date() + ' - PUT /og-basket-stats');
-	response.send(405,);
+	response.send(405, "Method Not Allowed(Put Base Rute)");
 });
 
 app.delete(baseURL + '/og-basket-stats', (request, response) => {
 	console.log(Date() + ' - DELETE /og-basket-stats');
-	baloncesto = []; 
-	response.sendStatus(200);
+	basket = []; 
+	response.sendStatus(200, "OK");
 });
 
 // RECURSOS ESPECÍFICOS - BALONCESTO
@@ -240,14 +244,17 @@ app.get(baseURL + '/og-basket-stats/:year', (request, response) => {
 	var aux = request.params.year;
 	console.log(Date() + ' - GET /year - Recurso Específico' + aux);
 	var filtro = baloncesto.filter(n => n.year == aux);
-	response.send(filtro);
-
+	if(filtro == ""){
+		response.sendStatus(400,"Bad Requestt");
+	}else{
+		response.send(filtro);
+	}	
 });
 
 app.post(baseURL + '/og-basket-stats/:year', (request, response) => {
 	var aux = request.params.year;
 	console.log(Date() + ' - POST /year - Recurso Específico ' + aux);
-	response.send(405, "Method not allowed");
+	response.send(405, "Method Not Allowed (Post resource)");
 	//response.send(405);
 });
 
@@ -256,16 +263,15 @@ app.delete(baseURL + '/og-basket-stats/:year', (request, response) => {
 	console.log(Date() + ' - DELETE /basket - Recurso Específico' + aux);
 	var filtro = baloncesto.filter(n => n.year != aux);
 	baloncesto = filtro;
-	response.sendStatus(200);
+	response.sendStatus(200,"OK");
 
 });
 
 app.put(baseURL + '/og-basket-stats/:year', (request, response) => {
 	var aux = request.params.year;
-	var anyo = request.body.year;
-	if(aux != anyo){
-		response.sendStatus(409);
-		console.warn(Date()+ " Hacking Attempt !!!! ");
+	var name = request.body.year;
+	if(aux != name){
+		response.sendStatus(409,"Conflict (WARNING)");
 	}	
 	else{
 		console.log(Date() + ' - PUT /year - Recurso Específico ' + aux);
