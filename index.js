@@ -162,7 +162,7 @@ app.delete(baseURL + '/swim-stats', (request, response) => {
 
 // RECURSOS ESPECÍFICOS - NATACIÓN
 
-app.get(baseURL + '/swimmers/:position', (request, response) => {
+app.get(baseURL + '/swim-stats/:position', (request, response) => {
 	var aux = request.params.position;
 	console.log(Date() + ' - GET /position - Recurso Específico' + aux);
 	var filtro = nadadores.filter(n => n.position == aux);
@@ -170,13 +170,13 @@ app.get(baseURL + '/swimmers/:position', (request, response) => {
 
 });
 
-app.post(baseURL + '/swimmers/:position', (request, response) => {
+app.post(baseURL + '/swim-stats/:position', (request, response) => {
 	var aux = request.params.position;
 	console.log(Date() + ' - POST /position - Recurso Específico ' + aux);
 	response.send(405, "Method not allowed");
 });
 
-app.delete(baseURL + '/swimmers/:position', (request, response) => {
+app.delete(baseURL + '/swim-stats/:position', (request, response) => {
 	var aux = request.params.position;
 	console.log(Date() + ' - DELETE /swimmers - Recurso Específico' + aux);
 	var filtro = nadadores.filter(n => n.position != aux);
@@ -185,7 +185,7 @@ app.delete(baseURL + '/swimmers/:position', (request, response) => {
 
 });
 
-app.put(baseURL + '/swimmers/:position', (request, response) => {
+app.put(baseURL + '/swim-stats/:position', (request, response) => {
 	var aux = request.params.position;
 	var name = request.body.position;
 	if(aux != name){
