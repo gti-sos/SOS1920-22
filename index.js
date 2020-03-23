@@ -26,25 +26,25 @@ console.log("Starting server...");
 // Backlog L03. - 23/03/2020
 
 var pilotos = [
-	{ country: 'germany', year:'2019', totalpointnumber:568, pilotnumber: 5, victorynumber: 5 },
-	{ country: 'france', year:'2019', totalpointnumber:32, pilotnumber: 3, victorynumber: 0  },
-	{ country: 'united kingdom', year:'2014', totalpointnumber:475, pilotnumber: 4, victorynumber: 11 },
-	{ country: 'spain', year:'2015', totalpointnumber:30, pilotnumber: 3, victorynumber: 0 },
-	{ country: 'mexico', year:'2016', totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
+	{ country: 'germany', year:2019, totalpointnumber:568, pilotnumber: 5, victorynumber: 5 },
+	{ country: 'france', year:2019, totalpointnumber:32, pilotnumber: 3, victorynumber: 0  },
+	{ country: 'united kingdom', year:2014, totalpointnumber:475, pilotnumber: 4, victorynumber: 11 },
+	{ country: 'spain', year:2015, totalpointnumber:30, pilotnumber: 3, victorynumber: 0 },
+	{ country: 'mexico', year:2016, totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
 ];
 var nadadores = [
-	{ country: 'brazil', year:'2009', yearofbirth:1987, position: 1, time: 20.91 },
-	{ country: 'france', year:'2009', yearofbirth:1981, position: 2, time: 20.94 },
-	{ country: 'korea', year:'2019', yearofbirth:1996, position: 3, time: 21.04 },
-	{ country: 'italy', year:'2009', yearofbirth:1987, position: 4, time: 21.08 },
-	{ country: 'united kingdom', year:'2018', yearofbirth:1994, position: 5, time: 21.11 },
+	{ country: 'brazil', year:2009, yearofbirth:1987, position: 1, time: 20.91 },
+	{ country: 'france', year:2009, yearofbirth:1981, position: 2, time: 20.94 },
+	{ country: 'korea', year:2019, yearofbirth:1996, position: 3, time: 21.04 },
+	{ country: 'italy', year:2009, yearofbirth:1987, position: 4, time: 21.08 },
+	{ country: 'united kingdom', year:2018, yearofbirth:1994, position: 5, time: 21.11 },
 ];
 var baloncesto = [
-	{ country: 'serbia', year:'2016', points:66, threepoints: 4, rebounds: 33 },
-	{ country: 'spain', year:'2012', points:100, threepoints: 7, rebounds: 35 },
-	{ country: 'spain', year:'2008', points:107, threepoints: 8, rebounds: 37 },
-	{ country: 'italy', year:'2004', points:69, threepoints: 11, rebounds: 26 },
-	{ country: 'france', year:'2000', points:75, threepoints: 6, rebounds: 20 },
+	{ country: 'serbia', year:2016, points:66, threepoints: 4, rebounds: 33 },
+	{ country: 'spain', year:2012, points:100, threepoints: 7, rebounds: 35 },
+	{ country: 'spain', year:2008, points:107, threepoints: 8, rebounds: 37 },
+	{ country: 'italy', year:2004, points:69, threepoints: 11, rebounds: 26 },
+	{ country: 'france', year:2000, points:75, threepoints: 6, rebounds: 20 },
 ];
 
 
