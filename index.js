@@ -84,7 +84,7 @@ app.delete(baseURL + '/formula-stats', (request, response) => {
 
 // RECURSOS ESPECÍFICOS - FÓRMULA 1
 
-app.get(baseURL + '/pilots/:country', (request, response) => {
+app.get(baseURL + '/formula-stats/:country', (request, response) => {
 	//Lo que hay detrás de los dos puntos no es siempre así.
 	var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 	console.log(Date() + ' - GET /country - Recurso Específico' + aux);
@@ -93,14 +93,14 @@ app.get(baseURL + '/pilots/:country', (request, response) => {
 
 });
 
-app.post(baseURL + '/pilots/:country', (request, response) => {
+app.post(baseURL + '/formula-stats/:country', (request, response) => {
 	var aux = request.params.country;
 	console.log(Date() + ' - POST /country - Recurso Específico ' + aux);
 	response.send(405, "Method not allowed");
 	//response.send(405);
 });
 
-app.delete(baseURL + '/pilots/:country', (request, response) => {
+app.delete(baseURL + '/formula-stats/:country', (request, response) => {
 	//Lo que hay detrás de los dos puntos no es siempre así.
 	var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 	console.log(Date() + ' - DELETE /pilots - Recurso Específico' + aux);
@@ -110,7 +110,7 @@ app.delete(baseURL + '/pilots/:country', (request, response) => {
 
 });
 
-app.put(baseURL + '/pilots/:country', (request, response) => {
+app.put(baseURL + '/formula-stats/:country', (request, response) => {
 	//Lo que hay detrás de los dos puntos no es siempre así.
 	var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 	var name = request.body.country;
