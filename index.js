@@ -32,6 +32,14 @@ var pilotos = [
 	{ country: 'spain', year:'2015', totalpointnumber:30, pilotnumber: 3, victorynumber: 0 },
 	{ country: 'mexico', year:'2016', totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
 ];
+var nadadores = [
+	{ country: 'brazil', year:'2009', yearofbirth:1987, position: 1, time: 20.91 },
+	{ country: 'france', year:'2009', yearofbirth:1981, position: 2, time: 20.94 },
+	{ country: 'korea', year:'2019', yearofbirth:1996, position: 3, time: 21.04 },
+	{ country: 'italy', year:'2009', yearofbirth:1987, position: 4, time: 21.08 },
+	{ country: 'united kingdom', year:'2018', yearofbirth:1994, position: 5, time: 21.11 },
+];
+
 
 //Cargar datos iniciales - Fórmula 1 - loadInitialData.
 app.get(baseURL+"/formula-stats/loadInitialData", (req,res) => {
@@ -108,6 +116,80 @@ app.put(baseURL + '/pilots/:country', (request, response) => {
 		var filtro = pilotos.filter(n => n.country != aux); //Aquí estoy quitando la nacionalidad que quiero cambiar.
 		pilotos = filtro; // Aquí tengo todos las nacionalidades sin la que quiero modificar.
 		pilotos.push(request.body); // Meto dentro del array la misma nacionalidad pero con sus datos modificados.
+		response.sendStatus(200);
+	}
+	
+});
+
+//Cargar datos iniciales - Natación - loadInitialData.
+app.get(baseURL+"/swim-stats/loadInitialData", (req,res) => {
+	res.send(JSON.stringify(nadadores,null,2));
+	console.log("Data sent: "+JSON.stringify(nadadores,null,2));
+})
+
+//RECURSOS GENERALES - API REST - Fórmula 1
+
+app.get(baseURL + '/swim-stats', (request, response) => {
+	console.log(Date() + ' - GET /swim-stats');
+	response.send(nadadores);
+});
+
+app.post(baseURL + '/swim-stats', (request, response) => {
+	console.log(Date() + ' - POST /swim-stats');
+	var aux = request.body;
+	nadadores.push(aux);
+	response.sendStatus(201);
+});
+
+app.put(baseURL + '/swim-stats', (request, response) => {
+	console.log(Date() + ' - PUT /swim-stats');
+	response.send(405);
+});
+
+app.delete(baseURL + '/swim-stats', (request, response) => {
+	console.log(Date() + ' - DELETE /swim-stats');
+	//swimmers = swimmers;
+	swimmers = [];
+	response.sendStatus(200);
+});
+
+// RECURSOS ESPECÍFICOS - NATACIÓN
+
+app.get(baseURL + '/swimmers/:position', (request, response) => {
+	var aux = request.params.position;
+	console.log(Date() + ' - GET /position - Recurso Específico' + aux);
+	var filtro = nadadores.filter(n => n.position == aux);
+	response.send(filtro);
+
+});
+
+app.post(baseURL + '/swimmers/:position', (request, response) => {
+	var aux = request.params.position;
+	console.log(Date() + ' - POST /position - Recurso Específico ' + aux);
+	response.send(405, "Method not allowed");
+});
+
+app.delete(baseURL + '/swimmers/:position', (request, response) => {
+	var aux = request.params.position;
+	console.log(Date() + ' - DELETE /swimmers - Recurso Específico' + aux);
+	var filtro = nadadores.filter(n => n.position != aux);
+	nadadores = filtro;
+	response.sendStatus(200);
+
+});
+
+app.put(baseURL + '/swimmers/:position', (request, response) => {
+	var aux = request.params.position;
+	var name = request.body.position;
+	if(aux != name){
+		response.sendStatus(409);
+		console.warn(Date()+ " Hacking Attempt !!!! ");
+	}	
+	else{
+		console.log(Date() + ' - PUT /position - Recurso Específico ' + aux);
+		var filtro = nadadores.filter(n => n.position != aux);
+		nadadores = filtro;
+		nadadores.push(request.body);
 		response.sendStatus(200);
 	}
 	
