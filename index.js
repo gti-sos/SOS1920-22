@@ -41,7 +41,6 @@ var pilotosInitialData = [
 	{ country: 'mexico', year:2016, totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
 ];
 
-
 var nadadores = [
 	{ country: 'brazil', year:2009, yearofbirth:1987, position: 1, time: 20.91 },
 	{ country: 'france', year:2009, yearofbirth:1981, position: 2, time: 20.94 },
