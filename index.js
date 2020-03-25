@@ -57,7 +57,7 @@ var baloncesto = baloncestoInitialData.slice();
 
 //Cargar datos iniciales - Fórmula 1 - loadInitialData.
 app.get(baseURL+"/formula-stats/loadInitialData", (req,res) => {
-	pilotos = pilotosInitialData;
+	pilotos = pilotosInitialData.slice();
 	res.send(pilotos);
 	console.log("Data sent: "+JSON.stringify(pilotos,null,2));
 })
@@ -138,10 +138,10 @@ app.put(baseURL + '/formula-stats/:country', (request, response) => {
 
 //Cargar datos iniciales - Natación - loadInitialData.
 app.get(baseURL+"/swim-stats/loadInitialData", (req,res) => {
-	nadadores = nadadoresInitialData;
+	nadadores = nadadoresInitialData.slice();
 	res.send(200, 'Los datos iniciales se han cargado.');
 	console.log("Data sent: "+JSON.stringify(nadadores,null,2));
-})
+});
 
 //RECURSOS GENERALES - API REST - Natacion
 
@@ -212,7 +212,7 @@ app.put(baseURL + '/swim-stats/:position', (request, response) => {
 
 //Cargar datos iniciales - Baloncesto - loadInitialData.
 app.get(baseURL+"/og-basket-stats/loadInitialData", (req,res) => {
-	baloncesto = baloncestoInitialData;
+	baloncesto = baloncestoInitialData.slice();
 	res.send(200);
 	console.log("Data sent: "+JSON.stringify(baloncesto,null,2));
 })
