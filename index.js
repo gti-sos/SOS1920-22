@@ -42,6 +42,9 @@ var nadadores = [
 	{ country: 'italy', year:2009, yearofbirth:1987, position: 4, time: 21.08 },
 	{ country: 'united kingdom', year:2018, yearofbirth:1994, position: 5, time: 21.11 },
 ];
+
+var nadadoresInitialData = nadadores;
+
 var baloncesto = [
 	{ country: 'serbia', year:2016, points:66, threepoints: 4, rebounds: 33 },
 	{ country: 'spain', year:2012, points:100, threepoints: 7, rebounds: 35 },
@@ -135,7 +138,8 @@ app.put(baseURL + '/formula-stats/:country', (request, response) => {
 
 //Cargar datos iniciales - Natación - loadInitialData.
 app.get(baseURL+"/swim-stats/loadInitialData", (req,res) => {
-	res.send(JSON.stringify(nadadores,null,2));
+	nadadores = nadadoresInitialData;
+	res.send(200, 'Los datos iniciales se han cargado.');
 	console.log("Data sent: "+JSON.stringify(nadadores,null,2));
 })
 
