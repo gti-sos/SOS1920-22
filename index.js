@@ -97,7 +97,7 @@ app.get(baseURL + '/formula-stats/:country', (request, response) => {
 	var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 	console.log(Date() + ' - GET /country - Recurso Específico' + aux);
 	var filtro = pilotos.filter(n => n.country == aux);
-	response.send(filtro);
+	response.send(filtro[0]);
 
 });
 
@@ -175,7 +175,7 @@ app.get(baseURL + '/swim-stats/:position', (request, response) => {
 	var aux = request.params.position;
 	console.log(Date() + ' - GET /position - Recurso Específico' + aux);
 	var filtro = nadadores.filter(n => n.position == aux);
-	response.send(filtro);
+	response.send(filtro[0]);
 
 });
 
@@ -257,7 +257,7 @@ app.get(baseURL + '/og-basket-stats/:year', (request, response) => {
 	if(filtro == ""){
 		response.sendStatus(400,"Bad Requestt");
 	}else{
-		response.send(filtro);
+		response.send(filtro[0]);
 	}	
 });
 
