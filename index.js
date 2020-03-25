@@ -49,6 +49,7 @@ var baloncesto = [
 	{ country: 'italy', year:2004, points:69, threepoints: 11, rebounds: 26 },
 	{ country: 'france', year:2000, points:75, threepoints: 6, rebounds: 20 },
 ];
+var baloncestoInitialData = baloncesto;
 
 
 //Cargar datos iniciales - Fórmula 1 - loadInitialData.
@@ -207,7 +208,8 @@ app.put(baseURL + '/swim-stats/:position', (request, response) => {
 
 //Cargar datos iniciales - Baloncesto - loadInitialData.
 app.get(baseURL+"/og-basket-stats/loadInitialData", (req,res) => {
-	res.send(JSON.stringify(baloncesto,null,2));
+	baloncesto = baloncestoInitialData;
+	res.send(200);
 	console.log("Data sent: "+JSON.stringify(baloncesto,null,2));
 })
 
@@ -224,10 +226,10 @@ app.post(baseURL + '/og-basket-stats', (request, response) => {
 	console.log(Date() + ' - POST /og-basket-stats');
 	var aux = request.body;
 	if((aux.year == null)|| (aux.year == "") || (aux == "") ){
-		response.sendStatus(400, "Bad Request");
+		response.send(400, "Bad Request");
 	}else{
 		baloncesto.push(aux);
-		response.sendStatus(201, "Created");
+		response.send(201, "Created");
 	}
 });
 
@@ -238,7 +240,7 @@ app.put(baseURL + '/og-basket-stats', (request, response) => {
 
 app.delete(baseURL + '/og-basket-stats', (request, response) => {
 	console.log(Date() + ' - DELETE /og-basket-stats');
-	basket = []; 
+	baloncesto = []; 
 	response.sendStatus(200, "OK");
 });
 
@@ -273,18 +275,19 @@ app.delete(baseURL + '/og-basket-stats/:year', (request, response) => {
 
 app.put(baseURL + '/og-basket-stats/:year', (request, response) => {
 	var aux = request.params.year;
-	var name = request.body.year;
-	if(aux != name){
-		response.sendStatus(409,"Conflict (WARNING)");
+	var aux2 = request.body;
+	if(aux != aux2.year){
+		response.send(409,"Conflict (WARNING)");
 	}	
 	else{
 		console.log(Date() + ' - PUT /year - Recurso Específico ' + aux);
 		var filtro = baloncesto.filter(n => n.year != aux); 
 		banloncesto = filtro; 
 		baloncesto.push(request.body);
-		response.sendStatus(200);
+		response.send(200,"OK");
 	}
 	
 });
+
 
 
