@@ -60,7 +60,7 @@ var baloncesto = [
 //Cargar datos iniciales - Fórmula 1 - loadInitialData.
 app.get(baseURL+"/formula-stats/loadInitialData", (req,res) => {
 	pilotos = pilotosInitialData;
-	res.send((pilotos,null,2));
+	res.send(pilotos);
 	console.log("Data sent: "+JSON.stringify(pilotos,null,2));
 })
 
