@@ -32,6 +32,15 @@ var pilotos = [
 	{ country: 'spain', year:2015, totalpointnumber:30, pilotnumber: 3, victorynumber: 0 },
 	{ country: 'mexico', year:2016, totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
 ];
+
+var pilotosInitialData = [
+	{ country: 'germany', year:2019, totalpointnumber:568, pilotnumber: 5, victorynumber: 5 },
+	{ country: 'france', year:2019, totalpointnumber:32, pilotnumber: 3, victorynumber: 0  },
+	{ country: 'united kingdom', year:2014, totalpointnumber:475, pilotnumber: 4, victorynumber: 11 },
+	{ country: 'spain', year:2015, totalpointnumber:30, pilotnumber: 3, victorynumber: 0 },
+	{ country: 'mexico', year:2016, totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
+];
+
 var nadadores = [
 	{ country: 'brazil', year:2009, yearofbirth:1987, position: 1, time: 20.91 },
 	{ country: 'france', year:2009, yearofbirth:1981, position: 2, time: 20.94 },
@@ -50,7 +59,8 @@ var baloncesto = [
 
 //Cargar datos iniciales - Fórmula 1 - loadInitialData.
 app.get(baseURL+"/formula-stats/loadInitialData", (req,res) => {
-	res.send(JSON.stringify(pilotos,null,2));
+	pilotos = pilotosInitialData;
+	res.send((pilotos,null,2));
 	console.log("Data sent: "+JSON.stringify(pilotos,null,2));
 })
 
