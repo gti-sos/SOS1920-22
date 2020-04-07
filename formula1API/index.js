@@ -12,7 +12,7 @@ var formula1API = {};
 
 module.exports = formula1API;
 
-formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL) {
+formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbformula1) {
 	//Cargar datos iniciales - Fórmula 1 - loadInitialData.
 	app.get(baseURL + '/formula-stats/loadInitialData', (req, res) => {
 		pilotos = pilotosInitialData.slice();
@@ -41,7 +41,7 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL) {
 
 	app.delete(baseURL + '/formula-stats', (request, response) => {
 		console.log(Date() + ' - DELETE /formula-stats');
-		//pilotos = pilots; - Podría machacarse los datos iniciales que les hemos metido. - HE MODIFICADO PILOTS EN VEZ DE 	PILOTOS.
+		//pilotos = pilots; - Podría machacarse los datos iniciales que les hemos metido. - HE MODIFICADO PILOTS EN VEZ DE 			PILOTOS.
 		pilotos = []; //MUCHÍSIMO OJO. SI BORRO TODO, ME DICE QUE NO HAY NADA. ES UN ARRAY VACÍO SIN NADA!!!!!!!!!!
 		response.sendStatus(200);
 	});
