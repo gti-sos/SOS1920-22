@@ -4,7 +4,7 @@ var baseURL = "/api/v1";
 var app = express(); //Por convenio se crea así la variable.
 var formula1api = require('./formula1API');
 var port = process.env.PORT || 3000; //Anyadido para Heroku L05.
-
+var nedb = require('nedb');
 
 app.use(bodyParser.json());
 
@@ -56,7 +56,28 @@ var baloncesto = baloncestoInitialData.slice();
 
 //RECURSOS GENERALES - API REST - Fórmula 1
 
-formula1api.methods(app, pilotosInitialData, pilotos, baseURL);
+var dbformula1 = new nedb({
+	filename: DataStore,
+	autoload: true
+	
+});
+
+dbformula1.find({}, (error, formula1) => {
+	if(error){
+		console.error("Error accessing DataBase");
+		process.exit(1);
+	}
+	if(formula1.length == 0){
+		console.log('Empty DataBase - Inserting Default Data');
+		dbformula1.insert(pilotosInitialData);
+	}
+	else{
+		console.log(Date() + 'Data loaded');
+	}
+});
+
+formula1api.methods(app, pilotosInitialData, pilotos, baseURL, dbformula1);
+
 
 //Cargar datos iniciales - Natación - loadInitialData.
 app.get(baseURL+"/swim-stats/loadInitialData", (req,res) => {

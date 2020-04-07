@@ -12,7 +12,7 @@ var formula1API = {};
 
 module.exports = formula1API;
 
-formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL) {
+formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbformula1) {
 	//Cargar datos iniciales - Fórmula 1 - loadInitialData.
 	app.get(baseURL + '/formula-stats/loadInitialData', (req, res) => {
 		pilotos = pilotosInitialData.slice();
@@ -20,9 +20,23 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL) {
 		console.log('Data sent: ' + JSON.stringify(pilotos, null, 2));
 	});
 
+	//app.get(baseURL + '/formula-stats', (request, response) => {
+	//	console.log(Date() + ' - GET /formula-stats');
+	//	response.send(pilotos);
+		//No es necesario enviar un código de estado, si devuelve el conjunto de datos
+		//automáticamente manda un 200 OK.
+	//});
+	
 	app.get(baseURL + '/formula-stats', (request, response) => {
 		console.log(Date() + ' - GET /formula-stats');
-		response.send(pilotos);
+		//response.send(pilotos); - Hay comentario de esto porque no estoy seguro de poder enviarlo.
+		db.find({}, (error, formula1) => {
+			if(error){
+				console.error("Error accessing DataBase");
+				response.sendStatus(500);
+			}
+			response.send(formula1);
+		});
 		//No es necesario enviar un código de estado, si devuelve el conjunto de datos
 		//automáticamente manda un 200 OK.
 	});
@@ -30,7 +44,8 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL) {
 	app.post(baseURL + '/formula-stats', (request, response) => {
 		console.log(Date() + ' - POST /formula-stats');
 		var aux = request.body; // Objeto entero - Si quiero acceder a algo concreto con el .name.
-		pilotos.push(aux);
+		//pilotos.push(aux);
+		dbformula1.insert(aux);
 		response.sendStatus(201);
 	});
 
@@ -42,7 +57,10 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL) {
 	app.delete(baseURL + '/formula-stats', (request, response) => {
 		console.log(Date() + ' - DELETE /formula-stats');
 		//pilotos = pilots; - Podría machacarse los datos iniciales que les hemos metido. - HE MODIFICADO PILOTS EN VEZ DE 			//PILOTOS.
-		pilotos = []; //MUCHÍSIMO OJO. SI BORRO TODO, ME DICE QUE NO HAY NADA. ES UN ARRAY VACÍO SIN NADA!!!!!!!!!!
+		//pilotos = []; //MUCHÍSIMO OJO. SI BORRO TODO, ME DICE QUE NO HAY NADA. ES UN ARRAY VACÍO SIN NADA!!!!!!!!!!
+		db.remove({}, {multi:true}, (error, numDelete) => {
+			console.log(numDelete + "nationalities deleted");
+		});
 		response.sendStatus(200);
 	});
 
