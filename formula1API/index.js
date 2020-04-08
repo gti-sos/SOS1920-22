@@ -13,12 +13,21 @@ var formula1API = {};
 module.exports = formula1API;
 
 formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbformula1) {
+	
 	//Cargar datos iniciales - Fórmula 1 - loadInitialData.
-	app.get(baseURL + '/formula-stats/loadInitialData', (req, res) => {
-		pilotos = pilotosInitialData.slice();
-		res.send(pilotos);
-		console.log('Data sent: ' + JSON.stringify(pilotos, null, 2));
-	});
+	//app.get(baseURL + '/formula-stats/loadInitialData', (req, res) => {
+	//	pilotos = pilotosInitialData.slice();
+	//	res.send(pilotos);
+	//	console.log('Data sent: ' + JSON.stringify(pilotos, null, 2));
+	//});
+	
+	//Actualización de Load Initial Data a 08/04/2020 para el D01
+	app.get(baseURL+"/formula-stats/loadInitialData", (request,response) =>{
+        dbformula1.remove({});
+        dbformula1.insert(pilotosInitialData);
+        response.sendStatus(200);
+        console.log("Initial data loaded:"+JSON.stringify(pilotosInitialData,null,2));
+    })
 
 	//app.get(baseURL + '/formula-stats', (request, response) => {
 	//	console.log(Date() + ' - GET /formula-stats');
@@ -27,7 +36,23 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		//automáticamente manda un 200 OK.
 	//});
 	
+	//RECURSOS GENERALES
+	
 	app.get(baseURL + '/formula-stats', (request, response) => {
+		//AQUÍ SE METEN LAS BÚSQUEDAS
+		var limit = parseInt(request.query.limit); //De 10 en 10
+        var offset = parseInt(request.query.offset); //Hasta 100
+
+        var from = parseInt(request.query.from);
+        var to = parseInt(request.query.to);
+
+        var country = request.query.country;
+        var year = parseInt(request.query.year);
+		//Estos 3 tengo que verlo con más calma - 08/04/2020
+        var totalPointNumber = parseInt(request.query.totalPointNumber);
+        var numPilotos = parseInt(request.query.numPilotos);
+        var numVictorias = parseInt(request.query.numVictorias);
+		
 		console.log(Date() + ' - GET /formula-stats');
 		//response.send(pilotos); - Hay comentario de esto porque no estoy seguro de poder enviarlo.
 		db.find({}, (error, formula1) => {
@@ -65,31 +90,36 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 	});
 
 	// RECURSOS ESPECÍFICOS - FÓRMULA 1
-
+	
+	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.get(baseURL + '/formula-stats/:country', (request, response) => {
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
+		var year = request.params.year;
 		console.log(Date() + ' - GET /country - Recurso Específico' + aux);
 		var filtro = pilotos.filter(n => n.country == aux);
 		response.send(filtro[0]);
 	});
-
+	
+	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.post(baseURL + '/formula-stats/:country', (request, response) => {
 		var aux = request.params.country;
+		var year = request.params.year;
 		console.log(Date() + ' - POST /country - Recurso Específico ' + aux);
 		response.send(405, 'Method not allowed');
 		//response.send(405);
 	});
-
+	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.delete(baseURL + '/formula-stats/:country', (request, response) => {
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
-		console.log(Date() + ' - DELETE /pilots - Recurso Específico' + aux);
+		var year = request.params.year;
+		console.log(Date() + ' - DELETE /formula-stats - Recurso Específico' + aux);
 		var filtro = pilotos.filter(n => n.country != aux);
 		pilotos = filtro;
 		response.sendStatus(200);
 	});
-
+	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.put(baseURL + '/formula-stats/:country', (request, response) => {
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
