@@ -39,6 +39,9 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 	//RECURSOS GENERALES
 	
 	app.get(baseURL + '/formula-stats', (request, response) => {
+		
+		console.log(Date() + ' - GET /formula-stats');
+		
 		//AQUÍ SE METEN LAS BÚSQUEDAS
 		var limit = parseInt(request.query.limit); //De 10 en 10
         var offset = parseInt(request.query.offset); //Hasta 100
@@ -53,18 +56,122 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
         var numPilotos = parseInt(request.query.numPilotos);
         var numVictorias = parseInt(request.query.numVictorias);
 		
-		console.log(Date() + ' - GET /formula-stats');
-		//response.send(pilotos); - Hay comentario de esto porque no estoy seguro de poder enviarlo.
-		db.find({}, (error, formula1) => {
-			if(error){
-				console.error("Error accessing DataBase");
-				response.sendStatus(500);
+		//Primera búsqueda
+		if(from && to){
+			 dbformula1.find({year: {$gte: from, $lte: to}}).skip(offset).limit(limit).exec((err, pilotos)=>{
+				 if(pilotos.length == 0){
+					 response.sendStatus(404, "Not found");
+				 }
+				 else{
+					 pilotos.forEach((n) => {
+						 delete n._id;
+					 });
+					response.send(JSON.stringify(pilotos,null,2));
+				 }
+			 });
+		}
+		//Segunda parte de la búsqueda
+		else if(country | year | totalPointNumber | numPilotos | numVictorias){
+			if(!year && !totalPointNumber && !numPilotos && !numVictorias){
+				dbformula1.find({"country":country}).skip(offset).limit(limit).exec((err, pilotos)=>{
+					if(pilotos.length==0){
+						response.sendStatus(404, "Not found");
+					}
+					else{
+						pilotos.forEach((n) => {
+							delete n_id;
+						});
+					response.send(JSON.stringify(pilotos, null, 2));
+					}
+				});
 			}
-			response.send(formula1);
-		});
+			else if(!country && !totalPointNumber && !numPilotos && !numVictorias){
+				dbformula1.find({"year":year}).skip(offset).limit(limit).exec((err, pilotos)=>{
+					if(pilotos.length==0){
+						response.sendStatus(404, "Not found");
+					}
+					else{
+						pilotos.forEach((n) => {
+							delete n_id;
+						});
+						response.send(JSON.stringify(pilotos,null,2));
+					}
+				});
+			}
+			else if(!country && !year && !numPilotos && !numVictorias){
+				dbformula1.find({"totalPointNumber":totalPointNumber}).skip(offset).limit(limit).exec((err, pilotos) => {
+					if(pilotos.length == 0){
+						response.sendStatus(404, "Not found");
+					}
+					else{
+						pilotos.forEach((n) => {
+							delete n_id;
+						});
+						response.send(JSON.stringify(pilotos, null, 2));
+					}
+				});
+			}
+			else if(!country && !year && !totalPointNumber && !numVictorias){
+				dbformula1.find({"numPilotos":numPilotos}).skip(offset).limit(limit).exec((err, pilotos) => {
+					if(pilotos.length == 0){
+						response.sendStatus(404, "Not found");
+					}
+					else{
+						pilotos.forEach((n) => {
+							delete n_id;
+						});
+						response.send(JSON.stringify(pilotos, null, 2));
+					}
+				});
+			}
+			else if(!country && !year && !numPilotos && !totalPointNumber){
+				dbformula1.find({"numVictorias":numVictorias}).skip(offset).limit(limit).exec((err, pilotos) => {
+					if(pilotos.length == 0){
+						response.sendStatus(404, "Not found");
+					}
+					else{
+						pilotos.forEach((n) => {
+							delete n_id;
+						});
+						response.send(JSON.stringify(pilotos, null, 2));
+					}
+				});
+			}
+			else if(!totalPointNumber && !numPilotos && !totalPointNumber){
+				dbformula1.find({"country":country, "year":year}).skip(offset).limit(limit).exec((err, pilotos) => {
+					if(pilotos.length == 0){
+						response.sendStatus(404, "Not found");
+					}
+					else{
+						pilotos.forEach((n) => {
+							delete n_id;
+						});
+						response.send(JSON.stringify(pilotos, null, 2));
+					}
+				});
+			}
+		}
+		else{
+			dbformula1.find({}).skip(offset).limit(limit).exec((err, pilotos) =>{
+				pilotos.forEach((n) => {
+					delete n_id;
+				});
+				response.send(JSON.stringify(pilotos, null, 2));
+			});
+		};
+	});
+		
+	//COMENTADA PARTE JOSENRI - response.send(pilotos); - Hay comentario de esto porque no estoy seguro de poder enviarlo.
+	//	dbformula1.find({}, (error, formula1) => {
+	//		if(error){
+	//			console.error("Error accessing DataBase");
+	//			response.sendStatus(500);
+	//		}
+	//		response.send(formula1);
+	//	});
 		//No es necesario enviar un código de estado, si devuelve el conjunto de datos
 		//automáticamente manda un 200 OK.
-	});
+	//});
 
 	app.post(baseURL + '/formula-stats', (request, response) => {
 		console.log(Date() + ' - POST /formula-stats');
