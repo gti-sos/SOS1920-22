@@ -199,42 +199,70 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 	// RECURSOS ESPECÍFICOS - FÓRMULA 1
 	
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
-	app.get(baseURL + '/formula-stats/:country', (request, response) => {
+	app.get(baseURL + '/formula-stats/:country/:year', (request, response) => {
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
-		var year = request.params.year;
-		console.log(Date() + ' - GET /country - Recurso Específico' + aux);
-		var filtro = pilotos.filter(n => n.country == aux);
-		response.send(filtro[0]);
+		var year = parseInt(request.params.year);
+		
+		dbformula1.find({"country": aux, "year": country}).exec((err, pilotos) => {
+			if(pilotos.length == 0){
+				delete pilotos[0]._id;
+				
+				response.send(JSON.stringify(pilotos[0],null,2));
+				console.log("/GET - Recurso Específico /country/year: " + JSON.stringify(pilotos[0]), null, 2);
+			}
+			else{
+				response.sendStatus(404, "Not found");
+			}
+		});
+		//Método get sin DB.
+		//console.log(Date() + ' - GET /country - Recurso Específico' + aux);
+		//var filtro = pilotos.filter(n => n.country == aux);
+		//response.send(filtro[0]);
 	});
 	
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
-	app.post(baseURL + '/formula-stats/:country', (request, response) => {
+	app.post(baseURL + '/formula-stats/:country/:year', (request, response) => {
+		//Can we get this variable: var aux = request.params.country.year; ?????
 		var aux = request.params.country;
 		var year = request.params.year;
-		console.log(Date() + ' - POST /country - Recurso Específico ' + aux);
+		console.log(Date() + ' - POST /country/year - Recurso Específico ');
 		response.send(405, 'Method not allowed');
 		//response.send(405);
 	});
+	
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
-	app.delete(baseURL + '/formula-stats/:country', (request, response) => {
+	app.delete(baseURL + '/formula-stats/:country/:year', (request, response) => {
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
-		var year = request.params.year;
-		console.log(Date() + ' - DELETE /formula-stats - Recurso Específico' + aux);
-		var filtro = pilotos.filter(n => n.country != aux);
-		pilotos = filtro;
-		response.sendStatus(200);
+		var year = parseInt(request.params.year);
+		
+		console.log(Date() + ' - DELETE /formula-stats - Recurso Específico');
+		
+		dbformula1.remove({"country": aux, "year": year}, {multi:true}, (err, pilotsDeleted) => {
+			if(pilotosDeleted == 0){
+				response.sendStatus(404, "Not found");
+			}
+			else{
+				response.sendStatus(200);
+			}
+		});
+		
+		//var filtro = pilotos.filter(n => n.country != aux);
+		//pilotos = filtro;
+		//response.sendStatus(200);
 	});
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
-	app.put(baseURL + '/formula-stats/:country', (request, response) => {
+	app.put(baseURL + '/formula-stats/:country/:year', (request, response) => {
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 		var name = request.body.country;
+		var year = request.params.year;
 		if (aux != name) {
 			response.sendStatus(409);
 			console.warn(Date() + ' Hacking Attempt !!!! ');
-		} else {
+		} 
+		else {
 			console.log(Date() + ' - PUT /country - Recurso Específico ' + aux);
 			var filtro = pilotos.filter(n => n.country != aux); //Aquí estoy quitando la nacionalidad que quiero cambiar.
 			pilotos = filtro; // Aquí tengo todos las nacionalidades sin la que quiero modificar.
