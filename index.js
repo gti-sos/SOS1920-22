@@ -1,10 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var baseURL = "/api/v1";
-var app = express(); //Por convenio se crea así la variable.
 var formula1api = require('./formula1API');
+
 var port = process.env.PORT || 3000; //Anyadido para Heroku L05.
 var nedb = require('nedb');
+var baseURL = "/api/v1";
+
+var app = express(); //Por convenio se crea así la variable.
 
 app.use(bodyParser.json());
 
