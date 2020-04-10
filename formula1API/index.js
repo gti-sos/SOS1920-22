@@ -190,7 +190,7 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		console.log(Date() + ' - DELETE /formula-stats');
 		//pilotos = pilots; - Podría machacarse los datos iniciales que les hemos metido. - HE MODIFICADO PILOTS EN VEZ DE 			//PILOTOS.
 		//pilotos = []; //MUCHÍSIMO OJO. SI BORRO TODO, ME DICE QUE NO HAY NADA. ES UN ARRAY VACÍO SIN NADA!!!!!!!!!!
-		db.remove({}, {multi:true}, (error, numDelete) => {
+		dbformula1.remove({}, {multi:true}, (error, numDelete) => {
 			console.log(numDelete + "nationalities deleted");
 		});
 		response.sendStatus(200);
@@ -226,6 +226,7 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		//Can we get this variable: var aux = request.params.country.year; ?????
 		var aux = request.params.country;
 		var year = request.params.year;
+		
 		console.log(Date() + ' - POST /country/year - Recurso Específico ');
 		response.send(405, 'Method not allowed');
 		//response.send(405);
@@ -252,22 +253,36 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		//pilotos = filtro;
 		//response.sendStatus(200);
 	});
+	
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.put(baseURL + '/formula-stats/:country/:year', (request, response) => {
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 		var name = request.body.country;
-		var year = request.params.year;
+		var year = parseInt(request.params.year);
+		
+		var body = request.body;
+		
 		if (aux != name) {
 			response.sendStatus(409);
 			console.warn(Date() + ' Hacking Attempt !!!! ');
 		} 
 		else {
-			console.log(Date() + ' - PUT /country - Recurso Específico ' + aux);
-			var filtro = pilotos.filter(n => n.country != aux); //Aquí estoy quitando la nacionalidad que quiero cambiar.
+			dbformula1.update({"country": country, "year": year }, body, (err, pilotosUpdated) => {
+				if(pilotosUpdated == 0){
+					response.sendStatus(404, "Not found");
+				}
+				else{
+					console.log(Date() + ' - PUT /country - Recurso Específico ');
+					response.sendStatus(200);
+				}
+			});
+			//console.log(Date() + ' - PUT /country - Recurso Específico ');
+			
+			/*var filtro = pilotos.filter(n => n.country != aux); //Aquí estoy quitando la nacionalidad que quiero cambiar.
 			pilotos = filtro; // Aquí tengo todos las nacionalidades sin la que quiero modificar.
 			pilotos.push(request.body); // Meto dentro del array la misma nacionalidad pero con sus datos modificados.
-			response.sendStatus(200);
+			response.sendStatus(200);*/
 		}
 	});
 };
