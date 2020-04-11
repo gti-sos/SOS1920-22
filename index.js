@@ -59,9 +59,8 @@ var baloncesto = baloncestoInitialData.slice();
 //RECURSOS GENERALES - API REST - Fórmula 1
 
 var dbformula1 = new nedb({
-	filename: DataStore,
-	autoload: true
-	
+	filename: formula1api,
+	autoload: true	
 });
 
 dbformula1.find({}, (error, formula1) => {
