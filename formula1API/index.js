@@ -56,6 +56,9 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
         var numPilotos = parseInt(request.query.numPilotos);
         var numVictorias = parseInt(request.query.numVictorias);
 		
+		//Para paginación
+		var query = request.query;
+		
 		//Primera búsqueda
 		if(from && to){
 			 dbformula1.find({year: {$gte: from, $lte: to}}).skip(offset).limit(limit).exec((err, pilotos)=>{
