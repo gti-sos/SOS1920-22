@@ -27,7 +27,7 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
         dbformula1.insert(pilotosInitialData);
         response.sendStatus(200);
         console.log("Initial data loaded:"+JSON.stringify(pilotosInitialData,null,2));
-    })
+    });
 
 	//app.get(baseURL + '/formula-stats', (request, response) => {
 	//	console.log(Date() + ' - GET /formula-stats');
