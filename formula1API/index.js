@@ -57,7 +57,7 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		
 		dbformula1.find(request.query).skip(offset).limit(limit).exec((err, formula1) => {
 			formula1.forEach((n) => {
-				n._id;
+				delete n._id;
 			});
 			response.send(JSON.stringify(formula1, null, 2));
 			console.log("Data GET General: " + JSON.stringify(formula1, null, 2));
