@@ -14,13 +14,6 @@ module.exports = formula1API;
 
 formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbformula1) {
 	
-	//Cargar datos iniciales - Fórmula 1 - loadInitialData.
-	//app.get(baseURL + '/formula-stats/loadInitialData', (req, res) => {
-	//	pilotos = pilotosInitialData.slice();
-	//	res.send(pilotos);
-	//	console.log('Data sent: ' + JSON.stringify(pilotos, null, 2));
-	//});
-	
 	//Actualización de Load Initial Data a 08/04/2020 para el D01
 	app.get(baseURL+"/formula-stats/loadInitialData", (request,response) =>{
         dbformula1.remove({});
@@ -28,13 +21,6 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
         response.sendStatus(200);
         console.log("Initial data loaded:"+JSON.stringify(pilotosInitialData,null,2));
     });
-
-	//app.get(baseURL + '/formula-stats', (request, response) => {
-	//	console.log(Date() + ' - GET /formula-stats');
-	//	response.send(pilotos);
-		//No es necesario enviar un código de estado, si devuelve el conjunto de datos
-		//automáticamente manda un 200 OK.
-	//});
 	
 	//RECURSOS GENERALES
 	
