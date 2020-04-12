@@ -59,8 +59,6 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
         var numPilotos = parseInt(request.query.numPilotos);
         var numVictorias = parseInt(request.query.numVictorias);
 		
-		
-		
 		//Primera búsqueda
 		if(from && to){
 			 dbformula1.find({year: {$gte: from, $lte: to}}).skip(offset).limit(limit).exec((err, pilotos)=>{
@@ -209,8 +207,8 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 		var year = parseInt(request.params.year);
 		
-		dbformula1.find({"country": aux, "year": country}).exec((err, pilotos) => {
-			if(pilotos.length == 0){
+		dbformula1.find({"country": aux, "year": year}).exec((err, pilotos) => {
+			if(pilotos.length == 1){
 				delete pilotos[0]._id;
 				
 				response.send(JSON.stringify(pilotos[0],null,2));
