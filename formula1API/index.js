@@ -42,10 +42,27 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		
 		console.log(Date() + ' - GET /formula-stats');
 		
+		//Parte puesta el 12-04-2020
+		
+		if(request.query.hasOwnProperty("country")){
+			request.query.year = parseInt(request.query.year);
+		}
+		
 		//AQUÍ SE METEN LAS BÚSQUEDAS
-		var limit = parseInt(request.query.limit); //De 10 en 10
-        var offset = parseInt(request.query.offset); //Hasta 100
-
+		var limit = request.query.limit; //De 10 en 10
+        var offset = request.query.offset; //Hasta 100
+		
+		delete request.query.offset;
+		delete request.query.limit;
+		
+		dbformula1.find(request.query).skip(offset).limit(limit).exec((err, formula1) => {
+			formula1.forEach((n) => {
+				n._id;
+			});
+			response.send(JSON.stringify(formula1, null, 2));
+			console.log("Data GET General: " + JSON.stringify(formula1, null, 2));
+		});
+		
         var from = parseInt(request.query.from);
         var to = parseInt(request.query.to);
 
@@ -56,8 +73,7 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
         var numPilotos = parseInt(request.query.numPilotos);
         var numVictorias = parseInt(request.query.numVictorias);
 		
-		//Para paginación
-		var query = request.query;
+		
 		
 		//Primera búsqueda
 		if(from && to){
