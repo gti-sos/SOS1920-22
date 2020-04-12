@@ -265,17 +265,15 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 		var name = request.body.country;
+		
 		var year = parseInt(request.params.year);
+		var yearBody = parseInt(request.body.year);
 		
-		var formula1 = request.body;
+		var body = request.body;
 		
-		if (aux != name) {
+		if (aux != name || year != yearBody) {
 			response.sendStatus(409);
 			console.warn(Date() + ' Hacking Attempt !!!! ');
-		}
-		else if(aux != formula1.country || year != formula1.year){
-			response.sendStatus(400, "Bad request(Put específico no coincide)");
-			console.log("Los datos no coinciden");
 		}
 		else {
 			dbformula1.update({"country": country, "year": year }, body, (err, pilotosUpdated) => {
