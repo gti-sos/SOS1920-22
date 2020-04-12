@@ -202,7 +202,8 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 	
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.get(baseURL + '/formula-stats/:country/:year', (request, response) => {
-		//Lo que hay detrás de los dos puntos no es siempre así.
+		console.log(Date() + ' - GET /formula-stats/:country/:year');
+		
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 		var year = parseInt(request.params.year);
 		
@@ -236,6 +237,8 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 	
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.delete(baseURL + '/formula-stats/:country/:year', (request, response) => {
+		console.log(Date() + ' - DELETE /formula-stats/:country/:year');
+		
 		//Lo que hay detrás de los dos puntos no es siempre así.
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 		var year = parseInt(request.params.year);
@@ -258,7 +261,7 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 	
 	//Falta por corregir esta parte: realmente sería '/formula-stats/:country/:year'
 	app.put(baseURL + '/formula-stats/:country/:year', (request, response) => {
-		console.log("PUT específico a /formula-stats/:country/:year");
+		console.log(Date() + ' - PUT /formula-stats/:country/:year');
 		
 		var aux = request.params.country; //Pillar el contenido después de los dos puntos.
 		var name = request.body.country;
