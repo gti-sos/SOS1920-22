@@ -179,9 +179,18 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 	app.post(baseURL + '/formula-stats', (request, response) => {
 		console.log(Date() + ' - POST /formula-stats');
 		var aux = request.body; // Objeto entero - Si quiero acceder a algo concreto con el .name.
-		//pilotos.push(aux);
-		dbformula1.insert(aux);
-		response.sendStatus(201);
+		
+		if((body == null) || body.country == null || body.year == null || body.totalPointNumber ||
+		  body.numPilotos || body.numVictorias){
+			response.sendStatus(400, "Falta uno o más campos");
+			console.log("POST not created");
+		}
+		else{
+			dbformula1.insert(aux);
+			response.sendStatus(201, "Post created");
+			console.log(JSON.stringify(aux, null, 2));
+		}
+		
 	});
 
 	app.put(baseURL + '/formula-stats', (request, response) => {
