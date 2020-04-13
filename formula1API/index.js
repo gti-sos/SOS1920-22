@@ -164,24 +164,12 @@ formula1API.methods = function(app, pilotosInitialData, pilotos, baseURL, dbform
 		};
 	});
 		
-	//COMENTADA PARTE JOSENRI - response.send(pilotos); - Hay comentario de esto porque no estoy seguro de poder enviarlo.
-	//	dbformula1.find({}, (error, formula1) => {
-	//		if(error){
-	//			console.error("Error accessing DataBase");
-	//			response.sendStatus(500);
-	//		}
-	//		response.send(formula1);
-	//	});
-		//No es necesario enviar un código de estado, si devuelve el conjunto de datos
-		//automáticamente manda un 200 OK.
-	//});
-
 	app.post(baseURL + '/formula-stats', (request, response) => {
 		console.log(Date() + ' - POST /formula-stats');
+		
 		var aux = request.body; // Objeto entero - Si quiero acceder a algo concreto con el .name.
 		
-		if((body == null) || body.country == null || body.year == null || body.totalPointNumber ||
-		  body.numPilotos || body.numVictorias){
+		if((aux == null) || (aux.country == null) || (aux.year == null) || (aux.totalPointNumber==null) || 	(aux.numPilotos == null) || (aux.numVictorias == null)){
 			response.sendStatus(400, "Falta uno o más campos");
 			console.log("POST not created");
 		}
