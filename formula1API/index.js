@@ -19,6 +19,9 @@ module.exports = function(app){
 		{ country: 'mexico', year:2016, totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
 	];
 	
+	//Si no pongo esta línea, al hacer el get al recurso general no funciona.
+	db.insert(pilotosInitialData);
+	
 	app.get(baseURL + "/formula-stats/loadInitialData", (request, response) => {
 
 		console.log("New GET .../loadInitialData");
@@ -76,7 +79,8 @@ module.exports = function(app){
 				delete n._id;
 		});
 		
-		if (formula1.length < 1) {
+		//Si no pongo 0, al hacer un delete general no me deja.
+		if (formula1.length < 0) {
 			response.sendStatus(400, "Bad request");
 			console.log("Requested data is INVALID");
 		}
@@ -114,7 +118,7 @@ module.exports = function(app){
 		console.log(Date() + ' - DELETE /formula-stats');
 		
 		db.remove({}, {multi:true}, (error, numDelete) => {
-			console.log(numDelete + "nationalities deleted");
+			console.log(numDelete + " nationalities deleted");
 		});
 		response.sendStatus(200, "OK");
 	});
@@ -185,7 +189,7 @@ module.exports = function(app){
 		var year = parseInt(request.params.year);
 		
 		db.remove({"country": aux, "year": year}, {multi:true}, (err, pilotsDeleted) => {
-			if(pilotosDeleted == 0){
+			if(pilotsDeleted == 0){
 				response.sendStatus(404, "Not found");
 			}
 			else{
