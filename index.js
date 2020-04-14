@@ -1,15 +1,24 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var baseURL = "/api/v1";
-var app = express(); //Por convenio se crea así la variable.
-var formula1api = require('./formula1API');
-var port = process.env.PORT || 3000; //Anyadido para Heroku L05.
-var nedb = require('nedb');
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const formula1API = require(path.join(__dirname, "formula1API"));
+
+
+const port = process.env.PORT || 3000; //Anyadido para Heroku L05.
+const app = express(); //Por convenio se crea así la variable.
+
+//Quizás quitar una vez que todo el mundo haya hecho su 
+const baseURL = "/api/v1";
+
 
 app.use(bodyParser.json());
-
 app.use("/", express.static(__dirname+"/public/"));
 
+
+//------- Llamada a API Fórmula 1 - Jesús Jiménez Montero -----
+formula1API(app);
+
+//Primer entregable - Devuelve la hora actual del servidor.
 app.get("/time", (req, res) => {
 	console.log("Peticion enviada al servidor");
 	res.send("<html>"+Date()+"</html>");
@@ -24,15 +33,6 @@ console.log("Starting server...");
 
 // Backlog L03. - 23/03/2020
 
-var pilotosInitialData = [
-	{ country: 'germany', year:2019, totalpointnumber:568, pilotnumber: 5, victorynumber: 5 },
-	{ country: 'france', year:2019, totalpointnumber:32, pilotnumber: 3, victorynumber: 0  },
-	{ country: 'united kingdom', year:2014, totalpointnumber:475, pilotnumber: 4, victorynumber: 11 },
-	{ country: 'spain', year:2015, totalpointnumber:30, pilotnumber: 3, victorynumber: 0 },
-	{ country: 'mexico', year:2016, totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
-];
-
-var pilotos = pilotosInitialData.slice();
 
 var nadadoresInitialData = [
 	{ country: 'brazil', year:2009, yearofbirth:1987, position: 1, time: 20.91 },
@@ -54,9 +54,7 @@ var baloncestoInitialData = [
 
 var baloncesto = baloncestoInitialData.slice();
 
-//RECURSOS GENERALES - API REST - Fórmula 1
-
-var dbformula1 = new nedb({
+/*var dbformula1 = new nedb({
 	filename: DataStore,
 	autoload: true
 	
@@ -76,7 +74,7 @@ dbformula1.find({}, (error, formula1) => {
 	}
 });
 
-formula1api.methods(app, pilotosInitialData, pilotos, baseURL, dbformula1);
+formula1api.methods(app, pilotosInitialData, pilotos, baseURL, dbformula1);*/
 
 
 //Cargar datos iniciales - Natación - loadInitialData.
