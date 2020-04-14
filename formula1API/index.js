@@ -169,7 +169,7 @@ module.exports = function(app){
 			console.warn(Date() + ' Hacking Attempt !!!! ');
 		}
 		else {
-			db.update({"country": country, "year": year }, body, (err, pilotosUpdated) => {
+			db.update({"country": aux, "year": year }, body, (err, pilotosUpdated) => {
 				if(pilotosUpdated == 0){
 					response.sendStatus(404, "Not found");
 				}
