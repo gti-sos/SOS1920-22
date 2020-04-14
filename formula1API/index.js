@@ -1,12 +1,3 @@
-//console.log("My test module");
-
-//var objeto = {};
-
-//objeto.console = function(){
-//	console.log("My test objeto");
-//}
-
-//module.exports = objeto;
 
 var formula1API = {};
 
