@@ -38,17 +38,18 @@ module.exports = function(app){
 		
 		var query = request.query;
 		
+		//Comprobación de cómo entra el query.
 		console.log(query);
 		
+		//Aquí se obtienen offset y limit con query, si son null, le hacemos un delete y listo.
 		var offset = query.offset;
 		var limit = query.limit;
 		
-		//Variable auxiliar para el query.
-		var aux = "";
-		
+		//Deleteamos los offset y limit.
 		delete query.offset;
 		delete query.limit;
 		
+		//Parseamos el año a Integer, mis otras 3 propiedades numéricas también son necesarias.
 		if(query.hasOwnProperty("year")){
 			query.year = parseInt(query.year);	
 			console.log(query.year);
@@ -79,7 +80,7 @@ module.exports = function(app){
 				delete n._id;
 		});
 		
-		//Si no pongo 0, al hacer un delete general no me deja.
+		//Si no pongo 0, al hacer un delete general no me deja. MUCHO OJO CON ESTO
 		if (formula1.length < 0) {
 			response.sendStatus(400, "Bad request");
 			console.log("Requested data is INVALID");
