@@ -27,7 +27,7 @@ module.exports = function(app){
 		console.log("New GET .../loadInitialData");
 		//var formula1 = db.getAllData();
 	
-		db.remove({});
+		db.remove({}, {multi:true});
         db.insert(pilotosInitialData);
         response.send(JSON.stringify(pilotosInitialData,null,2));
         console.log("Initial data loaded:"+JSON.stringify(pilotosInitialData,null,2));
