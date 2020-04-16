@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const formula1API = require(path.join(__dirname, "formula1API"));
 const swimstatsAPI = require(path.join(__dirname, "swimstatsAPI"));
-
+const basketAPI = require(path.join(__dirname,"basketAPI"));
 
 const port = process.env.PORT || 3000; //Anyadido para Heroku L05.
 const app = express(); //Por convenio se crea así la variable.
@@ -20,6 +20,8 @@ app.use("/", express.static(__dirname+"/public/"));
 formula1API(app);
 /*------- Llamada a API Natación - Juan Antonio Aranda Triana -----*/
 swimstatsAPI(app);
+//=======LLamada a API Baloncesto - Casto Rodríguez Díaz=======\\
+basketAPI(app);
 //Primer entregable - Devuelve la hora actual del servidor.
 app.get("/time", (req, res) => {
 	console.log("Peticion enviada al servidor");
@@ -36,15 +38,7 @@ console.log("Starting server...");
 // Backlog L03. - 23/03/2020
 
 
-var baloncestoInitialData = [
-	{ country: 'serbia', year:2016, points:66, threepoints: 4, rebounds: 33 },
-	{ country: 'spain', year:2012, points:100, threepoints: 7, rebounds: 35 },
-	{ country: 'spain', year:2008, points:107, threepoints: 8, rebounds: 37 },
-	{ country: 'italy', year:2004, points:69, threepoints: 11, rebounds: 26 },
-	{ country: 'france', year:2000, points:75, threepoints: 6, rebounds: 20 },
-];
 
-var baloncesto = baloncestoInitialData.slice();
 
 /*var dbformula1 = new nedb({
 	filename: DataStore,
@@ -143,6 +137,8 @@ app.put(baseURL + '/swim-stats/:position', (request, response) => {
 	}
 });*/
 
+
+/*
 //Cargar datos iniciales - Baloncesto - loadInitialData.
 app.get(baseURL+"/og-basket-stats/loadInitialData", (req,res) => {
 	baloncesto = baloncestoInitialData.slice();
@@ -225,6 +221,7 @@ app.put(baseURL + '/og-basket-stats/:year', (request, response) => {
 	}
 	
 });
+*/
 
 //var modulo = require('./formula1API');
 //modulo.console();
