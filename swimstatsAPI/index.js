@@ -34,7 +34,7 @@ module.exports = function(app){
 	});
 	
 	app.get(baseURL+"/swim-stats", (request, response) => {
-		console.log(Date() + "GET general de Fórmula 1 API");
+		console.log(Date() + "GET general de swim 1 API");
 		
 		var query = request.query;
 		
@@ -63,7 +63,7 @@ module.exports = function(app){
 			console.log(query.position);
 		}
 		if(query.hasOwnProperty("time")){
-			query.time = parseInt(query.time);
+			query.time = parseDouble(query.time);
 			console.log(query.time);
 		}
 		

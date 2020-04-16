@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const formula1API = require(path.join(__dirname, "formula1API"));
+const swimstatsAPI = require(path.join(__dirname, "swimstatsAPI"));
 
 
 const port = process.env.PORT || 3000; //Anyadido para Heroku L05.
@@ -17,7 +18,8 @@ app.use("/", express.static(__dirname+"/public/"));
 
 //------- Llamada a API Fórmula 1 - Jesús Jiménez Montero -----
 formula1API(app);
-
+/*------- Llamada a API Natación - Juan Antonio Aranda Triana -----*/
+swimstatsAPI(app);
 //Primer entregable - Devuelve la hora actual del servidor.
 app.get("/time", (req, res) => {
 	console.log("Peticion enviada al servidor");
