@@ -98,17 +98,18 @@ module.exports = function(app){
 		
 		var aux = request.body; // Objeto entero - Si quiero acceder a algo concreto con el .name.
 		var year = request.body.year;
-		var country = request.body.year;
+		var country = request.body.country;
 		
 		db.find({"country": country, "year": year}).exec((error, formula1) => {
 			if(formula1.length > 0){
-				console.log("There's an object with those primary keys");
 				response.sendStatus(409);
+				console.log("There's an object with those primary keys");
 				return;
 			}
 			if((aux == null) || (aux.country == null) || (aux.year == null) || (aux.totalpointnumber==null) || 	(aux.pilotnumber == null) || (aux.victorynumber == null) || ((Object.keys(aux).length != 5))){
 			response.sendStatus(400, "Falta uno o más campos");
 			console.log("POST not created");
+			return;
 			}
 			db.insert(aux);
 			response.sendStatus(201, "Post created");
