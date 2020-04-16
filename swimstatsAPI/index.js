@@ -88,20 +88,22 @@ module.exports = function(app){
 	});
 	
 	app.post(baseURL + '/swim-stats', (request, response) => {
-		console.log(Date() + ' - POST /swim-stats');
-		
 		var aux = request.body; // Objeto entero - Si quiero acceder a algo concreto con el .name.
-		
-		if((aux == null) || (aux.position == null) || (aux.year == null) || (aux.yearofbirth==null) || 	(aux.time == null) || (aux.country == null) || (Object.keys(aux).length != 5)){
-			response.sendStatus(400, "Falta uno o más campos");
-			console.log("POST not created");
-		}
-		else{
-			db.insert(aux);
-			response.sendStatus(201, "Post created");
-			console.log(JSON.stringify(aux, null, 2));
-		}
-		
+		db.find({"position":aux.position}).exec((error, swimstats) =>{
+			if(swimstats.length > 0) {
+				console.log("Ya existe un nadador en esa posición");
+				response.sendStatus(409);
+				return;
+			}
+			if((aux == null) || (aux.position == null) || (aux.year == null) || (aux.yearofbirth==null) || 	(aux.time == null) || (aux.country == null) || (Object.keys(aux).length != 5)){
+				response.sendStatus(400, "Falta uno o más campos");
+				console.log("POST not created");
+				return;
+			}
+				db.insert(aux);
+				response.sendStatus(201, "Post created");
+				console.log(JSON.stringify(aux, null, 2));
+		});
 	});
 	
 	app.put(baseURL + '/swim-stats', (request, response) => {
@@ -185,5 +187,4 @@ module.exports = function(app){
 		});
 		
 	});
-	
 }
