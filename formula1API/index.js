@@ -98,7 +98,7 @@ module.exports = function(app){
 		
 		var aux = request.body; // Objeto entero - Si quiero acceder a algo concreto con el .name.
 		
-		if((aux == null) || (aux.country == null) || (aux.year == null) || (aux.totalpointnumber==null) || 	(aux.pilotnumber == null) || (aux.victorynumber == null)){
+		if((aux == null) || (aux.country == null) || (aux.year == null) || (aux.totalpointnumber==null) || 	(aux.pilotnumber == null) || (aux.victorynumber == null) || ((Object.keys(aux).length != 5))){
 			response.sendStatus(400, "Falta uno o más campos");
 			console.log("POST not created");
 		}
