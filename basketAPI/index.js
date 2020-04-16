@@ -86,11 +86,11 @@ module.exports = function(app){
 	app.post(baseURL + '/og-basket-stats', (request, response) => {
 		var aux = request.body;
 		
-		if ((aux==null) || (aux.country==null) || (aux.year==null) || (aux.points==null) || (aux.threepoints==null) || (aux.rebounds==null)){
-			response.send(400, "Faltan Campos");
+		if ((aux==null) || (aux.country==null) || (aux.year==null) || (aux.points==null) || (aux.threepoints==null) || (aux.rebounds==null)||((Object.keys(aux).length != 5))){
+			response.sendStatus(400);
 		}else{
 			db.insert(aux);
-			response.sendStatus(201,"Creado");
+			response.sendStatus(201);
 		}
 	});
 	
