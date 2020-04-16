@@ -97,16 +97,25 @@ module.exports = function(app){
 		console.log(Date() + ' - POST /formula-stats');
 		
 		var aux = request.body; // Objeto entero - Si quiero acceder a algo concreto con el .name.
+		var year = request.body.year;
+		var country = request.body.country;
 		
-		if((aux == null) || (aux.country == null) || (aux.year == null) || (aux.totalpointnumber==null) || 	(aux.pilotnumber == null) || (aux.victorynumber == null) || ((Object.keys(aux).length != 5))){
+		db.find({"country": country, "year": year}).exec((error, formula1) => {
+			if(formula1.length > 0){
+				response.sendStatus(409);
+				console.log("There's an object with those primary keys");
+				return;
+			}
+			if((aux == null) || (aux.country == null) || (aux.year == null) || (aux.totalpointnumber==null) || 	(aux.pilotnumber == null) || (aux.victorynumber == null) || ((Object.keys(aux).length != 5))){
 			response.sendStatus(400, "Falta uno o más campos");
 			console.log("POST not created");
-		}
-		else{
+			return;
+			}
 			db.insert(aux);
 			response.sendStatus(201, "Post created");
 			console.log(JSON.stringify(aux, null, 2));
-		}
+		}); 
+		
 		
 	});
 	
