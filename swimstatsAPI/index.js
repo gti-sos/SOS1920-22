@@ -121,14 +121,14 @@ module.exports = function(app){
 	app.get(baseURL + '/swim-stats/:position', (request, response) => {
 		console.log(Date() + ' - GET /swim-stats/:position');
 		
-		var aux = request.params.position; //Pillar el contenido después de los dos puntos.
-		
+		var aux = parseInt(request.params.position);
+
 		db.find({"position": aux}).exec((err, nadadores) => {
 			if(nadadores.length == 1){
 				delete nadadores[0]._id;
 				
 				response.send(JSON.stringify(nadadores[0],null,2));
-				console.log("/GET - Recurso Específico /position: " + JSON.stringify(nadadores[0]), null, 2);
+				console.log("/GET - Recurso Específico /position: " + JSON.stringify(nadadores[0], null, 2));
 			}
 			else{
 				response.sendStatus(404, "Not found");
