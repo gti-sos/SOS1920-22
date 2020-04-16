@@ -34,16 +34,6 @@ console.log("Starting server...");
 // Backlog L03. - 23/03/2020
 
 
-var nadadoresInitialData = [
-	{ country: 'brazil', year:2009, yearofbirth:1987, position: 1, time: 20.91 },
-	{ country: 'france', year:2009, yearofbirth:1981, position: 2, time: 20.94 },
-	{ country: 'korea', year:2019, yearofbirth:1996, position: 3, time: 21.04 },
-	{ country: 'italy', year:2009, yearofbirth:1987, position: 4, time: 21.08 },
-	{ country: 'united kingdom', year:2018, yearofbirth:1994, position: 5, time: 21.11 },
-];
-
-var nadadores = nadadoresInitialData.slice();
-
 var baloncestoInitialData = [
 	{ country: 'serbia', year:2016, points:66, threepoints: 4, rebounds: 33 },
 	{ country: 'spain', year:2012, points:100, threepoints: 7, rebounds: 35 },
@@ -78,7 +68,7 @@ formula1api.methods(app, pilotosInitialData, pilotos, baseURL, dbformula1);*/
 
 
 //Cargar datos iniciales - Natación - loadInitialData.
-app.get(baseURL+"/swim-stats/loadInitialData", (req,res) => {
+/*app.get(baseURL+"/swim-stats/loadInitialData", (req,res) => {
 	nadadores = nadadoresInitialData.slice();
 	res.send(200, 'Los datos iniciales se han cargado.');
 	console.log("Data sent: "+JSON.stringify(nadadores,null,2));
@@ -149,7 +139,7 @@ app.put(baseURL + '/swim-stats/:position', (request, response) => {
 		nadadores.push(request.body);
 		response.sendStatus(200);
 	}
-});
+});*/
 
 //Cargar datos iniciales - Baloncesto - loadInitialData.
 app.get(baseURL+"/og-basket-stats/loadInitialData", (req,res) => {
