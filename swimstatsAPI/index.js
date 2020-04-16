@@ -75,7 +75,7 @@ module.exports = function(app){
 		});
 		
 		//Si no pongo 0, al hacer un delete general no me deja. MUCHO OJO CON ESTO
-		if (swimmers.length < 0) {
+		if (swimmers.length < 1) {
 			response.sendStatus(400, "Bad request");
 			console.log("Requested data is INVALID");
 		}
