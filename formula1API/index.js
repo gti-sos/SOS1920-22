@@ -20,7 +20,7 @@ module.exports = function(app){
 	];
 	
 	//Si no pongo esta línea, al hacer el get al recurso general no funciona.
-	db.insert(pilotosInitialData);
+	//db.insert(pilotosInitialData);
 	
 	app.get(baseURL + "/formula-stats/loadInitialData", (request, response) => {
 
