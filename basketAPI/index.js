@@ -86,12 +86,21 @@ module.exports = function(app){//Probando Probando
 	app.post(baseURL + '/og-basket-stats', (request, response) => {
 		var aux = request.body;
 		
-		if ((aux==null) || (aux.country==null) || (aux.year==null) || (aux.points==null) || (aux.threepoints==null) || (aux.rebounds==null)||((Object.keys(aux).length != 5))){
-			response.sendStatus(400);
-		}else{
+		db.find({"year":aux.year,"country":aux.country}).exec((err, basketstats)=>{
+			
+			if(basketstats.length>0){
+				response.sendStatus(409);
+				return;
+			}
+			if ((aux==null)||(aux.country==null)||(aux.year==null)||(aux.points==null)||(aux.threepoints==null)||(aux.rebounds==null)||((Object.keys(aux).length != 5))){
+				response.sendStatus(400);
+				return;
+			}
 			db.insert(aux);
 			response.sendStatus(201);
-		}
+			
+		});
+		
 	});
 	
 //==============================PUT-General==============================\\
