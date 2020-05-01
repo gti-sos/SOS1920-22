@@ -1,4 +1,5 @@
 module.exports = function(app){
+	//Haciendo prueba para ver si funciona un push a GitHub desde Visual Studio
 	console.log(Date() + " Registering Formula 1 API");
 	
 	const dataStore = require("nedb");
