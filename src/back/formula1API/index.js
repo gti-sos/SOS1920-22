@@ -109,6 +109,7 @@ module.exports = function(app){
 			}
 			if((aux == null) || (aux.country == null) || (aux.year == null) || (aux.totalpointnumber==null) || 	(aux.pilotnumber == null) || (aux.victorynumber == null) || ((Object.keys(aux).length != 5))){
 			response.sendStatus(400, "Falta uno o más campos");
+			console.log(aux);
 			console.log("POST not created");
 			return;
 			}
@@ -116,7 +117,6 @@ module.exports = function(app){
 			response.sendStatus(201, "Post created");
 			console.log(JSON.stringify(aux, null, 2));
 		}); 
-		
 		
 	});
 	
