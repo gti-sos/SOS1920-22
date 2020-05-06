@@ -34,8 +34,8 @@
     let years = [];
 
     //Variables auxiliares para poner bonito en la barra de búsqueda del frontend, este valor por defecto.
-    let actualCountry = "-";
-    let actualYear = "-";
+    let actualCountry = "";
+    let actualYear = "";
    
     //Esto es para la paginación y búsqueda.
     let elementPage = 10;
@@ -175,15 +175,15 @@
         
         var url = "/api/v1/formula-stats";
         
-		if (country != "-" && year != "-") {
+		if (country != "" && year != "") {
             url = url + "?country=" + country + "&year=" + year;
             console.log(url);
         } 
-        else if (country != "-" && year == "-") {
+        else if (country != "" && year == "") {
             url = url + "?country=" + country;
             console.log(url);
         } 
-        else if (country == "-" && year != "-") {
+        else if (country == "" && year != "") {
             url = url + "?year=" + year;
             console.log(url);
         }
@@ -229,7 +229,7 @@
     
         <FormGroup> 
 			<Label for="selectCountry"> Búsqueda por país </Label>
-			<Input type="select" name="selectCountry" id="selectCountry" bind:value="{actualCountry}">
+			<Input name="selectCountry" id="selectCountry" bind:value="{actualCountry}">
 				{#each countries as country}
 				<option>{country}</option>
 				{/each}
@@ -239,7 +239,7 @@
 				
 		<FormGroup>
 			<Label for="selectYear"> Búsqueda por año </Label>
-			<Input type="select"  name="selectYear" id="selectYear" bind:value="{actualYear}">
+			<Input name="selectYear" id="selectYear" bind:value="{actualYear}">
 				{#each years as year}
 				<option>{year}</option>
 				{/each}
