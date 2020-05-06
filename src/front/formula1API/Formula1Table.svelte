@@ -113,13 +113,18 @@
                     "Content-Type": "application/json"
                 }
             }).then(function(res) {
-                getFormula1();
-                okMsg = "Dato introducido de forma exitosa";
-                errorMsg = false;
+                if(res.ok){
+                    getFormula1();
+                    okMsg = "Dato introducido de forma exitosa";
+                    errorMsg = false;
+                }
+                else{
+                    okMsg = false;
+                    errorMsg = "No puede introducirse un dato con mismo año y país";
+                }
             });
             //console.log(newFormula1);
-            okMsg = false;
-            errorMsg = "No puede introducirse un dato con año y/o país repetidos";
+            
         }
     }
 
