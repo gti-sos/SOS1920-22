@@ -160,7 +160,7 @@
 	};
 
     //Método de búsqueda. Los 'if' los estamos poniendo para comprobar si queremos buscar por país, anyo o ambos.
-    async function search(country, year) {
+    async function searchFormula1(country, year) {
 		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
         
         //year=parseInt(year);
@@ -217,7 +217,7 @@
         Loading formula1 stats...
     {:then formula1}
 
-        <Button outline color="secondary" on:click="{search(actualCountry, actualYear)}" class="button-search"> Buscar </Button>
+        <Button outline color="secondary" on:click="{searchFormula1(actualCountry, actualYear)}" class="button-search"> Buscar </Button>
     
         <FormGroup> 
 			<Label for="selectCountry"> Búsqueda por país </Label>
