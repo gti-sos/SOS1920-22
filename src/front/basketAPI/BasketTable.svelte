@@ -252,7 +252,7 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="background:white;color:black;text-align:center;">
                 <tr>
                     <td> <Input type="text" placeholder="Introduzca un país" bind:value="{newBasket.country}"/></td>
 					<td> <Input type="number" placeholder="Introduzca un año" bind:value="{newBasket.year}"/></td>
