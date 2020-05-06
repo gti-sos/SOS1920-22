@@ -219,7 +219,7 @@
         Loading basket stats...
     {:then basket}
 
-        <Button outline color="secondary" on:click="{searchBasket(actualCountry, actualYear)}" class="button-search"> Buscar </Button>
+        <Button outline style="font-size: 16px;border-radius: 4px;background-color: white;" color="secondary" on:click="{searchBasket(actualCountry, actualYear)}" class="button-search"> Buscar </Button>
     
         <FormGroup> 
 			<Label for="selectCountry"> Búsqueda por país </Label>
@@ -313,7 +313,7 @@
 		<p style="color: green">ÉXITO: {okMsg}</p>
 	{/if}
 
-    <Button outline color="secondary" on:click="{pop}"> Atrás </Button>
-    <Button outline color="primary" on:click="{loadInitialDataBasket}">Cargar datos iniciales</Button>
-	<Button outline on:click={deleteBasketData} color="danger"> Borrar todo </Button>
+    <Button style="font-size: 16px;border-radius: 4px;background-color: white;" outline color="secondary" on:click="{pop}"> Atrás </Button>
+    <Button style="font-size: 16px;border-radius: 4px;background-color: white;" outline color="primary" on:click="{loadInitialDataBasket}">Cargar datos iniciales</Button>
+	<Button style="font-size: 16px;border-radius: 4px;background-color: white;" outline on:click={deleteBasketData} color="danger"> Borrar todo </Button>
 </main>
