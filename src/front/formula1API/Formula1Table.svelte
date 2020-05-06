@@ -12,10 +12,12 @@
 
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
+    //Estos paquetes son perfectos para el HTML y el estilo.
     import Input from "sveltestrap/src/Input.svelte";
     import Label from "sveltestrap/src/Label.svelte";
     import FormGroup from "sveltestrap/src/FormGroup.svelte";
 
+    //Como los paquetes indican, esto sirve para la paginación del frontend.
     import {Pagination, PaginationItem, PaginationLink} from 'sveltestrap';
 
     let formula1 = [];
@@ -27,10 +29,11 @@
         "victorynumber": 0
     };
 
-    //Variables para los SELECT (No estoy seguro de si es necesario)
+    //Estas variables me van a hacer falta para la parte del main.
     let countries = [];
     let years = [];
 
+    //Variables auxiliares para poner bonito en la barra de búsqueda del frontend, este valor por defecto.
     let actualCountry = "-";
     let actualYear = "-";
    
