@@ -6,6 +6,7 @@ const app = express(); //Por convenio se crea así la variable.
 
 const formula1API = require("./src/back/formula1API");
 const swimstatsAPI = require("./src/back/swimstatsAPI");
+const basketAPI = require("./src/back/basketAPI");
 app.use(bodyParser.json());
 app.use("/", express.static(__dirname+"/public/"));
 
@@ -14,7 +15,7 @@ formula1API(app);
 /*------- Llamada a API Natación - Juan Antonio Aranda Triana -----*/
 swimstatsAPI(app);
 //=======LLamada a API Baloncesto - Casto Rodríguez Díaz=======\\
-//basketAPI(app);
+basketAPI(app);
 
 
 //Primer entregable - Devuelve la hora actual del servidor.
