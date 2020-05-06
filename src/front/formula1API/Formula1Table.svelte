@@ -224,8 +224,15 @@
     {#await formula1}
         Loading formula1 stats...
     {:then formula1}
+    <style>
+        button{
+            font-size: 16px;
+            border-radius: 4px;
+            background-color: white;
+        }
+    </style>
 
-        <Button outline color="secondary" on:click="{searchFormula1(actualCountry, actualYear)}" class="button-search"> Buscar </Button>
+        <Button outline color="secondary" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{searchFormula1(actualCountry, actualYear)}" class="button-search"> Buscar </Button>
     
         <FormGroup> 
 			<Label for="selectCountry"> Búsqueda por país </Label>
@@ -247,8 +254,8 @@
 			</Input>
 		</FormGroup>
 
-        <Table bordered>
-            <thead>
+        <Table bordered >
+            <thead style="background:black;color:white;text-align:center;">
                 <tr>
                     <th>País</th>
                     <th>Año</th>
@@ -258,7 +265,7 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="background:white;color:black;text-align:center;">
                 <tr>
                     <td> <Input type="text" placeholder="Introduzca un país" bind:value="{newFormula1.country}"/></td>
 					<td> <Input type="number" placeholder="Introduzca un año" bind:value="{newFormula1.year}"/></td>
@@ -278,7 +285,7 @@
 					<td> {piloto.totalpointnumber} </td>
 					<td> {piloto.pilotnumber} </td>
 					<td> {piloto.victorynumber} </td>
-					<td> <Button outline color="danger" on:click="{deleteFormula1(piloto.country, piloto.year)}"> Borrar </Button> </td>
+					<td> <Button outline style="font-size: 16px;border-radius: 4px;background-color: white;padding: 10px 24px;" color="danger" on:click="{deleteFormula1(piloto.country, piloto.year)}"> Borrar </Button> </td>
                 </tr>
                 {/each}
             </tbody>
@@ -319,7 +326,7 @@
 		<p style="color: green">ÉXITO: {okMsg}</p>
 	{/if}
 
-    <Button outline color="secondary" on:click="{pop}"> Atrás </Button>
-    <Button outline color="primary" on:click="{loadInitialDataFormula1}">Cargar datos iniciales</Button>
-	<Button outline on:click={deleteFormula1Data} color="danger"> Borrar todo </Button>
+    <Button outline style="font-size: 16px;border-radius: 4px;background-color: white;" color="secondary" on:click="{pop}"> Atrás </Button>
+    <Button outline style="font-size: 16px;border-radius: 4px;background-color: white;" color="primary" on:click="{loadInitialDataFormula1}">Cargar datos iniciales</Button>
+	<Button outline style="font-size: 16px;border-radius: 4px;background-color: white;" on:click={deleteFormula1Data} color="danger"> Borrar todo </Button>
 </main>
