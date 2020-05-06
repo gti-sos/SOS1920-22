@@ -187,7 +187,15 @@
 			const json = await res.json();
 			formula1 = json;			
 			console.log("Encontradas " + formula1.length + " nacionalidades de pilotos de Fórmula 1.");
-			
+            
+            if(formula1.length > 0){
+                okMsg = "Se ha encontrado uno o varios resultados";
+                errorMsg = false;
+            }
+            else{
+                okMsg = false;
+                errorMsg = "No se ha obtenido ningún resultado";
+            }
         } 
         else {
 			console.log("ERROR");
