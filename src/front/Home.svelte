@@ -6,4 +6,7 @@
 	<div class="div-home">
 		<button type="button"  class="btn btn-outline-warning"  onclick="window.location.href='#/swimstatsAPI'"><i class='fas fa-leaf' ></i> API de Natación</button>
 	</div>
+	<div class="div-home">
+		<button type="button"  class="btn btn-outline-info"  onclick="window.location.href='#/basketAPI'"><i class='fas fa-leaf' ></i> API de Baloncesto</button>
+	</div>
 </main>

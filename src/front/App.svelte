@@ -10,12 +10,17 @@
 	import Nadadores from './swimstatsAPI/App.svelte';
 	import EditNadador from './swimstatsAPI/EditSwimmingTable.svelte';
 
+	import Basket from './basketAPI/App.svelte';
+	import EditBasket from './basketAPI/EditBasketTable.svelte';
+
 	const routes = {
 		"/": Home,
 		"/formula1API": Formula1,
 		"/formula-stats/:country/:year": EditFormula1,
 		"/swimstatsAPI": Nadadores,
 		"/swim-stats/:position": EditNadador,
+		"/basketAPI": Basket,
+		"/og-basket-stats/:country/:year":EditBasket,
 		"*": NotFound
 	};
 </script>

@@ -25,6 +25,7 @@ module.exports = function(app){//Probando Probando
 	app.get(baseURL+"/og-basket-stats/loadInitialData", (request,response) =>{
 		db.remove({},{multi: true}); //Elimina la db
 		db.insert(baloncestoInitialData);
+		response.send(JSON.stringify(baloncestoInitialData,null,2));
 		response.sendStatus(200);
 	});
 	
