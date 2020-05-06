@@ -21,7 +21,6 @@ module.exports = function(app){
 
 	
 	//Si no pongo esta línea, al hacer el get al recurso general no funciona.
-	db.insert(nadadoresInitialData);
 	
 	app.get(baseURL + "/swim-stats/loadInitialData", (request, response) => {
 
@@ -34,7 +33,7 @@ module.exports = function(app){
 	});
 	
 	app.get(baseURL+"/swim-stats", (request, response) => {
-		console.log(Date() + "GET general de swim 1 API");
+		console.log(Date() + "GET general de Swimmers API");
 		
 		var query = request.query;
 		
@@ -75,7 +74,7 @@ module.exports = function(app){
 		});
 		
 		//Si no pongo 0, al hacer un delete general no me deja. MUCHO OJO CON ESTO
-		if (swimmers.length < 1) {
+		if (swimmers.length < 0) {
 			response.sendStatus(400, "Bad request");
 			console.log("Requested data is INVALID");
 		}
@@ -149,8 +148,8 @@ module.exports = function(app){
 	app.put(baseURL + '/swim-stats/:position', (request, response) => {
 		console.log(Date() + ' - PUT /swim-stats/:position');
 		
-		var aux = request.params.position; //Pillar el contenido después de los dos puntos.
-		var position = request.body.position;
+		var aux = parseInt(request.params.position); //Pillar el contenido después de los dos puntos.
+		var position = parseInt(request.body.position);
 		
 		var body = request.body;
 		
@@ -160,7 +159,7 @@ module.exports = function(app){
 		}
 		else {
 			db.update({"position": aux}, body, (err, nadadoresUpdated) => {
-				if(nadadoresUpdatedUpdated == 0){
+				if(nadadoresUpdated == 0){
 					response.sendStatus(404, "Not found");
 				}
 				else{
@@ -175,10 +174,11 @@ module.exports = function(app){
 		console.log(Date() + ' - DELETE /swim-stats/:position');
 		
 		//Lo que hay detrás de los dos puntos no es siempre así.
-		var aux = request.params.position; //Pillar el contenido después de los dos puntos.
+		var aux = parseInt(request.params.position); //Pillar el contenido después de los dos puntos.
 		
 		db.remove({"position": aux}, {multi:true}, (err, nadadoresDeleted) => {
 			if(nadadoresDeleted == 0){
+				console.log(nadadoresDeleted);
 				response.sendStatus(404, "Not found");
 			}
 			else{

@@ -5,14 +5,14 @@ const bodyParser = require('body-parser');
 const app = express(); //Por convenio se crea así la variable.
 
 const formula1API = require("./src/back/formula1API");
-
+const swimstatsAPI = require("./src/back/swimstatsAPI");
 app.use(bodyParser.json());
 app.use("/", express.static(__dirname+"/public/"));
 
 //------- Llamada a API Fórmula 1 - Jesús Jiménez Montero -----
 formula1API(app);
 /*------- Llamada a API Natación - Juan Antonio Aranda Triana -----*/
-//swimstatsAPI(app);
+swimstatsAPI(app);
 //=======LLamada a API Baloncesto - Casto Rodríguez Díaz=======\\
 //basketAPI(app);
 
