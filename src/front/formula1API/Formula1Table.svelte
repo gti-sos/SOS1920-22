@@ -33,7 +33,7 @@
     let countries = [];
     let years = [];
 
-    //Variables auxiliares para poner bonito en la barra de búsqueda del frontend, este valor por defecto.
+    //Variables auxiliares con el valor por defecto en las barras de búsqueda del frontend.
     let actualCountry = "";
     let actualYear = "";
    

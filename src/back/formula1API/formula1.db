@@ -1,49 +1,24 @@
-{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"3v84E9UgTMuA54Wk"}
-{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"AU9vdUa7ckes6e4L"}
-{"country":"germany","year":20196,"totalpointnumber":0,"pilotnumber":0,"victorynumber":0,"_id":"BKZ7sdsAQO1GJtIo"}
-{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"RMOLkFIGOGf1VGc4"}
-{"country":"mexico","year":2018,"totalpointnumber":3,"pilotnumber":3,"victorynumber":3,"_id":"Zz82aVGnbnMqwBgK"}
-{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"fQYN0BvHVWj72zcP"}
-{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"mZFqEL2aiz7vd0lf"}
-{"$$deleted":true,"_id":"3v84E9UgTMuA54Wk"}
-{"$$deleted":true,"_id":"AU9vdUa7ckes6e4L"}
-{"$$deleted":true,"_id":"BKZ7sdsAQO1GJtIo"}
-{"$$deleted":true,"_id":"RMOLkFIGOGf1VGc4"}
-{"$$deleted":true,"_id":"Zz82aVGnbnMqwBgK"}
-{"$$deleted":true,"_id":"fQYN0BvHVWj72zcP"}
-{"$$deleted":true,"_id":"mZFqEL2aiz7vd0lf"}
-{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"Od8yx7i0gLPX3b2n"}
-{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"E9mALLVIQC6OprkH"}
-{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"Oz2vRrt9dQXjPB3e"}
-{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"x1qxGC98JNCAgeap"}
-{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"eJhZfg1KDjkKotfO"}
-{"$$deleted":true,"_id":"E9mALLVIQC6OprkH"}
-{"$$deleted":true,"_id":"Od8yx7i0gLPX3b2n"}
-{"$$deleted":true,"_id":"Oz2vRrt9dQXjPB3e"}
-{"$$deleted":true,"_id":"eJhZfg1KDjkKotfO"}
-{"$$deleted":true,"_id":"x1qxGC98JNCAgeap"}
-{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"VU5vKF4n7ZokA4Gf"}
-{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"zC7b1ccpKVNnhWZi"}
-{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"xbsONR9qbOEu4qfb"}
-{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"e5y4GZjDTsM7qBYc"}
-{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"FMRp37IaC0yrGYUK"}
-{"$$deleted":true,"_id":"FMRp37IaC0yrGYUK"}
-{"$$deleted":true,"_id":"VU5vKF4n7ZokA4Gf"}
-{"$$deleted":true,"_id":"e5y4GZjDTsM7qBYc"}
-{"$$deleted":true,"_id":"xbsONR9qbOEu4qfb"}
-{"$$deleted":true,"_id":"zC7b1ccpKVNnhWZi"}
-{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"S855osju5oXkjBtO"}
-{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"U2gy6WtNuL9mO94o"}
-{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"3scX88POFLkcJfqD"}
-{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"g7D1YMqGJ6oHqpEV"}
-{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"Xl5Gag88UV1gGdaJ"}
-{"$$deleted":true,"_id":"3scX88POFLkcJfqD"}
-{"$$deleted":true,"_id":"S855osju5oXkjBtO"}
-{"$$deleted":true,"_id":"U2gy6WtNuL9mO94o"}
-{"$$deleted":true,"_id":"Xl5Gag88UV1gGdaJ"}
-{"$$deleted":true,"_id":"g7D1YMqGJ6oHqpEV"}
+{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"OZS4ZfruIqmkYGbb"}
+{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"TIvzPWORexN60Rpx"}
+{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"ZzOPx0uKbNsgdt92"}
 {"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"g76HQOBwaxdh6XeN"}
 {"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"rt1OdtsaxtWnHg09"}
-{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"ZzOPx0uKbNsgdt92"}
-{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"TIvzPWORexN60Rpx"}
-{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"OZS4ZfruIqmkYGbb"}
+{"country":"spain","year":2015,"totalpointnumber":7,"pilotnumber":3,"victorynumber":0,"_id":"TIvzPWORexN60Rpx"}
+{"country":"india","year":2020,"totalpointnumber":2,"pilotnumber":2,"victorynumber":2,"_id":"VNVcJsM6QMaIAJm1"}
+{"$$deleted":true,"_id":"OZS4ZfruIqmkYGbb"}
+{"$$deleted":true,"_id":"TIvzPWORexN60Rpx"}
+{"$$deleted":true,"_id":"VNVcJsM6QMaIAJm1"}
+{"$$deleted":true,"_id":"ZzOPx0uKbNsgdt92"}
+{"$$deleted":true,"_id":"g76HQOBwaxdh6XeN"}
+{"$$deleted":true,"_id":"rt1OdtsaxtWnHg09"}
+{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"ifQEp36C3Sl61odl"}
+{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"QqRPKMYO8mUoRYoL"}
+{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"6s4NBcUDulCGLF06"}
+{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"21yeb696IsacSyUh"}
+{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"130a1IZDnSyYKMj5"}
+{"country":"asdasdasd","year":2017,"totalpointnumber":2,"pilotnumber":2,"victorynumber":2,"_id":"1BetvFHXOqbOanOk"}
+{"country":"perico","year":2020,"totalpointnumber":123,"pilotnumber":33,"victorynumber":23,"_id":"b1PUNzjAE0Ug7wfL"}
+{"country":"antonio","year":2014,"totalpointnumber":12,"pilotnumber":33,"victorynumber":23,"_id":"HDKjqxvJYfmW6PcE"}
+{"country":"toto","year":2014,"totalpointnumber":1,"pilotnumber":331,"victorynumber":23,"_id":"PbxaCadAUtbxT3c1"}
+{"country":"casto","year":111,"totalpointnumber":11,"pilotnumber":3311,"victorynumber":23,"_id":"yrCUauTX3U5SW20T"}
+{"country":"josenri","year":11,"totalpointnumber":1,"pilotnumber":1,"victorynumber":231,"_id":"F2KPpwXdDNCfMX07"}
