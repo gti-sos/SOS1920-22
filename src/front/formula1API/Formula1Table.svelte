@@ -123,7 +123,7 @@
                 }
                 else{
                     okMsg = false;
-                    errorMsg = "No puede introducirse un dato con mismo año y país";
+                    errorMsg = "No puede introducirse un dato con mismo año y país debido a que ya existe uno en la base de datos";
                 }
             });
             //console.log(newFormula1);
