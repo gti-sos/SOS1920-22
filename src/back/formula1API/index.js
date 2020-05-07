@@ -4,7 +4,7 @@ module.exports = function(app){
 	
 	const dataStore = require("nedb");
 	const path = require("path");
-	const baseURL = "/api/v1";
+	const baseURL = "/api/v2";
 	const dbFileName = path.join(__dirname, "formula1.db");
 	
 	const db = new dataStore({

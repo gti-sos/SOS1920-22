@@ -52,7 +52,7 @@
     onMount(getFormula1);
 
     async function getFormula1YearCountry(){
-        const res = await fetch("/api/v1/formula-stats");
+        const res = await fetch("/api/v2/formula-stats");
         
         if(res.ok){
             const json = await res.json();
@@ -78,8 +78,8 @@
 
     async function getFormula1(){
         console.log("Fetching formula-stats...");
-        const res = await fetch("/api/v1/formula-stats?offset=" + elementPage * offset + "&limit=" + elementPage);
-        const nextPage = await fetch("/api/v1/formula-stats?offset=" + elementPage * (offset + 1 ) + "&limit=" + elementPage);
+        const res = await fetch("/api/v2/formula-stats?offset=" + elementPage * offset + "&limit=" + elementPage);
+        const nextPage = await fetch("/api/v2/formula-stats?offset=" + elementPage * (offset + 1 ) + "&limit=" + elementPage);
 
         if (res.ok && nextPage.ok){
             console.log("Ok");
@@ -109,7 +109,7 @@
              errorMsg = "No puede introducir campos en blanco o campos que no sean numéricos";
         }
         else{
-            const res = await fetch("/api/v1/formula-stats", {
+            const res = await fetch("/api/v2/formula-stats", {
                 method: "POST",
                 body: JSON.stringify(newFormula1),
                 headers: {
@@ -133,7 +133,7 @@
 
     async function deleteFormula1(country, year){
         console.log("Borrando un objeto fórmula 1 concreto");
-        const res = await fetch("/api/v1/formula-stats/" + country + "/" + year, {
+        const res = await fetch("/api/v2/formula-stats/" + country + "/" + year, {
             method: "DELETE"
         }).then(function (res) {
             getFormula1();
@@ -147,7 +147,7 @@
     //MUCHO OJO. No podemos poner nombres iguales a funciones a pesar de recibir parámetros de entrada distintos.
     async function deleteFormula1Data(){
         console.log("Borrando un objeto fórmula 1 concreto");
-        const res = await fetch("/api/v1/formula-stats", {
+        const res = await fetch("/api/v2/formula-stats", {
             method: "DELETE"
         }).then(function (res) {
             getFormula1();
@@ -159,7 +159,7 @@
 
     async function loadInitialDataFormula1() {
 		console.log("Cargando datos iniciales de la API Fórmula 1...");
-        const res = await fetch("/api/v1/formula-stats/loadInitialData")
+        const res = await fetch("/api/v2/formula-stats/loadInitialData")
             .then(function (res) {
 			    getFormula1();
 		});
@@ -173,7 +173,7 @@
         
         //year=parseInt(year);
         
-        var url = "/api/v1/formula-stats";
+        var url = "/api/v2/formula-stats";
         
 		if (country != "" && year != "") {
             url = url + "?country=" + country + "&year=" + year;

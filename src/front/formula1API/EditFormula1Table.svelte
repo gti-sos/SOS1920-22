@@ -29,7 +29,7 @@
 
     async function getFormula1() {
         console.log("Fetching formula-stats...");
-        const res = await fetch("/api/v1/formula-stats/" + params.country + "/" + params.year);
+        const res = await fetch("/api/v2/formula-stats/" + params.country + "/" + params.year);
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
@@ -52,7 +52,7 @@
                 okMsg = false;
                 errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
         } else {
-            const res = await fetch("/api/v1/formula-stats/" + params.country + "/" + params.year, {
+            const res = await fetch("/api/v2/formula-stats/" + params.country + "/" + params.year, {
                 method: "PUT",
                 body: JSON.stringify({
                     country: params.country,
