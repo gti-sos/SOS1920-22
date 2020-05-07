@@ -30,7 +30,7 @@
     //Variables para los SELECT (No estoy seguro de si es necesario)
     let position = [];
 
-    let actualPosition = "-";
+    let actualPosition = "";
    
     //Esto es para la paginación y búsqueda.
     let elementPage = 10;
@@ -159,9 +159,10 @@
     //Método de búsqueda.
     async function search(position){
         console.log("Buscando datos: " + position);
-        position = parseInt(position);
         var url = "/api/v1/swim-stats?position=" + position;
-
+        if(position===""){
+            url = "/api/v1/swim-stats"
+        }
         const res = await fetch(url);
         console.log(res);
 
@@ -175,10 +176,14 @@
                 errorMsg = false;
             }
             else {
-                okMsg = false;
-                errorMsg = "Fallo, no existe un nadador con esa posición"
+                if(url==="/api/v1/swim-stats"){
+                    okMsg="Aquí tiene todos los datos"
+                    errorMsg=false;
+                } else {
+                    okMsg = false;
+                    errorMsg = "Fallo, no existe un nadador con esa posición"
+                }
             }
-            
         }
         else{
             console.log("ERROR");
@@ -208,7 +213,7 @@
     
         <FormGroup>
             <Label for="inputPosition"> Búsqueda por posición </Label>
-            <Input type="input" name="inputPosition" id="inputPosition" bind:value="{actualPosition}">
+            <Input type="number" name="inputPosition" id="inputPosition" bind:value="{actualPosition}">
             </Input>
         </FormGroup>
 
@@ -282,8 +287,9 @@
 	{/if}
 	{#if okMsg}
 		<p style="color: green">ÉXITO: {okMsg}</p>
-	{/if}
+    {/if}
     <Button outline style="font-size: 16px;border-radius: 4px;background-color: white;"color="secondary" on:click="{pop}"> Atrás </Button>
     <Button outline style="font-size: 16px;border-radius: 4px;background-color: white;"color="primary" on:click="{loadInitialDataSwimmers}">Cargar datos iniciales</Button>
+    <Button outline style="font-size: 16px;border-radius: 4px;background-color: white;"color="success" on:click="{getSwimmers}">Ver los nadadores actuales</Button>
 	<Button outline style="font-size: 16px;border-radius: 4px;background-color: white;"on:click={deleteSwimmersData} color="danger"> Borrar todo </Button>
 </main>
