@@ -240,7 +240,8 @@
 				<option>-</option>
 			</Input>
 		</FormGroup>
-
+        <h6 style="color:rgb(187, 0, 0)"> Atención: si intenta insertar los datos de un país que contenga más de una palabra, debe insertar una "_" en lugar de " ".</h6>
+        <p style="color:rgb(6, 100, 6)"> Por ejemplo: si quiere insertar los datos del país "San Marino" debe poner "san_marino".</p>
         <Table bordered>
             <thead style="background:black;color:white;text-align:center;">
                 <tr>

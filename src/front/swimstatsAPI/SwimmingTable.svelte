@@ -47,7 +47,6 @@
 
     async function getSwimPosition(){
         const res = await fetch("/api/v1/swim-stats");
-        
         if(res.ok){
             const json = await res.json();
 
@@ -83,6 +82,8 @@
                 moreData = true;
             }
             console.log("Hemos recibido "+swimmers.length + " posiciones del ranking de nadadores.");
+            okMsg="Mostrando todos los datos";
+            errorMsg=false;
         }
         else{
             console.log("ERROR");
@@ -155,7 +156,6 @@
         okMsg = "Los datos iniciales han sido cargados de forma exitosa";
         errorMsg = false;
 	};
-
     //Método de búsqueda.
     async function search(position){
         console.log("Buscando datos: " + position);

@@ -4,8 +4,15 @@
 <main>
 
 	<h2 style="text-align: center;margin-bottom: 40px;">Project description</h2>
-
-	<h6 style="text-align: center;margin-bottom: 40px;">The sources of information chosen are aimed at analyzing the relationship between the classification of Formula 1 drivers by nationality, teams that lost the final game in Olympic basketball history and the swimming world records.</h6>
+	<h6 style="text-align: center;margin-bottom: 40px;">The sources of information chosen are aimed at analyzing the relationship between the classification of:</h6>
+	<div style="text-align: center;">
+		<ul style="position: relative;
+		display:inline-block;">
+			<p><strong>Formula 1 drivers by nationality</strong></p>
+			<p><strong>Teams that lost the final game in Olympic basketball history</strong></p>
+			<p><strong>The swimming world records</strong></p>
+		</ul>
+	</div>
 	<h2 style="text-align: center;margin-bottom: 40px;">Repository</h2>
 	<h4 style="text-align: center;margin-bottom: 40px;"><a href="https://github.com/gti-sos/SOS1920-22">gti-sos/SOS1920-22</a></h4>
 	<h2 style="text-align: center;margin-bottom: 40px;">URL</h2>
