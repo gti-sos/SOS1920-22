@@ -46,7 +46,7 @@
 
     async function updateSwimmers() {
         console.log("Updating swim-stats");
-        if(isNaN(updatedYear) || isNaN(updatedYearOfBirth) || isNaN(updatedTime)){
+        if(isNaN(updatedYear) || isNaN(updatedYearOfBirth) || isNaN(updatedTime) || updatedCountry===""){
                 okMsg = false;
                 errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
         } else {
