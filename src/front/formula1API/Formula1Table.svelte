@@ -103,7 +103,7 @@
     async function insertFormula1(){
         console.log("Insertando formula-stats..." + JSON.stringify(newFormula1));
 
-        if(isNaN(newFormula1.year) || isNaN(newFormula1.totalpointnumber) || isNaN(newFormula1.pilotnumber) || isNaN(newFormula1.victorynumber) || newFormula1.country===""){
+        if(isNaN(newFormula1.year) || isNaN(newFormula1.totalpointnumber) || isNaN(newFormula1.pilotnumber) || isNaN(newFormula1.victorynumber) || newFormula1.country==="" || newFormula1.year===""){
              console.log("Uno o más datos NO son numéricos");
              okMsg = false;
              errorMsg = "No puede introducir campos en blanco o campos que no sean numéricos";
