@@ -42,27 +42,32 @@
     }
 
     async function updateBasket() {
-        const res = await fetch("/api/v1/og-basket-stats/" + params.year + "/" + params.country, {
-            method: "PUT",
-            body: JSON.stringify({
-                country: params.country,
-                year: parseInt(params.year),
-                "points": updatedPoints,
-                "threepoints": updatedThreepoints,
-                "rebounds": updatedRebounds
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (res) {
-            if(isNaN(updatedPoints) || isNaN(updatedThreepoints) || isNaN(updatedRebounds)){
+        if(isNaN(updatedPoints) || isNaN(updatedThreepoints) || isNaN(updatedRebounds)){
                 okMsg = false;
                 errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
-            }
-            getBasket();
-            okMsg = "Se han actualizado los datos de forma exitosa";
-            errorMsg = false;
-        });
+        } else {
+            const res = await fetch("/api/v1/og-basket-stats/" + params.year + "/" + params.country, {
+                method: "PUT",
+                body: JSON.stringify({
+                    country: params.country,
+                    year: parseInt(params.year),
+                    "points": updatedPoints,
+                    "threepoints": updatedThreepoints,
+                    "rebounds": updatedRebounds
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (res) {
+                if(isNaN(updatedPoints) || isNaN(updatedThreepoints) || isNaN(updatedRebounds)){
+                    okMsg = false;
+                    errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
+                }
+                getBasket();
+                okMsg = "Se han actualizado los datos de forma exitosa";
+                errorMsg = false;
+            });
+        }
     }
 </script>
 

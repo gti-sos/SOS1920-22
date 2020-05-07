@@ -15,7 +15,7 @@ module.exports = function(app){
 	var pilotosInitialData = [
 		{ country: 'germany', year:2019, totalpointnumber:568, pilotnumber: 5, victorynumber: 5 },
 		{ country: 'france', year:2019, totalpointnumber:32, pilotnumber: 3, victorynumber: 0  },
-		{ country: 'united kingdom', year:2014, totalpointnumber:475, pilotnumber: 4, victorynumber: 11 },
+		{ country: 'united_kingdom', year:2014, totalpointnumber:475, pilotnumber: 4, victorynumber: 11 },
 		{ country: 'spain', year:2015, totalpointnumber:30, pilotnumber: 3, victorynumber: 0 },
 		{ country: 'mexico', year:2016, totalpointnumber:101, pilotnumber: 2, victorynumber: 0 }
 	];

@@ -46,21 +46,32 @@
 
     async function updateSwimmers() {
         console.log("Updating swim-stats");
-        const res = await fetch("/api/v1/swim-stats/" + params.position, {
-            method: "PUT",
-            body: JSON.stringify({
-                "country": updatedCountry,
-                "year": updatedYear,
-                "yearofbirth": updatedYearOfBirth,
-                position: parseInt(params.position),
-                "time": updatedTime
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (res) {
-            getSwimmers();
-        });
+        if(isNaN(updatedYear) || isNaN(updatedYearOfBirth) || isNaN(updatedTime)){
+                okMsg = false;
+                errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
+        } else {
+            const res = await fetch("/api/v1/swim-stats/" + params.position, {
+                method: "PUT",
+                body: JSON.stringify({
+                    "country": updatedCountry,
+                    "year": updatedYear,
+                    "yearofbirth": updatedYearOfBirth,
+                    position: parseInt(params.position),
+                    "time": updatedTime
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (res) {
+                if(isNaN(updatedYear) || isNaN(updatedYearOfBirth) || isNaN(updatedTime)){
+                    okMsg = false;
+                    errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
+                }
+                getSwimmers();
+                okMsg = "Se han actualizado los datos de forma exitosa";
+                errorMsg = false;
+            });
+        }
     }
 </script>
 
@@ -98,7 +109,7 @@
     <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
     {#if okMsg}
-        <p style="color: green">ÉXITO: {okMsg}</p>
+    <p style="color: green">ÉXITO: {okMsg}</p>
     {/if}
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </main>

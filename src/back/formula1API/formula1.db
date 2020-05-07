@@ -1,5 +1,16 @@
-{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"8CAFHnHJes6iVrHY"}
-{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"8nHxBOFRdKNwjDGd"}
-{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"Wd1yBm4iudaJmveE"}
-{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"bUXm4H9x8bBtcKpo"}
-{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"vyJSPFB5TBD3IUaM"}
+{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"HZtpXVcQVu9Mo5p7"}
+{"country":"united kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"iZMacta9jNwdihJn"}
+{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"lBP41iOl4mrAuecr"}
+{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"lYwAbLHEem8AqaTj"}
+{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"oY3NAsrMgn43WyZs"}
+{"$$deleted":true,"_id":"HZtpXVcQVu9Mo5p7"}
+{"$$deleted":true,"_id":"iZMacta9jNwdihJn"}
+{"$$deleted":true,"_id":"lBP41iOl4mrAuecr"}
+{"$$deleted":true,"_id":"lYwAbLHEem8AqaTj"}
+{"$$deleted":true,"_id":"oY3NAsrMgn43WyZs"}
+{"country":"germany","year":2019,"totalpointnumber":568,"pilotnumber":5,"victorynumber":5,"_id":"k9roOMnW74pDWzOp"}
+{"country":"france","year":2019,"totalpointnumber":32,"pilotnumber":3,"victorynumber":0,"_id":"VAmHSnyJ78M4Pkz8"}
+{"country":"united_kingdom","year":2014,"totalpointnumber":475,"pilotnumber":4,"victorynumber":11,"_id":"zC1Fe9i9xeqI9CVW"}
+{"country":"spain","year":2015,"totalpointnumber":30,"pilotnumber":3,"victorynumber":0,"_id":"vX9d1ejpCuxENkjX"}
+{"country":"mexico","year":2016,"totalpointnumber":101,"pilotnumber":2,"victorynumber":0,"_id":"rRTAg1NzE0moqHb9"}
+{"country":"united_kingdom","year":2014,"totalpointnumber":475,"pilotnumber":6546745,"victorynumber":754675468,"_id":"zC1Fe9i9xeqI9CVW"}

@@ -48,6 +48,11 @@
 
     async function updateFormula1() {
         console.log("Updating formula-stats");
+        if(isNaN(updatedTotalPointNumber) || isNaN(updatedPilotNumber) || isNaN(updatedVictoryNumber)){
+                okMsg = false;
+                errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
+        } else {
+
         const res = await fetch("/api/v1/formula-stats/" + params.country + "/" + params.year, {
             method: "PUT",
             body: JSON.stringify({
@@ -69,6 +74,7 @@
             okMsg = "Se han actualizado los datos de forma exitosa";
             errorMsg = false;
         });
+        }
     }
 </script>
 
