@@ -23,7 +23,7 @@
 			<a href="http://sos1920-22.herokuapp.com/api/v2/formula-stats" rel="nofollow">APIv2 formula-stats</a>
 		</span>
 		<span slot="apibutton">
-			<button type="button"  class="btn btn-outline-success"  onclick="window.location.href='#/formula1API'"> API de Fórmula 1</button>
+			<button type="button" style="background: white; color:black" class="btn btn-outline-success"  onclick="window.location.href='#/formula1API'"> API de Fórmula 1</button>
 		</span>
 	</Box>
 	<Box>
@@ -37,7 +37,7 @@
 			<a href="https://sos1920-22.herokuapp.com/api/v1/og-basket-stats/" rel="nofollow">APIv1 swim-stats</a>
 		</span>
 		<span slot="apibutton">
-			<button type="button"  class="btn btn-outline-info"  onclick="window.location.href='#/basketAPI'"><i class='fas fa-leaf' ></i> API de Baloncesto</button>
+			<button type="button" style="background: white; color:black" class="btn btn-outline-info"  onclick="window.location.href='#/basketAPI'"><i class='fas fa-leaf' ></i> API de Baloncesto</button>
 		</span>
 	</Box>
 	<Box>
@@ -51,7 +51,7 @@
 			<a href="http://sos1920-22.herokuapp.com/api/v1/swim-stats" rel="nofollow">APIv1 swim-stats</a>
 		</span>
 		<span slot="apibutton">
-			<button type="button"  class="btn btn-outline-danger"  onclick="window.location.href='#/swimstatsAPI'"><i class='fas fa-leaf' ></i> API de Natación</button>
+			<button type="button" style="background: white; color:black" class="btn btn-outline-danger"  onclick="window.location.href='#/swimstatsAPI'"><i class='fas fa-leaf' ></i> API de Natación</button>
 		</span>
 	</Box>
 

@@ -80,7 +80,6 @@
 <main>
     <h2  style="text-align: center;"><small> Editar datos de la API de Fórmula 1 </small></h2>
     <h2  style="text-align: center; margin-bottom: 2%;"><small><strong>{params.country}</strong> - <strong>{params.year}</strong></small></h2>
-
     {#await formula1}
         Loading formula1 stats...
     {:then formula1}

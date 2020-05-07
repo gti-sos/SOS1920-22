@@ -5,6 +5,14 @@
 		border-radius: 2px;
 		box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 		padding: 1em;
+		background-image: linear-gradient(45deg, #66a4c0 50%, transparent 50%);
+		background-position: 100%;
+		background-size: 400%;
+		transition: background 300ms ease-in-out;
+	}
+	.box:hover {
+		background-position: 0;
+		color: #000;
 	}
 
 	h3 {
@@ -30,7 +38,7 @@
 		background-size: 20px 20px;
 		margin: 0 0 0.5em 0;
         line-height: 1.2;
-        left:110px;
+        left:105px;
     }
     .apibutton {
         text-align: center;
