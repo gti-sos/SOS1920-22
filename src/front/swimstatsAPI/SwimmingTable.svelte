@@ -92,7 +92,7 @@
     async function insertSwimmers(){
         console.log("Insertando swim-stats..." + JSON.stringify(newSwimmers));
 
-        if(isNaN(newSwimmers.year) || isNaN(newSwimmers.yearofbirth) || isNaN(newSwimmers.position) || isNaN(newSwimmers.time)){
+        if(isNaN(newSwimmers.year) || isNaN(newSwimmers.yearofbirth) || isNaN(newSwimmers.position) || isNaN(newSwimmers.time) || newSwimmers.country===""){
              console.log("Uno o más datos NO son numéricos");
              okMsg = false;
              errorMsg = "No puede introducir campos en blanco o campos que no sean numéricos";

@@ -52,28 +52,27 @@
                 okMsg = false;
                 errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
         } else {
-
-        const res = await fetch("/api/v1/formula-stats/" + params.country + "/" + params.year, {
-            method: "PUT",
-            body: JSON.stringify({
-                country: params.country,
-                year: parseInt(params.year),
-                "totalpointnumber": updatedTotalPointNumber,
-                "pilotnumber": updatedPilotNumber,
-                "victorynumber": updatedVictoryNumber
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (res) {
-            if(isNaN(updatedTotalPointNumber) || isNaN(updatedPilotNumber) || isNaN(updatedVictoryNumber)){
-                okMsg = false;
-                errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
-            }
-            getFormula1();
-            okMsg = "Se han actualizado los datos de forma exitosa";
-            errorMsg = false;
-        });
+            const res = await fetch("/api/v1/formula-stats/" + params.country + "/" + params.year, {
+                method: "PUT",
+                body: JSON.stringify({
+                    country: params.country,
+                    year: parseInt(params.year),
+                    "totalpointnumber": updatedTotalPointNumber,
+                    "pilotnumber": updatedPilotNumber,
+                    "victorynumber": updatedVictoryNumber
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (res) {
+                if(isNaN(updatedTotalPointNumber) || isNaN(updatedPilotNumber) || isNaN(updatedVictoryNumber)){
+                    okMsg = false;
+                    errorMsg = "No pueden introducirse campos no numéricos o campos vacíos";
+                }
+                getFormula1();
+                okMsg = "Se han actualizado los datos de forma exitosa";
+                errorMsg = false;
+            });
         }
     }
 </script>

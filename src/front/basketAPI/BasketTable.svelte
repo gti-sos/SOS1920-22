@@ -99,7 +99,7 @@
     async function insertBasket(){
         console.log("Insertando og-basket-stats..." + JSON.stringify(newBasket));
 
-        if(isNaN(newBasket.year) || isNaN(newBasket.points) || isNaN(newBasket.threepoints) || isNaN(newBasket.rebounds)){
+        if(isNaN(newBasket.year) || isNaN(newBasket.points) || isNaN(newBasket.threepoints) || isNaN(newBasket.rebounds) || newBasket.country===""){
              console.log("Uno o más datos NO son numéricos");
              okMsg = false;
              errorMsg = "No puede introducir campos en blanco o campos que no sean numéricos";
