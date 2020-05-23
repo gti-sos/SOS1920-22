@@ -4,6 +4,8 @@
 
     async function loadGraph() {
 
+        //Esta es la gráfica común del grupo.
+
         const resDataFormula = await fetch("/api/v2/formula-stats");
         const resDataBasket = await fetch("/api/v1/og-basket-stats");
         const resDataSwim = await fetch("/api/v1/swim-stats/");
