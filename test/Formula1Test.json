@@ -1,0 +1,1069 @@
+{
+	"info": {
+		"_postman_id": "4d737d63-aa66-454c-b277-3fbc81ab973d",
+		"name": "SOS1920-22 - Fórmula 1 - Heroku",
+		"description": "Para hacer pruebas para la API de Fórmula 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - LoadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7682fcf-fab1-4dde-98f8-ea5914a6aad2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"En mi conjunto inicial de datos debe haber 5 objetos\"] = (jsonData.length == 5);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/loadinitialdata",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"loadinitialdata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET general - formula-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "762bc77b-b226-4184-be0b-3db8e5e17b03",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 2 nacionalities\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET general search year & country",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7bea2e74-238f-4cfb-8409-23fd3262da74",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats?country=spain&year=2015",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "spain"
+						},
+						{
+							"key": "year",
+							"value": "2015"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET general search totalpointnumber",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7bea2e74-238f-4cfb-8409-23fd3262da74",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats?totalpointnumber=30",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats"
+					],
+					"query": [
+						{
+							"key": "totalpointnumber",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET general search and pagination: year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "762bc77b-b226-4184-be0b-3db8e5e17b03",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats?limit=1&offset=1&year=2019",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "year",
+							"value": "2019"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET non existant search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "762bc77b-b226-4184-be0b-3db8e5e17b03",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"En la búsqueda debe haber 0 objetos\"] = (jsonData.length == 0);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats?year=2021",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2021"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso general - pilotos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "914442e5-4ac0-4eb1-bb04-a19c2ec0b2d1",
+						"exec": [
+							"pm.test(\"Status code is 201\", function() {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"country\": \"australia\",\r\n        \"year\": 2014,\r\n        \"totalpointnumber\": 226,\r\n        \"pilotnumber\": 1,\r\n        \"victorynumber\": 3\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso general (No se puede tener el mismo objeto con la misma clave primaria)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "914442e5-4ac0-4eb1-bb04-a19c2ec0b2d1",
+						"exec": [
+							"pm.test(\"Status code is 409\", function() {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"country\": \"australia\",\r\n        \"year\": 2014,\r\n        \"totalpointnumber\": 226,\r\n        \"pilotnumber\": 1,\r\n        \"victorynumber\": 3\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso general - Varios campos null (400)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2e75072-63a5-472d-9112-91fa3836adee",
+						"exec": [
+							"pm.test(\"Status code is 400\", function() {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"country\": \"finland\",\r\n        \"year\": 2014,\r\n        \"totalpointnumber\": null,\r\n        \"pilotnumber\": null,\r\n        \"victorynumber\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso general - Falta el campo victoryNumber (400)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2e75072-63a5-472d-9112-91fa3836adee",
+						"exec": [
+							"pm.test(\"Status code is 400\", function() {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"country\": \"finland\",\r\n        \"year\": 2014,\r\n        \"totalpointnumber\": 0,\r\n        \"pilotnumber\": 0\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso general - Nombre campos erróneo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2e75072-63a5-472d-9112-91fa3836adee",
+						"exec": [
+							"pm.test(\"Status code is 400\", function() {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"country\": \"norway\",\r\n        \"year\": 2018,\r\n        \"totalpointnumbe\": 0,\r\n        \"pilotnumr\": 0,\r\n        \"victorynumber\": 0\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso general - Hay más campos en el objeto JSON (400)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2e75072-63a5-472d-9112-91fa3836adee",
+						"exec": [
+							"pm.test(\"Status code is 400\", function() {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"country\": \"finland\",\r\n        \"year\": 2014,\r\n        \"totalpointnumber\": 0,\r\n        \"pilotnumber\": 0,\r\n        \"victorynumber\": 0,\r\n        \"copitas\": 2\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET general - formula-stats after post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17d52fd6-6fb2-4d7f-99f7-22f0d73ae499",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 2 nacionalities\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(2);",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"En mi conjunto inicial de datos debe haber 6 objetos\"] = (jsonData.length == 6);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso general - formula-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "595f8861-1a9e-4059-82fe-3902476ab8cf",
+						"exec": [
+							"pm.test(\"Status code is 405\", function() {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET general - formula-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "762bc77b-b226-4184-be0b-3db8e5e17b03",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso específico: Country - formula-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f1a71d9-958f-4bef-b2d6-ab3aec521e4a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"It has property: country\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"country\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/germany/2019",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"germany",
+						"2019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso específico - non-existant-resource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "762bc77b-b226-4184-be0b-3db8e5e17b03",
+						"exec": [
+							"pm.test(\"Status code is 404\", function() {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/spain/2022",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"spain",
+						"2022"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso específico - formula-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86b9f6cc-c54a-4912-8ef4-a860c5e165c3",
+						"exec": [
+							"pm.test(\"Status code is 405\", function() {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/germany/2019",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"germany",
+						"2019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE específico - formula-stats Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ea6f4fe-8530-40a4-af9c-07a1601e6e3f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/mexico/2016",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"mexico",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso específico - 409",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f6fbd06-6097-4159-b7fb-4a695e57422f",
+						"exec": [
+							"pm.test(\"Status code is 409\", function() {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/germany/2019",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"germany",
+						"2019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT recurso específico - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a764887-d9a2-4c35-b0cb-d34b04b77518",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"germany\",\r\n        \"year\": 2019,\r\n        \"totalpointnumber\": 56801,\r\n        \"pilotnumber\": 5,\r\n        \"victorynumber\": 5\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/germany/2019",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"germany",
+						"2019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE específico - formula-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ea6f4fe-8530-40a4-af9c-07a1601e6e3f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/australia/2014",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						"australia",
+						"2014"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET general - formula-stats Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7e332ac-a199-4152-b47d-520d58f89701",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"There are more than 2 nacionalities\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(2);",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"En este get debe haber 4 objetos\"] = (jsonData.length == 4);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE general - formula-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "720e90fe-3f5f-4a4b-9973-3944c416664b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/formula-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v2",
+						"formula-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
