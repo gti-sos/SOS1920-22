@@ -13,6 +13,16 @@
 	import Basket from './basketAPI/App.svelte';
 	import EditBasket from './basketAPI/EditBasketTable.svelte';
 
+	//import para Analytics
+	import AwesomeFormula1 from "./analytics/formula1/AwesomeFormula1.svelte";
+	import HighChartFormula1 from "./analytics/formula1/HighChartFormula1.svelte";
+
+	//Falta por introducir
+	//import AnalyticsBasket from "./analytics/formula1/Formula1Analytics.svelte";
+	//import AnalyticsSwim from "./analytics/formula1/Formula1Analytics.svelte";
+
+	import Analytics from "./analytics/Analytics.svelte"
+
 	const routes = {
 		"/": Home,
 		"/formula1API": Formula1,
@@ -21,7 +31,20 @@
 		"/swim-stats/:position": EditNadador,
 		"/basketAPI": Basket,
 		"/og-basket-stats/:country/:year":EditBasket,
+		
+		//Para entregable de gráficas
+
+		//Esta gráfica es la de HighCharts
+		"/analytics/highcharts-formula-stats": HighChartFormula1,
+		//Esta gráfica es la de Awesome Charting
+		"/analytics/awesome-formula-stats": AwesomeFormula1,
+
+		//Esta es la gráfica común de los 3 miembros del grupo.
+		"/analytics": Analytics,
+
 		"*": NotFound
+
+
 	};
 </script>
 
