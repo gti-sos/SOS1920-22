@@ -19,7 +19,7 @@
 							"});",
 							"",
 							"var jsonData = JSON.parse(responseBody);",
-							"tests[\"En mi conjunto inicial de datos debe haber 5 objetos\"] = (jsonData.length == 5);"
+							"tests[\"En mi conjunto inicial de datos debe haber 5 objetos\"] = (jsonData.length == 7);"
 						],
 						"type": "text/javascript"
 					}
