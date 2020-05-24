@@ -21,12 +21,11 @@ swimstatsAPI(app);
 basketAPI(app);
 
 //Proxy para Fórmula 1 - PRUEBAS
-
 app.all('/', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
-  });
+});
 
 //Primer entregable - Devuelve la hora actual del servidor.
 app.get("/time", (req, res) => {
