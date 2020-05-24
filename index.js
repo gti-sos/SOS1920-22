@@ -2,10 +2,15 @@ const express = require('express');
 const port = process.env.PORT || 3000; //Anyadido para Heroku L05.
 const bodyParser = require('body-parser');
 const cors = require("cors");
+const request = require("request");
 
 const app = express(); //Por convenio se crea así la variable.
 
 app.use(cors());
+
+//Para las integraciones que se han hecho en las APIs de Fórmula 1
+
+var remoteAPI1 = 'https://sos1920-12.herokuapp.com/api/v2/overdose-deaths';
 
 const formula1API = require("./src/back/formula1API");
 const swimstatsAPI = require("./src/back/swimstatsAPI");
@@ -20,11 +25,19 @@ swimstatsAPI(app);
 //=======LLamada a API Baloncesto - Casto Rodríguez Díaz=======\\
 basketAPI(app);
 
-//Proxy para Fórmula 1 - PRUEBAS
+
+
+//Habilitar cabeceras de la API de Fórmula 1 - PRUEBAS
 app.all('/', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
+});
+
+//Para la API de Juanjo - GRUPO 12 - Fallecimientos por sobredosis.
+app.use('/proxyOverdoseDeaths', function(req, res) {
+  console.log('piped: '+req.baseUrl + req.url);
+  req.pipe(request(remoteAPI1)).pipe(res);
 });
 
 //Primer entregable - Devuelve la hora actual del servidor.

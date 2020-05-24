@@ -13,13 +13,15 @@
 	import Basket from './basketAPI/App.svelte';
 	import EditBasket from './basketAPI/EditBasketTable.svelte';
 
-	//import para Analytics
+	//import para Analytics de la API de Fórmula 1
 	import AwesomeFormula1 from "./analytics/formula1/AwesomeFormula1.svelte";
 	import HighChartFormula1 from "./analytics/formula1/HighChartFormula1.svelte";
 
-	//Falta por introducir
-	//import AnalyticsBasket from "./analytics/formula1/Formula1Analytics.svelte";
-	//import AnalyticsSwim from "./analytics/formula1/Formula1Analytics.svelte";
+	//Integraciones de la API de Fórmula 1
+	import Integrations from "./integrations/Integrations.svelte";
+	import IntegrationOverdoseDeaths from "./integrations/formula1/IntegrationOverdoseDeaths.svelte";
+
+	
 
 	import Analytics from "./analytics/Analytics.svelte"
 
@@ -38,6 +40,10 @@
 		"/analytics/highcharts-formula-stats": HighChartFormula1,
 		//Esta gráfica es la de Awesome Charting
 		"/analytics/awesome-formula-stats": AwesomeFormula1,
+
+		//Integraciones de Fórmula 1
+		"/integrations": Integrations,
+		"/integrations/overdose-deaths": IntegrationOverdoseDeaths,
 
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
