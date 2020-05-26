@@ -17,14 +17,12 @@
         console.log("Tamaño:  " + tam);
         var allData = new Array(tam);
 
+        //===Crear lista de listas===\\
         for(var i=0; i<tam; i++) {
             paisAnyo.push(countryes[i],points[i]);
             allData[i] = paisAnyo;
             paisAnyo=[];
         }
-
-        console.log("Listas unidas: " + paisAnyo);
-        console.log("Todooooooooooo: " + allData);
         
 
         Highcharts.chart('container', {
@@ -39,7 +37,7 @@
                 text: 'Contents of Highsoft\'s weekly fruit delivery'
             },
             subtitle: {
-                text: '3D donut in Highcharts'
+                text: 'Grafica 3D baloncesto'
             },
             plotOptions: {
                 pie: {
@@ -48,7 +46,7 @@
                 }
             },
             series: [{
-                name: 'Puntos Totales: ',
+                name: 'Puntos Totales',
                 data: allData
             }]
         });
@@ -58,9 +56,7 @@
     loadGraph();
 
 </script>
-
-
-
 <main>
     <div id='container'></div>
+    <h6 style="color:rgb(187, 0, 0)"> Atención: Si un pais se repite es porque es de otro año.</h6>
 </main>
