@@ -3,13 +3,28 @@
     async function loadGraph() {
         const resData = await fetch("/api/v1/og-basket-stats");
         let dataBasket = await resData.json();
-        console.log("asdfasdfasd" + dataBasket);
+        console.log("Base de datos:" + dataBasket);
 
-        let countryes = dataBasket.map((d) => {return d.countryes});
-        console.log("ASDFE" + countryes);
+        //===Creo dos Arrays para unirlas===\\
+        let countryes = dataBasket.map((d) => {return d.country});
+        console.log("Lista de Paises:  " + countryes);
         let points = dataBasket.map((d) => { return d.points; });
-        console.log("ewwewe" + points);
+        console.log("Lista de Puntos:  " + points);
+        //===Lista de listas con paises y años===\\
+       
+        var paisAnyo=[];
+        var tam =  countryes.length;
+        console.log("Tamaño:  " + tam);
+        var allData = new Array(tam);
 
+        for(var i=0; i<tam; i++) {
+            paisAnyo.push(countryes[i],points[i]);
+            allData[i] = paisAnyo;
+            paisAnyo=[];
+        }
+
+        console.log("Listas unidas: " + paisAnyo);
+        console.log("Todooooooooooo: " + allData);
         
 
         Highcharts.chart('container', {
@@ -33,44 +48,19 @@
                 }
             },
             series: [{
-                name: 'Delivered amount',
-                data: [
-                    ['Bananas', 30],
-                    ['Kiwi', 3],
-                    ['Mixed nuts', 1],
-                    ['Oranges', 6],
-                    ['Apples', 8],
-                    ['Pears', 4],
-                    ['Clementines', 4],
-                    ['Reddish (bag)', 1],
-                    ['Grapes (bunch)', 1]
-                ]
+                name: 'Puntos Totales: ',
+                data: allData
             }]
         });
 
 
     }
+    loadGraph();
 
 </script>
 
 
 
-
-<svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
-
-</svelte:head>
-
-
-
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        A variation of a 3D pie chart with an inner radius added.
-        These charts are often referred to as donut charts.
-    </p>
-</figure>
+<main>
+    <div id='container'></div>
+</main>

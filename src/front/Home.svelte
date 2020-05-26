@@ -41,7 +41,7 @@
 			<a href="https://documenter.getpostman.com/view/10826099/SzYUXfdy" rel="nofollow">POSTMAN DE casroddia</a>
 		</span>
 		<span slot="apiurl">
-			<a href="https://sos1920-22.herokuapp.com/api/v1/og-basket-stats/" rel="nofollow">APIv1 swim-stats</a>
+			<a href="https://sos1920-22.herokuapp.com/api/v1/og-basket-stats/" rel="nofollow">APIv1 og-basket-stats</a>
 		</span>
 		<span slot="apibutton">
 			<button type="button" style="background: white; color:black" class="btn btn-outline-info"  onclick="window.location.href='#/basketAPI'"><i class='fas fa-leaf' ></i> API de Baloncesto</button>
