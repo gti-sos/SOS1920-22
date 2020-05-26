@@ -17,6 +17,9 @@
 	import AwesomeFormula1 from "./analytics/formula1/AwesomeFormula1.svelte";
 	import HighChartFormula1 from "./analytics/formula1/HighChartFormula1.svelte";
 
+	//===AnalyticsBaloncesto===\\
+	import HighChartBasketball from "./analytics/basketball/HighChartBasketball.svelte";
+
 	//Integraciones de la API de Fórmula 1
 	import Integrations from "./integrations/Integrations.svelte";
 	import IntegrationOverdoseDeaths from "./integrations/formula1/IntegrationOverdoseDeaths.svelte";
@@ -44,6 +47,9 @@
 		//Integraciones de Fórmula 1
 		"/integrations": Integrations,
 		"/integrations/overdose-deaths": IntegrationOverdoseDeaths,
+
+		//===HighChartsBaloncesto===\\
+		"/analytics/highcharts-og-basket-stats": HighChartBasketball,
 
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
