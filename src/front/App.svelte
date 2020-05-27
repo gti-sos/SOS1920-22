@@ -19,6 +19,7 @@
 
 	//===AnalyticsBaloncesto===\\
 	import HighChartBasketball from "./analytics/basketball/HighChartBasketball.svelte";
+	import AwesomeBasketball from "./analytics/basketball/HighChartBasketball.svelte";
 
 	//Integraciones de la API de Fórmula 1
 	import Integrations from "./integrations/Integrations.svelte";
@@ -52,6 +53,8 @@
 
 		//===HighChartsBaloncesto===\\
 		"/analytics/highcharts-og-basket-stats": HighChartBasketball,
+		"/analytics/awesome-og-basket-stats": AwesomeBasketball,
+		
 
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
