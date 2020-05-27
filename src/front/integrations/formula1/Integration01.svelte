@@ -1,14 +1,17 @@
 <script>
 
-    //Pruebas para ver si funciona el proxy: Done.
-    async function loadGraph() {
-        
-        const resOD = await fetch("/api/v2/overdose-deaths");
-        const resDataFormula = await fetch("/api/v2/formula-stats");
+    import Button from "sveltestrap/src/Button.svelte";
 
-        let overdose = await resOD.json();
+    async function loadGraph() {
+
+        //FALTA CORS
+
+        const resDataFormula = await fetch("/api/v2/formula-stats");
+        const resDataEmmigrant = await fetch("https://sos1920-01.herokuapp.com/api/v2/emigrants-stats");
+
         let formula = await resDataFormula.json();
-        console.log(overdose);
+        let emmigrant = await resDataEmmigrant.json();
+        console.log(emmigrant);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -18,10 +21,10 @@
             return res;
         });
 
-        let dataOverdose = overdose.map((d) => {
+        let dataEmmigrant = emmigrant.map((d) => {
             let res = {
                 name: d.country + " - " + d.year,
-                value: d["death_total"]
+                value: d["em_totals"]
             };
             return res;
         });
@@ -33,8 +36,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Número total de fallecidos por sobredosis",
-                    data: dataOverdose
+                    name: "Número total de inmigrantes por país",
+                    data: dataEmmigrant
                 }
             ];
 
@@ -44,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre fallecimientos por sobredosis y el número de puntos totales de pilotos de Fórmula 1 por nacionalidad'
+                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,
@@ -82,7 +85,23 @@
 
 </script>
 
+<svelte:head>
+
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+
+</svelte:head>
 
 <main>
-    <div id='container'></div>
+
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Gráfica que muestra los datos de las 3 APIs. Son los número de puntos totales en Fórmula 1 por nacionalidad,
+            el tiempo que se tarda en natación y el número de puntos por partido de baloncesto.
+        </p>
+    </figure>
+
 </main>

@@ -25,6 +25,11 @@
 	import Integrations from "./integrations/Integrations.svelte";
 	import Integration12 from "./integrations/formula1/Integration12.svelte";
 	import Integration09 from "./integrations/formula1/Integration09.svelte";
+	import Integration25 from "./integrations/formula1/Integration25.svelte";
+	import Integration06 from "./integrations/formula1/Integration06.svelte";
+	import Integration04 from "./integrations/formula1/Integration04.svelte";
+	import Integration01 from "./integrations/formula1/Integration01.svelte";
+	import IntegrationApiExternaOlive from "./integrations/formula1/ApiExternaOlivas.svelte";
 
 	
 
@@ -48,8 +53,13 @@
 
 		//Integraciones de Fórmula 1
 		"/integrations": Integrations,
+		"/integrations/olive-externalApi": IntegrationApiExternaOlive,
 		"/integrations/overdose-deaths": Integration12,
 		"/integrations/renewable-sources-stats": Integration09,
+		"/integrations/countries_for_equality_stats": Integration25,
+		"/integrations/not-hospitalized-stats": Integration06,
+		"/integrations/vehicles": Integration04,
+		"/integrations/emigrants-stats": Integration01,
 
 		//===HighChartsBaloncesto===\\
 		"/analytics/highcharts-og-basket-stats": HighChartBasketball,

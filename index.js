@@ -10,7 +10,8 @@ app.use(cors());
 
 //Para las integraciones que se han hecho en las APIs de Fórmula 1
 
-var remoteAPI1 = 'https://sos1920-12.herokuapp.com/api/v2/overdose-deaths';
+var remote12 = "https://sos1920-12.herokuapp.com";
+var path12 = "/api/v2/overdose-deaths";
 
 const formula1API = require("./src/back/formula1API");
 const swimstatsAPI = require("./src/back/swimstatsAPI");
@@ -35,9 +36,10 @@ app.all('/', function(req, res, next) {
 });
 
 //Para la API de Juanjo - GRUPO 12 - Fallecimientos por sobredosis.
-app.use('/proxyOverdoseDeaths', function(req, res) {
-  console.log('piped: '+req.baseUrl + req.url);
-  req.pipe(request(remoteAPI1)).pipe(res);
+app.use(path12, function(req, res) {
+  var url = remote12 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
 });
 
 //Primer entregable - Devuelve la hora actual del servidor.
