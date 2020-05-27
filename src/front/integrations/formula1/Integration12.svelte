@@ -1,6 +1,6 @@
 <script>
 
-    //Pruebas para ver si funciona el proxy: Done.
+    //OK
     async function loadGraph() {
 
         const resOD = await fetch("/api/v2/overdose-deaths");
@@ -84,6 +84,23 @@
 </script>
 
 
+<svelte:head>
+
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+
+</svelte:head>
+
 <main>
-    <div id='container'></div>
+
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Gráfica que muestra los datos de las 3 APIs. Son los número de puntos totales en Fórmula 1 por nacionalidad,
+            el tiempo que se tarda en natación y el número de puntos por partido de baloncesto.
+        </p>
+    </figure>
+
 </main>

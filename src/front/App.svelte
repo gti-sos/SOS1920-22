@@ -35,6 +35,8 @@
 	import Integration26 from "./integrations/formula1/Integration26.svelte";
 	import Integration02 from "./integrations/formula1/Integration02.svelte";
 	import IntegrationApiExternaOlive from "./integrations/formula1/ApiExternaOlivas.svelte";
+	import IntegrationApiDigimon from "./integrations/formula1/ApiDigimon.svelte";
+	
 
 	
 
@@ -59,6 +61,7 @@
 		//Integraciones de Fórmula 1
 		"/integrations": Integrations,
 		"/integrations/olive-externalApi": IntegrationApiExternaOlive,
+		"/integrations/digimon": IntegrationApiDigimon,
 		"/integrations/overdose-deaths": Integration12,
 		"/integrations/renewable-sources-stats": Integration09,
 		"/integrations/countries_for_equality_stats": Integration25,

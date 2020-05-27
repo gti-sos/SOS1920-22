@@ -3,6 +3,8 @@
     <br>
     <a href="#/integrations/olive-externalApi"> Integración con la API Externa del análisis de las aceitunas</a>
     <br>
+    <a href="#/integrations/digimon"> Integración con la API Externa de Digimon</a>
+    <br>
     <a href="#/integrations/overdose-deaths"> Integración con la API de Fallecimientos por sobresosis - Grupo 12</a>
     <br>
     <a href="#/integrations/renewable-sources-stats"> Integración con la API de Energías Renovables - Grupo 09</a>

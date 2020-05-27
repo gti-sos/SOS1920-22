@@ -4,14 +4,14 @@
 
     async function loadGraph() {
 
-        //API Externa olivas - OK
+        //OK
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataOlive = await fetch("/josprimenapi/v1/olive");
+        const resDataDigimon = await fetch("/api/digimon");
 
         let formula = await resDataFormula.json();
-        let olive = await resDataOlive.json();
-        console.log(olive);
+        let digimon = await resDataDigimon.json();
+        console.log(digimon);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -21,10 +21,10 @@
             return res;
         });
 
-        let dataOlive = olive.map((d) => {
+        let dataDigimon = digimon.map((d) => {
             let res = {
-                name: d.ANYO,
-                value: d["KGSACEITUNA"]
+                name: d.name,
+                value: parseInt(d["level"])
             };
             return res;
         });
@@ -36,8 +36,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Kilos de aceituna",
-                    data: dataOlive
+                    name: "Rango de un Digimon",
+                    data: dataDigimon
                 }
             ];
 
@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre los kilos de aceituna por año y el número de puntos totales de pilotos de Fórmula 1 por nacionalidad'
+                text: 'Relación entre el nivel de un Digimon y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,
@@ -56,7 +56,7 @@
             plotOptions: {
                 packedbubble: {
                     minSize: '30%',
-                    maxSize: '120%',
+                    maxSize: '60%',
                     zMin: 0,
                     zMax: 1000,
                     layoutAlgorithm: {
