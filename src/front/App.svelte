@@ -23,6 +23,7 @@
 	//Integraciones de la API de Fórmula 1
 	import Integrations from "./integrations/Integrations.svelte";
 	import IntegrationOverdoseDeaths from "./integrations/formula1/IntegrationOverdoseDeaths.svelte";
+	import Integration09 from "./integrations/formula1/Integration09.svelte";
 
 	
 
@@ -47,6 +48,7 @@
 		//Integraciones de Fórmula 1
 		"/integrations": Integrations,
 		"/integrations/overdose-deaths": IntegrationOverdoseDeaths,
+		"/integrations/renewable-sources-stats": Integration09,
 
 		//===HighChartsBaloncesto===\\
 		"/analytics/highcharts-og-basket-stats": HighChartBasketball,
