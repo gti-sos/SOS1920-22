@@ -4,7 +4,7 @@
 
     async function loadGraph() {
 
-        //OK
+        //FALTA TODO
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
         const resDataEnergy = await fetch("http://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats");

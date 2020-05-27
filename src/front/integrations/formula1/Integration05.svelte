@@ -7,11 +7,11 @@
         //OK
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataEnergy = await fetch("http://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats");
+        const resDataHealth = await fetch("https://sos1920-05.herokuapp.com/api/v1/health_public");
 
         let formula = await resDataFormula.json();
-        let energy = await resDataEnergy.json();
-        console.log(energy);
+        let health = await resDataHealth.json();
+        console.log(health);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -21,10 +21,10 @@
             return res;
         });
 
-        let dataEnergy = energy.map((d) => {
+        let dataHealth = health.map((d) => {
             let res = {
                 name: d.country + " - " + d.year,
-                value: d["percentage-re-total"]
+                value: d["total_spending"]
             };
             return res;
         });
@@ -36,8 +36,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Porcentaje de energía renovable",
-                    data: dataEnergy
+                    name: "Total de gasto en sanidad pública",
+                    data: dataHealth
                 }
             ];
 
@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre el gasto total en sanidad pública y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,

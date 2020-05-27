@@ -4,14 +4,14 @@
 
     async function loadGraph() {
 
-        //OK
+        //FALTA CORS
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataEnergy = await fetch("http://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats");
+        const resDataFoot = await fetch("http://sos1920-26.herokuapp.com/api/v3/goalscorers");
 
         let formula = await resDataFormula.json();
-        let energy = await resDataEnergy.json();
-        console.log(energy);
+        let foot = await resDataFoot.json();
+        console.log(foot);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -21,10 +21,10 @@
             return res;
         });
 
-        let dataEnergy = energy.map((d) => {
+        let dataFoot = foot.map((d) => {
             let res = {
-                name: d.country + " - " + d.year,
-                value: d["percentage-re-total"]
+                name: d.country + " - " + d.debut,
+                value: d["goals"]
             };
             return res;
         });
@@ -36,8 +36,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Porcentaje de energía renovable",
-                    data: dataEnergy
+                    name: "Goles marcados por futbolistas",
+                    data: dataFoot
                 }
             ];
 
@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre goles marcados por futbolistas y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,

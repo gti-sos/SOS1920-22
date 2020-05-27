@@ -29,6 +29,11 @@
 	import Integration06 from "./integrations/formula1/Integration06.svelte";
 	import Integration04 from "./integrations/formula1/Integration04.svelte";
 	import Integration01 from "./integrations/formula1/Integration01.svelte";
+	import Integration05 from "./integrations/formula1/Integration05.svelte";
+	import Integration07 from "./integrations/formula1/Integration07.svelte";
+	import Integration08 from "./integrations/formula1/Integration08.svelte";
+	import Integration26 from "./integrations/formula1/Integration26.svelte";
+	import Integration02 from "./integrations/formula1/Integration02.svelte";
 	import IntegrationApiExternaOlive from "./integrations/formula1/ApiExternaOlivas.svelte";
 
 	
@@ -60,6 +65,12 @@
 		"/integrations/not-hospitalized-stats": Integration06,
 		"/integrations/vehicles": Integration04,
 		"/integrations/emigrants-stats": Integration01,
+		"/integrations/health_public": Integration05,
+		"/integrations/foodImports": Integration07,
+		"/integrations/motogp-statistics": Integration08,
+		"/integrations/goalscorers": Integration26,
+		"/integrations/rural-tourism-stats": Integration02,
+
 
 		//===HighChartsBaloncesto===\\
 		"/analytics/highcharts-og-basket-stats": HighChartBasketball,

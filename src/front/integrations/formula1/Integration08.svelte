@@ -4,14 +4,14 @@
 
     async function loadGraph() {
 
-        //OK
+        //Falta CORS
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataEnergy = await fetch("http://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats");
+        const resDataMoto = await fetch("https://sos1920-08.herokuapp.com/api/v1/motogp-statistics");
 
         let formula = await resDataFormula.json();
-        let energy = await resDataEnergy.json();
-        console.log(energy);
+        let moto = await resDataMoto.json();
+        console.log(moto);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -21,10 +21,10 @@
             return res;
         });
 
-        let dataEnergy = energy.map((d) => {
+        let dataMoto = moto.map((d) => {
             let res = {
-                name: d.country + " - " + d.year,
-                value: d["percentage-re-total"]
+                name: d.country + " - " + d.last_title,
+                value: d["world_title"]
             };
             return res;
         });
@@ -36,8 +36,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Porcentaje de energía renovable",
-                    data: dataEnergy
+                    name: "Número de campeonatos del mundo de pilotos de Moto GP",
+                    data: dataMoto
                 }
             ];
 
@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre el número de títulos de pilotos de MotoGP y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,

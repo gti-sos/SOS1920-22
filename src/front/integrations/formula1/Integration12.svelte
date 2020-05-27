@@ -2,12 +2,13 @@
 
     //Pruebas para ver si funciona el proxy: Done.
     async function loadGraph() {
-        
+
         const resOD = await fetch("/api/v2/overdose-deaths");
         const resDataFormula = await fetch("/api/v2/formula-stats");
 
         let overdose = await resOD.json();
         let formula = await resDataFormula.json();
+        
         console.log(overdose);
 
         let dataFormula = formula.map((d) => {

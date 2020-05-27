@@ -7,11 +7,11 @@
         //OK
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataEnergy = await fetch("http://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats");
+        const resDataFood = await fetch("https://sos1920-07.herokuapp.com/api/v2/foodsImports/");
 
         let formula = await resDataFormula.json();
-        let energy = await resDataEnergy.json();
-        console.log(energy);
+        let food = await resDataFood.json();
+        console.log(food);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -21,10 +21,10 @@
             return res;
         });
 
-        let dataEnergy = energy.map((d) => {
+        let dataFood = food.map((d) => {
             let res = {
-                name: d.country + " - " + d.year,
-                value: d["percentage-re-total"]
+                name: d.name + " - " + d.year,
+                value: d["TVegANDPrep"]
             };
             return res;
         });
@@ -36,8 +36,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Porcentaje de energía renovable",
-                    data: dataEnergy
+                    name: "Vegetales y preparados",
+                    data: dataFood
                 }
             ];
 
@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre vegetales preparados y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,
