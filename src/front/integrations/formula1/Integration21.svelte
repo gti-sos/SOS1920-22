@@ -36,7 +36,7 @@
                     data: dataFormula
                 },
                 {
-                    name: "Porcentaje de energía renovable",
+                    name: "Desconocido por ahora",
                     data: dataEnergy
                 }
             ];
