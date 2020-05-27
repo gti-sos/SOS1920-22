@@ -34,6 +34,7 @@
 	import Integration08 from "./integrations/formula1/Integration08.svelte";
 	import Integration26 from "./integrations/formula1/Integration26.svelte";
 	import Integration02 from "./integrations/formula1/Integration02.svelte";
+	import Integration21 from "./integrations/formula1/Integration21.svelte";
 	import IntegrationApiExternaOlive from "./integrations/formula1/ApiExternaOlivas.svelte";
 	import IntegrationApiDigimon from "./integrations/formula1/ApiDigimon.svelte";
 	
@@ -73,6 +74,7 @@
 		"/integrations/motogp-statistics": Integration08,
 		"/integrations/goalscorers": Integration26,
 		"/integrations/rural-tourism-stats": Integration02,
+		"/integrations/driving-licenses": Integration21,
 
 
 		//===HighChartsBaloncesto===\\

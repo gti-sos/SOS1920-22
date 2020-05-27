@@ -26,6 +26,8 @@
     <a href="#/integrations/goalscorers"> Integración con la API de goleadores - Grupo 26</a>
     <br>
     <a href="#/integrations/rural-tourism-stats"> Integración con la API de turismo rural - Grupo 02</a>
+    <br>
+    <a href="#/integrations/driving-licenses"> Integración con la API de licencias de conducción - Grupo 21</a>
   
 
 </main> 

@@ -4,14 +4,14 @@
 
     async function loadGraph() {
 
-        //FALTA TODO
+        //FALTA CORS
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataEnergy = await fetch("http://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats");
+        const resDataLicenses = await fetch("https://sos1920-21.herokuapp.com/api/v2/driving-licenses");
 
         let formula = await resDataFormula.json();
-        let energy = await resDataEnergy.json();
-        console.log(energy);
+        let licenses = await resDataEnergy.json();
+        console.log(licenses);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -21,10 +21,10 @@
             return res;
         });
 
-        let dataEnergy = energy.map((d) => {
+        let dataLicenses = licenses.map((d) => {
             let res = {
-                name: d.country + " - " + d.year,
-                value: d["percentage-re-total"]
+                name: d.aut_com + " - " + d.year,
+                value: d["total_mot"]
             };
             return res;
         });
@@ -36,8 +36,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Desconocido por ahora",
-                    data: dataEnergy
+                    name: "Total de motos vendidas",
+                    data: dataLicenses
                 }
             ];
 
