@@ -1,17 +1,13 @@
 <script>
 
-    import Button from "sveltestrap/src/Button.svelte";
-
+    //Pruebas para ver si funciona el proxy: Done.
     async function loadGraph() {
-
-        //Esta es la gráfica común del grupo.
-
+        const resOD = await fetch("/proxyOverdoseDeaths");
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataEnergy = await fetch("http://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats/");
 
+        let overdose = await resOD.json();
         let formula = await resDataFormula.json();
-        let energy = await resDataEnergy.json();
-        console.log(energy);
+        console.log(overdose);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -21,10 +17,10 @@
             return res;
         });
 
-        let dataEnergy = energy.map((d) => {
+        let dataOverdose = overdose.map((d) => {
             let res = {
                 name: d.country + " - " + d.year,
-                value: d["percentage-re-total"]
+                value: d["death_total"]
             };
             return res;
         });
@@ -36,8 +32,8 @@
                     data: dataFormula
                 },
                 {
-                    name: "Porcentaje de energía renovable",
-                    data: dataEnergy
+                    name: "Número total de fallecidos por sobredosis",
+                    data: dataOverdose
                 }
             ];
 
@@ -85,23 +81,7 @@
 
 </script>
 
-<svelte:head>
-
-    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
-
-</svelte:head>
 
 <main>
-
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            Gráfica que muestra los datos de las 3 APIs. Son los número de puntos totales en Fórmula 1 por nacionalidad,
-            el tiempo que se tarda en natación y el número de puntos por partido de baloncesto.
-        </p>
-    </figure>
-
+    <div id='container'></div>
 </main>
