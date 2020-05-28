@@ -4,7 +4,7 @@
 
     async function loadGraph() {
 
-        //FALTA CORS
+        //OK
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
         const resDataEquality = await fetch("https://sos1920-25.herokuapp.com/api/v1/countries_for_equality_stats");
