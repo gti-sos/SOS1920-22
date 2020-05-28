@@ -59,16 +59,16 @@
             size: {
                 width: 640,
                 height: 480
-            }
-
-
+            },
+            bindto: "#radarChart"
         });
-
     }
 
     onMount(loadGraph);
 </script>
 
 <main>
-    <div id="radarChart">Grafica Baloncesto</div>
+    <div align ="center">
+        <div id="radarChart" align ="center">Grafica Baloncesto</div>
+    </div>
 </main>
