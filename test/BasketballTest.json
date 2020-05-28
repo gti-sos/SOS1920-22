@@ -1,0 +1,667 @@
+{
+	"info": {
+		"_postman_id": "4c15f8c6-23ef-485d-ba54-5fa5334e8946",
+		"name": "SOS1920-22-og-basket-stats Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET og-basket-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48e87c8e-0f1b-4e61-82df-d1a4d989da45",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "POST og-basket-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5daa9cb3-7974-4609-a962-0cb01228e850",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"country\":\"test\",\n\t\"year\": 2020 ,\n\t\"points\":54 , \n\t\"threepoints\": 4, \n\t\"rebounds\": 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "POST og-basket-stats  mismas claves primarias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5daa9cb3-7974-4609-a962-0cb01228e850",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"country\":\"test\",\n\t\"year\": 2020 ,\n\t\"points\":54 , \n\t\"threepoints\": 4, \n\t\"rebounds\": 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "GET og-basket-stats/year/country-(Claves Primarias)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92f98cc6-521a-41aa-ab53-91279528b575",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"It has property: country\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"country\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats/2008/spain",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats",
+						"2008",
+						"spain"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "GET og-basket-stats?query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48e87c8e-0f1b-4e61-82df-d1a4d989da45",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats?country=spain",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "spain"
+						},
+						{
+							"key": "year",
+							"value": "2016",
+							"disabled": true
+						},
+						{
+							"key": "points",
+							"value": "66",
+							"disabled": true
+						},
+						{
+							"key": "threepoints",
+							"value": " 4",
+							"disabled": true
+						},
+						{
+							"key": "rebounds",
+							"value": "33",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "GET og-basket-stats?limit&offset",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48e87c8e-0f1b-4e61-82df-d1a4d989da45",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats?offset=0&limit=1&country=spain",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats"
+					],
+					"query": [
+						{
+							"key": "points",
+							"value": "66",
+							"disabled": true
+						},
+						{
+							"key": "threepoints",
+							"value": " 4",
+							"disabled": true
+						},
+						{
+							"key": "rebounds",
+							"value": "33",
+							"disabled": true
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "country",
+							"value": "spain"
+						}
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "GET og-basket-stats?query-(Mas busquedas)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48e87c8e-0f1b-4e61-82df-d1a4d989da45",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats?country=serbia&year=2016&points=66&threepoints= 4",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "serbia"
+						},
+						{
+							"key": "year",
+							"value": "2016"
+						},
+						{
+							"key": "points",
+							"value": "66"
+						},
+						{
+							"key": "threepoints",
+							"value": " 4"
+						},
+						{
+							"key": "rebounds",
+							"value": "33",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "POST og-basket-stats FaltandoParametro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5daa9cb3-7974-4609-a962-0cb01228e850",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"country\":\"testFaltandoParametro\",\n\t\"year\": 2020 , \n\t\"threepoints\": 4, \n\t\"rebounds\": 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT og-basket-stats/year/country",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2b4e3dc1-98cd-4238-ad8b-07d5681ee961",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"country\":\"france\",\n\t\"year\":2000, \n\t\"points\":1, \n\t\"threepoints\": 1, \n\t\"rebounds\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats/2000/france",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats",
+						"2000",
+						"france"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "POST og-basket-stats/year/country",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f51168fb-4483-45fe-9287-e114d57b5c7e",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"country\":\"test\",\n\t\"year\":2020, \n\t\"points\":66, \n\t\"threepoints\": 4, \n\t\"rebounds\": 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats/2020/test",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats",
+						"2020",
+						"test"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT og-basket-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b646e3ce-187f-4d18-bf04-23252f1d13fe",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"country\":\"test\",\n\t\"year\":2020, \n\t\"points\":66, \n\t\"threepoints\": 4, \n\t\"rebounds\": 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats",
+						""
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "DEL og-basket-stats/year/country",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58ea96bf-7b61-47a9-9678-c9bfc00c6365",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats/2020/test",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats",
+						"2020",
+						"test"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "DEL og-basket-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb87cc89-af3c-4b71-8cc1-01e479bc8e3b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats/",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats",
+						""
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		},
+		{
+			"name": "GET og-basket-stats/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "48e87c8e-0f1b-4e61-82df-d1a4d989da45",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/og-basket-stats/loadInitialData",
+					"host": [
+						"localhost:3000"
+					],
+					"path": [
+						"api",
+						"v1",
+						"og-basket-stats",
+						"loadInitialData"
+					]
+				},
+				"description": "Get ruta base baloncesto"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
