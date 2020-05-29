@@ -37,7 +37,9 @@
 	import Integration21 from "./integrations/formula1/Integration21.svelte";
 	import IntegrationApiExternaOlive from "./integrations/formula1/ApiExternaOlivas.svelte";
 	import IntegrationApiDigimon from "./integrations/formula1/ApiDigimon.svelte";
-	
+
+	//===Integraciones de la API de Baloncesto===\\
+	import basketIntegration21 from "./integrations/basketball/basketIntegration21.svelte";
 
 	
 
@@ -81,6 +83,9 @@
 		"/analytics/highcharts-og-basket-stats": HighChartBasketball,
 		//===AwesomeBaloncesto===\\
 		"/analytics/awesome-og-basket-stats": AwesomeBasketball,
+		//===Integraciones de Baloncesto===\\
+		"/integrations/traffic-injuries": basketIntegration21,
+		
 		
 
 		//Esta es la gráfica común de los 3 miembros del grupo.

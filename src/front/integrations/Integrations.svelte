@@ -28,6 +28,16 @@
     <a href="#/integrations/rural-tourism-stats"> Integración con la API de turismo rural - Grupo 02</a>
     <br>
     <a href="#/integrations/driving-licenses"> Integración con la API de licencias de conducción - Grupo 21</a>
-  
+    <br>
+    <!--Baloncesto-->
+    <!--Baloncesto-->
+    <br>
+    <div> <b>Integraciones de la API de Fórmula 1</b></div>
+    <br>
+    <a href="#/integrations/traffic-injuries"> Integración con la API de lesiones por accidentes de trafico - Grupo 21</a>
+    
+    <!--Baloncesto-->
+    <!--Baloncesto-->
+
 
 </main> 

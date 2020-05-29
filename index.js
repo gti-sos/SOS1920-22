@@ -21,12 +21,27 @@ var pathAceituna = "/josprimenapi/v1/olive";
 var remoteDigimon = "https://digimon-api.herokuapp.com";
 var pathDigimon = "/api/digimon";
 
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
+
+//Proxy para API21 traffic-injuries
+var remote21 = "https://sos1920-21.herokuapp.com";
+var path21 = "/api/v2/traffic-injuries";
+
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
+
+
 const formula1API = require("./src/back/formula1API");
 const swimstatsAPI = require("./src/back/swimstatsAPI");
 const basketAPI = require("./src/back/basketAPI");
 
 app.use(bodyParser.json());
 app.use("/", express.static(__dirname + "/public/"));
+
+
 
 //------- Llamada a API Fórmula 1 - Jesús Jiménez Montero -----
 formula1API(app);
@@ -64,6 +79,21 @@ app.use(pathAceituna, function(req, res) {
   console.log('piped: ' + req.baseUrl + req.url);
   req.pipe(request(url)).pipe(res);
 });
+
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
+
+//Proxy para API21 traffic-injuries
+app.use(path21, function(req, res) {
+  var url = remote21 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
+//===INTEGRACIONESBALONCESTO===\\
 
 //Primer entregable - Devuelve la hora actual del servidor.
 app.get("/time", (req, res) => {
