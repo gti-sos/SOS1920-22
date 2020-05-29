@@ -5,27 +5,14 @@
         let dataBasket = await resData.json();
         console.log("Base de datos:" + dataBasket);
 
-        //===Creo dos Arrays para unirlas===\\
-        let countryes = dataBasket.map((d) => { return d.country });
-        console.log("Lista de Paises:  " + countryes);
-        let points = dataBasket.map((d) => { return d.points; });
-        console.log("Lista de Puntos:  " + points);
-        let years = dataBasket.map((d) => { return d.year });
-        console.log("Lista de los años");
-        //===Lista de listas con paises y años===\\
-
-        var tam = countryes.length;
-        console.log("Tamaño:  " + tam);
-        var allData = [];
-
-        //===Meter Datos===\\
-        for (var i = 0; i < tam; i++) {
-            allData.push({
-                name: countryes[i],
-                y: points[i],
-                z: years[i]
-            });
-        }
+        let allData = dataBasket.map((d) => {
+            let res = {
+                name: d.country,
+                y: d.points,
+                z: d.year
+            };
+            return res;
+        });
 
 
         Highcharts.chart('container', {
