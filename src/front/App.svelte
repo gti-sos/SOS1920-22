@@ -85,9 +85,6 @@
 		"/analytics/awesome-og-basket-stats": AwesomeBasketball,
 		//===Integraciones de Baloncesto===\\
 		"/integrations/traffic-injuries": basketIntegration21,
-		
-		
-
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
 

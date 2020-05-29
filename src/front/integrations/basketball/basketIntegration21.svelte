@@ -29,6 +29,7 @@
 
         //===Grafica===\\
         Highcharts.chart('container1', {
+
             chart: {
                 type: 'pie',
                 options3d: {
@@ -36,12 +37,15 @@
                     alpha: 45
                 }
             },
+
             title: {
                 text: 'Puntos Totales Baloncesto'
             },
+
             subtitle: {
                 text: 'Grafica 3D baloncesto'
             },
+
             plotOptions: {
                 pie: {
                     innerSize: 100,
@@ -55,7 +59,6 @@
                     'Puntos(en caso de baloncesto) o lesiones(en caso de trafico): <b>{point.y}</b>' +
                     'Año: <b>{point.z}</b><br/>'
             },
-
 
             series: [{
                 name: 'Puntos Totales',

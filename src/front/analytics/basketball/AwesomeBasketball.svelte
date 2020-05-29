@@ -7,46 +7,28 @@
         let dataBasket = await resData.json();
         console.log("Base de datos:" + dataBasket);
 
-        //===Creo dos Arrays para unirlas===\\
-        let countryes = dataBasket.map((d) => { return d.country });
-        console.log("Lista de Paises:  " + countryes);
-        let points = dataBasket.map((d) => { return d.points; });
-        console.log("Lista de Puntos:  " + points);
-        let years = dataBasket.map((d) => { return d.year });
-        console.log("Lista de los años" + years);
-        let rebound = dataBasket.map((d) => { return d.rebounds });
-        console.log("Lista de los rebotes" + rebound);
-        let threepoint = dataBasket.map((d) => { return d.threepoints });
-        console.log("Lista de los tiros de tres" + threepoint);
-
-
-        var tam = countryes.length;
-        console.log("Tamaño:  " + tam);
-        var aux = ["x", "Puntos", "Puntos de Triples", "Rebotes"];
-        var allData = [];
-        //===Meter Datos===\\
-        for (var i = 0; i < tam + 1; i++) {
-            allData[i] = aux;
-            aux = [];
-            aux.push(countryes[i] + " (" + years[i] + ") ", points[i], threepoint[i], rebound[i]);
-
-        }
+        let allData = dataBasket.map((d) => {
+            let res = [d.country + "(" + d.year + ")", d.points, d.threepoints, d.rebounds];
+            return res;
+        });
         console.log(allData);
 
+        let numbers = dataBasket.map((d)=> {return d.points});
+        let axisSize = Math.max.apply(null, numbers) + 10;
 
 
-        console.log("Entra dentro");
+        //===Grafica===\\
         var chart = bb.generate({
 
             data: {
-                x: "x",
                 columns: allData,
                 type: "radar",
                 labels: true
             },
+
             radar: {
                 axis: {
-                    max: 120
+                    max: axisSize
                 },
                 level: {
                     depth: 2
@@ -60,6 +42,7 @@
                 width: 640,
                 height: 480
             },
+
             bindto: "#radarChart"
         });
     }
@@ -67,8 +50,9 @@
     onMount(loadGraph);
 </script>
 
+
 <main>
-    <div align ="center">
-        <div id="radarChart" align ="center">Grafica Baloncesto</div>
+    <div align="center">
+        <div id="radarChart" align="center">Grafica Baloncesto</div>
     </div>
 </main>
