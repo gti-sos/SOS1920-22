@@ -32,10 +32,22 @@
     <!--Baloncesto-->
     <!--Baloncesto-->
     <br>
-    <div> <b>Integraciones de la API de Fórmula 1</b></div>
+    <div> <b>Integraciones de la API de Baloncesto</b></div>
     <br>
     <a href="#/integrations/traffic-injuries"> Integración con la API de lesiones por accidentes de trafico - Grupo 21</a>
-    
+    <br>
+    <a href="#/integrations/offworks-stats"> Integración con la API de Bajas Laborales - Grupo 23</a>
+    <br>
+    <a href="#/integrations/rural-tourism-stats"> Integración con la API de stadisticas de turismo rural - Grupo 02</a>
+    <br>
+    <a href="#/integrations/oil-coal-nuclear-energy-consumption-stats"> Integración con la API de Consumo de Energias - Grupo 09</a>
+    <br>
+    <a href="#/integrations/happiness_rate/"> Integración con la API de Ratio de felicidad - Grupo 25</a>
+    <br>
+    <a href="#/integrations/global-suicides"> Integración con la API de Suicidios - Grupo 10</a>
+    <br>
+    <a href="#/integrations/atc-stats"> Integración con la API de Coste medio de Matriculas - Grupo 24</a>
+    <br>
     <!--Baloncesto-->
     <!--Baloncesto-->
 

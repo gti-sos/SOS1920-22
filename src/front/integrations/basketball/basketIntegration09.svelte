@@ -3,8 +3,8 @@
     async function loadGraph() {
         const resData = await fetch("/api/v1/og-basket-stats");
         let dataBasket = await resData.json();
-        const resDataTraffic = await fetch("https://sos1920-21.herokuapp.com/api/v2/traffic-injuries");
-        let dataTraffic = await resDataTraffic.json();
+        const resDataApi = await fetch("https://sos1920-09.herokuapp.com/api/v2/oil-coal-nuclear-energy-consumption-stats/");
+        let dataApi = await resDataApi.json();
 
         //===Tratando los datos===\\
         let allDataBasket = dataBasket.map((d) => {
@@ -15,20 +15,22 @@
             };
             return res;
         });
-        let allDataTraffic = dataTraffic.map((d) => {
+
+        //===cambiarDatos===\\
+        let allDataApi = dataApi.map((d) => {
             let res = {
-                name: d.auto_com,
-                y: d.dead,
+                name: d.country,
+                y: d["oil-consumption"],
                 z: d.year
             };
             return res;
         });
-        let allData = allDataBasket.concat(allDataTraffic);
+        let allData = allDataBasket.concat(allDataApi);
 
         console.log(allData);
 
         //===Grafica===\\
-        Highcharts.chart('container1', {
+        Highcharts.chart('container4', {
 
             chart: {
                 type: 'pie',
@@ -56,7 +58,7 @@
             tooltip: {
                 headerFormat: '',
                 pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-                    'Puntos(en caso de baloncesto) o lesiones(en caso de trafico): <b>{point.y}</b><br/>' +
+                    'Puntos(en caso de baloncesto) o Consumo de Petroleo(en caso de Consumo de energias): <b>{point.y}</b><br/>' +
                     'Año: <b>{point.z}</b><br/>'
             },
 
@@ -73,5 +75,5 @@
 
 
 <main>
-    <div id='container1'></div>
+    <div id='container4'></div>
 </main>

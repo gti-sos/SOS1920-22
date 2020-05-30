@@ -40,7 +40,12 @@
 
 	//===Integraciones de la API de Baloncesto===\\
 	import basketIntegration21 from "./integrations/basketball/basketIntegration21.svelte";
-
+	import basketIntegration23 from "./integrations/basketball/basketIntegration23.svelte";
+	import basketIntegration02 from "./integrations/basketball/basketIntegration02.svelte";
+	import basketIntegration09 from "./integrations/basketball/basketIntegration09.svelte";
+	import basketIntegration25 from "./integrations/basketball/basketIntegration25.svelte";
+	import basketIntegration10 from "./integrations/basketball/basketIntegration10.svelte";
+	import basketIntegration24 from "./integrations/basketball/basketIntegration24.svelte";
 	
 
 	import Analytics from "./analytics/Analytics.svelte"
@@ -85,6 +90,16 @@
 		"/analytics/awesome-og-basket-stats": AwesomeBasketball,
 		//===Integraciones de Baloncesto===\\
 		"/integrations/traffic-injuries": basketIntegration21,
+		"/integrations/offworks-stats": basketIntegration23,
+		"/integrations/rural-tourism-stats": basketIntegration02,
+		"/integrations/oil-coal-nuclear-energy-consumption-stats": basketIntegration09,
+		"/integrations/happiness_rate": basketIntegration25,
+		"/integrations/global-suicides": basketIntegration10,
+		"/integrations/atc-stats": basketIntegration24,
+		
+		
+		
+		
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
 
