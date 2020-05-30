@@ -61,6 +61,13 @@
 			<button type="button" style="background: white; color:black" class="btn btn-outline-danger"  onclick="window.location.href='#/swimstatsAPI'"><i class='fas fa-leaf' ></i> API de Natación</button>
 		</span>
 	</Box>
-
 	</div>
+
+	<div>
+		<a href="https://sos1920-22.herokuapp.com/#/analytics/highcharts-og-basket-stats" rel="nofollow">Grafica HighChart Baloncesto</a>
+	</div>
+	<div>
+		<a href="https://sos1920-22.herokuapp.com/#/analytics/awesome-og-basket-stats" rel="nofollow">Grafica Awesome Chart Baloncesto</a>
+	</div>
+
 </main>
