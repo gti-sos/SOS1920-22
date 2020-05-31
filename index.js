@@ -29,6 +29,10 @@ var pathDigimon = "/api/digimon";
 var remote21 = "https://sos1920-21.herokuapp.com";
 var path21 = "/api/v2/traffic-injuries";
 
+var remote10 = "https://sos1920-10.herokuapp.com";
+var path10 = "/api/v2/global-suicides";
+
+//Proxy API externa
 //===INTEGRACIONESBALONCESTO===\\
 //===INTEGRACIONESBALONCESTO===\\
 //===INTEGRACIONESBALONCESTO===\\
@@ -87,6 +91,12 @@ app.use(pathAceituna, function(req, res) {
 //Proxy para API21 traffic-injuries
 app.use(path21, function(req, res) {
   var url = remote21 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+app.use(path10, function(req, res) {
+  var url = remote10 + req.baseUrl + req.url;
   console.log('piped: ' + req.baseUrl + req.url);
   req.pipe(request(url)).pipe(res);
 });

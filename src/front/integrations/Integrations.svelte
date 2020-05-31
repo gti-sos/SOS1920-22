@@ -48,6 +48,10 @@
     <br>
     <a href="#/integrations/atc-stats"> Integración con la API de Coste medio de Matriculas - Grupo 24</a>
     <br>
+    <a href="#/integrations/externalApiBasket"> Integración con la API de RapidApiBaloncesto</a>
+    <br>
+    <a href="#/integrations/externalApiBasket2"> Integración con la API de </a>
+    <br>
     <!--Baloncesto-->
     <!--Baloncesto-->
 

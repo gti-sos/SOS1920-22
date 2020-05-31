@@ -46,6 +46,8 @@
 	import basketIntegration25 from "./integrations/basketball/basketIntegration25.svelte";
 	import basketIntegration10 from "./integrations/basketball/basketIntegration10.svelte";
 	import basketIntegration24 from "./integrations/basketball/basketIntegration24.svelte";
+	import externalApiBasket from "./integrations/basketball/basketIntegrationExternalApi.svelte";
+	import externalApiBasket2 from "./integrations/basketball/basketIntegrationExternalApi2.svelte";
 	
 
 	import Analytics from "./analytics/Analytics.svelte"
@@ -96,6 +98,9 @@
 		"/integrations/happiness_rate": basketIntegration25,
 		"/integrations/global-suicides": basketIntegration10,
 		"/integrations/atc-stats": basketIntegration24,
+		//===Api externa===\\
+		"/integrations/externalApiBasket": externalApiBasket,
+		"/integrations/externalApiBasket2": externalApiBasket2,
 		
 		
 		
