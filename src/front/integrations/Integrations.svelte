@@ -50,7 +50,7 @@
     <br>
     <a href="#/integrations/externalApiBasket"> Integración con la API de RapidApiBaloncesto</a>
     <br>
-    <a href="#/integrations/externalApiBasket2"> Integración con la API de </a>
+    <a href="#/integrations/externalApiBasket2"> Integración con la API de RapidApiJuegos</a>
     <br>
     <!--Baloncesto-->
     <!--Baloncesto-->

@@ -75,8 +75,7 @@
 
 	<div style="margin-bottom: 25px">
 		<div>
-			<a href="https://sos1920-22.herokuapp.com/#/integrations/" rel="nofollow">Grafica Awesome Chart
-				Baloncesto</a>
+			<a href="https://sos1920-22.herokuapp.com/#/integrations/" rel="nofollow">Integraciones</a>
 		</div>
 		<div>
 			<a href="https://sos1920-22.herokuapp.com/#/analytics/highcharts-og-basket-stats" rel="nofollow">Grafica
