@@ -11,7 +11,7 @@
     <br>
     <a href="#/integrations/countries_for_equality_stats"> Integración con la API de igualdad - Grupo 25</a>
     <br>
-    <a href="#/integrations/not-hospitalized-stats"> Integración con la API de igualdad - Grupo 06</a>
+    <a href="#/integrations/not-hospitalized-stats"> Integración con la API de víctimas no hospitalizadas - Grupo 06</a>
     <br>
     <a href="#/integrations/vehicles"> Integración con la API de vehículos - Grupo 04</a>
     <br>

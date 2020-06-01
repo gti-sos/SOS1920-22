@@ -7,11 +7,11 @@
         //Faltan aún las cabeceras CORS
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataHospital = await fetch("https://sos1920-06.herokuapp.com/api/v1/not-hospitalized-stats");
+        const resDataHospital = await fetch("https://sos1920-06.herokuapp.com/api/v2/not-hospitalized-stats");
 
         let formula = await resDataFormula.json();
         let hospital = await resDataHospital.json();
-        console.log(energy);
+        console.log(hospital);
 
         let dataFormula = formula.map((d) => {
             let res = {
@@ -36,7 +36,7 @@
                     data: dataFormula
                 },
                 {
-                    name: "Gasto público en sanidad",
+                    name: "Víctimas no hospitalizadas",
                     data: dataHospital
                 }
             ];
@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre las víctimas no hospitalizadas y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,
@@ -98,10 +98,6 @@
 
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <p class="highcharts-description">
-            Gráfica que muestra los datos de las 3 APIs. Son los número de puntos totales en Fórmula 1 por nacionalidad,
-            el tiempo que se tarda en natación y el número de puntos por partido de baloncesto.
-        </p>
     </figure>
 
 </main>
