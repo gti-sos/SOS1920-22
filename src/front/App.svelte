@@ -82,7 +82,7 @@
 		"/integrations/foodImports": Integration07,
 		"/integrations/motogp-statistics": Integration08,
 		"/integrations/goalscorers": Integration26,
-		"/integrations/rural-tourism-stats": Integration02,
+		"/integrations/rural-tourism-stats-with-formula-stats": Integration02,
 		"/integrations/driving-licenses": Integration21,
 
 

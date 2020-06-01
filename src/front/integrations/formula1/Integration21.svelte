@@ -4,13 +4,13 @@
 
     async function loadGraph() {
 
-        //FALTA CORS
+        //FUNCIONA
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
         const resDataLicenses = await fetch("https://sos1920-21.herokuapp.com/api/v2/driving-licenses");
 
         let formula = await resDataFormula.json();
-        let licenses = await resDataEnergy.json();
+        let licenses = await resDataLicenses.json();
         console.log(licenses);
 
         let dataFormula = formula.map((d) => {
@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre el total de licencias conseguidas de moto y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,
