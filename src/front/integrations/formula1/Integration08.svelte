@@ -4,7 +4,7 @@
 
     async function loadGraph() {
 
-        //Falta CORS
+        //OK
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
         const resDataMoto = await fetch("https://sos1920-08.herokuapp.com/api/v1/motogp-statistics");

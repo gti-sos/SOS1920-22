@@ -7,7 +7,7 @@
         //API Externa olivas - OK
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataOlive = await fetch("/josprimenapi/v1/olive");
+        const resDataOlive = await fetch("/josprimenapi/v1/olive?offset=0&limit=20");
 
         let formula = await resDataFormula.json();
         let olive = await resDataOlive.json();
