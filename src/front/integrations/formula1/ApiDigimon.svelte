@@ -7,7 +7,13 @@
         //OK
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataDigimon = await fetch("/api/digimon");
+        const resDataDigimon = await fetch("https://jikan1.p.rapidapi.com/top/anime/1/upcoming", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "jikan1.p.rapidapi.com",
+                "x-rapidapi-key": "7bc52e4b37msh757136e9b4c40b4p19bc8bjsn5cf2bde828bc"
+            }
+        })
 
         let formula = await resDataFormula.json();
         let digimon = await resDataDigimon.json();
@@ -20,15 +26,16 @@
             };
             return res;
         });
-
-        let dataDigimon = digimon.map((d) => {
+        let PokemonApi = digimon.top;
+        console.log(PokemonApi);
+        let dataDigimon = PokemonApi.map((d) => {
             let res = {
-                name: d.name,
-                value: parseInt(d["level"])
+                name: d.title,
+                value: d["rank"]
             };
             return res;
         });
-
+        console.log(dataDigimon);
         let dataTotal =
             [
                 {
@@ -36,12 +43,12 @@
                     data: dataFormula
                 },
                 {
-                    name: "Rango de un Digimon",
+                    name: "Ranking de animes top",
                     data: dataDigimon
                 }
             ];
 
-        Highcharts.chart('container', {
+        Highcharts.chart('container1', {
             chart: {
                 type: 'packedbubble',
                 height: '100%'
@@ -97,7 +104,7 @@
 <main>
 
     <figure class="highcharts-figure">
-        <div id="container"></div>
+        <div id="container1"></div>
         <p class="highcharts-description">
             Gráfica que muestra los datos de las 3 APIs. Son los número de puntos totales en Fórmula 1 por nacionalidad,
             el tiempo que se tarda en natación y el número de puntos por partido de baloncesto.
