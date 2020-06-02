@@ -1,0 +1,703 @@
+{
+	"info": {
+		"_postman_id": "372716fa-2581-4539-8ca7-12ef733bd557",
+		"name": "SOS1920-22-swim-stats",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET initial data 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3293be6-5dd0-446c-ac3f-2b45f3a7188e",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than 1 swimmer\",function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/loadInitialData",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET swimmers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5fd00c6d-2979-4300-8e98-16adbc600941",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than 1 swimmer\",function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					]
+				},
+				"description": "Obtener los nadadores de la API REST"
+			},
+			"response": []
+		},
+		{
+			"name": "GET swimmer by position",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1d8ffd2-a001-4cb3-873b-26ab1fb49b6d",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"It has property: position\", function(){",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    pm.expect(jsonData).to.have.property(\"position\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/3",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"3"
+					]
+				},
+				"description": "Obetener un nadador por su posición en el ranking."
+			},
+			"response": []
+		},
+		{
+			"name": "POST swimmers (409)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ed84b58-c855-47e4-80dc-dbee88f230bd",
+						"exec": [
+							"pm.test(\"Ya existe un nadador en esta posición\",function(){",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"country\":\"mozambique\",\"year\":2014,\"yearofbirth\":1996,\"position\":4,\"time\":21.15}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					]
+				},
+				"description": "Añador un nuevo nadador para la API REST de nadadores."
+			},
+			"response": []
+		},
+		{
+			"name": "POST swimmer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53cf024e-4c28-4200-8c80-b600d91c095d",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"country\":\"mozambique\",\"year\":2014,\"yearofbirth\":1996,\"position\":6,\"time\":21.15}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					]
+				},
+				"description": "Añador un nuevo nadador para la API REST de nadadores."
+			},
+			"response": []
+		},
+		{
+			"name": "GET swimmers year 2009 with query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d973ad41-8502-4745-b8fc-af50acf8c04d",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than 2 swimmers\",function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(2);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats?year=2009",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2009"
+						}
+					]
+				},
+				"description": "Obtener los nadadores de la API REST"
+			},
+			"response": []
+		},
+		{
+			"name": "GET swimmers with offset and limit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "819586da-b45b-4789-9c94-360e05c3b4a2",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats?limit=1&offset=0&year=2009",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "year",
+							"value": "2009"
+						}
+					]
+				},
+				"description": "Obtener los nadadores de la API REST"
+			},
+			"response": []
+		},
+		{
+			"name": "POST swimmer by position (405)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b03c14b-abc6-4a72-b603-662e62ece986",
+						"exec": [
+							"pm.test(\"Status code is 405\",function(){",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\": \"hungary\",\n\t\"year\":2017, \n\t\"yearofbirth\":1996, \n\t\"position\": 6, \n\t\"time\": 21.15\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/6",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"6"
+					]
+				},
+				"description": "Añadir un nadador por pisición"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE swimmer by position",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a1d60ed-32e9-407c-b1f8-a6ebaa2253e7",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/6",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"6"
+					]
+				},
+				"description": "Borrar a una nadador por posición"
+			},
+			"response": []
+		},
+		{
+			"name": "GET swimmers deleted swimmer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5fd00c6d-2979-4300-8e98-16adbc600941",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than 1 swimmer\",function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					]
+				},
+				"description": "Obtener los nadadores de la API REST"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE swimmers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "418438da-52b7-4894-bebc-d03cee5cd287",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET initial data 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4693a192-4c11-44f9-9991-3c2f753b6b7d",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than 1 swimmer\",function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(4);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/loadInitialData",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT swimmer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b154a7d3-0336-4aae-89ce-dce037b2d612",
+						"exec": [
+							"pm.test(\"Status code is 405\",function(){",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						""
+					]
+				},
+				"description": "Añadimos un nadador si no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT swimmer by position (200)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d17525a-5810-455d-95db-5c661363caf0",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\": \"united kingdom\",\n\t\"year\":2011, \n\t\"yearofbirth\":412532625357, \n\t\"position\": 5, \n\t\"time\": 24.15\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/5",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"5"
+					]
+				},
+				"description": "Añadimos un nadador si no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "GET swimmers after put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5766dac3-1324-4665-8796-18c45da444e7",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than 1 swimmer\",function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					]
+				},
+				"description": "Obtener los nadadores de la API REST"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT swimmer by position (409)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4cb1c790-1255-464b-8770-70f55fdb1aab",
+						"exec": [
+							"pm.test(\"Status code is 409\",function(){",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/1",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"1"
+					]
+				},
+				"description": "Añadimos un nadador si no existe"
+			},
+			"response": []
+		},
+		{
+			"name": "GET swimmers after put with conflict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e9c5663-e1b7-4e2c-a23a-6875b54cbc28",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than 1 swimmer\",function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(0);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats"
+					]
+				},
+				"description": "Obtener los nadadores de la API REST"
+			},
+			"response": []
+		},
+		{
+			"name": "GET initial data 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16927f43-6800-4184-84f3-07a61eddfa8d",
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/swim-stats/loadInitialData",
+					"host": [
+						"localhost:3000/api"
+					],
+					"path": [
+						"v1",
+						"swim-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
