@@ -56,7 +56,17 @@
 //	import externalApiBasket5 from "./integrations/basketball/basketIntegrationExternalApi5.svelte";
 //	import externalApiBasket6 from "./integrations/basketball/basketIntegrationExternalApi6.svelte";
 	
-
+	//Integraciones de la API de Natación
+	import swimIntegration01 from "./integrations/swimmers/swimIntegration01.svelte";
+	import swimIntegration12 from "./integrations/swimmers/swimIntegration12.svelte";
+	import swimIntegration05 from "./integrations/swimmers/swimIntegration05.svelte";
+	import swimIntegration25 from "./integrations/swimmers/swimIntegration25.svelte";
+	import swimIntegration27 from "./integrations/swimmers/swimIntegration27.svelte";
+	import swimIntegration11 from "./integrations/swimmers/swimIntegration11.svelte";
+	import swimIntegration28 from "./integrations/swimmers/swimIntegration28.svelte";
+	import swimIntegration30 from "./integrations/swimmers/swimIntegration30.svelte";
+	import swimIntegration04 from "./integrations/swimmers/swimIntegration04.svelte";
+	
 	import Analytics from "./analytics/Analytics.svelte"
 
 	const routes = {
@@ -118,6 +128,18 @@
 		"/analytics/highcharts-swim-stats": HighChartSwimmers,
 		//AwesomeChart Natación
 		"/analytics/awesomechart-swim-stats": AwesomeSwimmers,
+		//Integraciones Natación
+		"/integrations/poverty-stats01": swimIntegration01,
+		"/integrations/drug_offences": swimIntegration12,
+		"/integrations/books-exports": swimIntegration05,
+		"/integrations/global_competitiveness_index": swimIntegration25,
+		"/integrations/poverty-stats27": swimIntegration27,
+		"/integrations/economic-freedom-indexes": swimIntegration11,
+		"/integrations/ppas": swimIntegration28,
+		"/integrations/sugarconsume": swimIntegration30,
+		"/integrations/traffic_accidents": swimIntegration04,
+
+
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
 

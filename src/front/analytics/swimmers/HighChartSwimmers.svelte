@@ -8,7 +8,7 @@
             Data.map((d) => {
                 let res = [
                     Date.parse(""+d.year+""),
-                    d.time
+                    d.time,
                     ]
             return res   
                         });

@@ -24,7 +24,12 @@ var pathDigimon = "/api/digimon";
 //===INTEGRACIONESBALONCESTO===\\
 //===INTEGRACIONESBALONCESTO===\\
 //===INTEGRACIONESBALONCESTO===\\
-
+//API Proxy Juan grupo 28
+var remote28 = "https://sos1920-28.herokuapp.com"
+var path28 = "/api/v1/ppas";
+//API Proxy Grupo 30
+var remote04 = "https://sos1920-04.herokuapp.com"
+var path04 = "/api/v1/traffic_accidents";
 //Proxy para API21 traffic-injuries
 var remote21 = "https://sos1920-21.herokuapp.com";
 var path21 = "/api/v2/traffic-injuries";
@@ -104,7 +109,18 @@ app.use(path10, function(req, res) {
 //===INTEGRACIONESBALONCESTO===\\
 //===INTEGRACIONESBALONCESTO===\\
 //===INTEGRACIONESBALONCESTO===\\
-
+//Proxy Natación Grupo 28 PPA
+app.use(path28, function(req, res) {
+  var url = remote28 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+//Proxy Natación Grupo 30 consumo de azúcar
+app.use(path04, function(req, res) {
+  var url = remote04 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
 //Primer entregable - Devuelve la hora actual del servidor.
 app.get("/time", (req, res) => {
 	console.log("Peticion enviada al servidor");
