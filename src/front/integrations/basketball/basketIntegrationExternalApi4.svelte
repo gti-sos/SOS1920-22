@@ -3,10 +3,10 @@
     async function loadGraph() {
         const resData = await fetch("/api/v1/og-basket-stats");
         let dataBasket = await resData.json();
-        const resDataApi = await fetch("https://coronavirus-tracker-india-covid-19.p.rapidapi.com/api/getStatewise", {
+        const resDataApi = await fetch("https://countries-cities.p.rapidapi.com/location/country/US/city/list?page=2&per_page=20&format=json&population=15000", {
             "method": "GET",
             "headers": {
-                "x-rapidapi-host": "coronavirus-tracker-india-covid-19.p.rapidapi.com",
+                "x-rapidapi-host": "countries-cities.p.rapidapi.com",
                 "x-rapidapi-key": "90dc3e9ed6msh8255970dc0c9066p1c87f3jsn1b79351fbfb0"
             }
         });
@@ -24,13 +24,13 @@
         });
 
         //===cambiarDatos===\\
-        let basketApi = dataApi.results;
+        let basketApi = dataApi.cities;
         console.log(basketApi);
         let allDataApi = basketApi.map((d) => {
             let res = {
                 name: d.name,
-                y: d.cases,
-                z: d.id  
+                y: d.population,
+                z: d.geonameid
             };
             return res;
         });
@@ -41,7 +41,7 @@
         console.log(allData);
 
         //===Grafica===\\
-        Highcharts.chart('container10', {
+        Highcharts.chart('container11', {
 
             chart: {
                 type: 'pie',
@@ -69,8 +69,8 @@
             tooltip: {
                 headerFormat: '',
                 pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-                    'Puntos(en caso de baloncesto) : <b>{point.y}</b><br/>' +
-                    'Año: <b>{point.z}</b><br/>'
+                    'Puntos o población: <b>{point.y}</b><br/>' +
+                    'Año o id: <b>{point.z}</b><br/>'
             },
 
             series: [{
@@ -86,5 +86,5 @@
 
 
 <main>
-    <div id='container10'></div>
+    <div id='container11'></div>
 </main>

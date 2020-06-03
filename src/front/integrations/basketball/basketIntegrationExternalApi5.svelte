@@ -3,7 +3,15 @@
     async function loadGraph() {
         const resData = await fetch("/api/v1/og-basket-stats");
         let dataBasket = await resData.json();
-        const resDataApi = await fetch("/api/v2/global-suicides");
+        const resDataApi = await fetch("https://montanaflynn-fifa-world-cup.p.rapidapi.com/teams", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "montanaflynn-fifa-world-cup.p.rapidapi.com",
+                "x-rapidapi-key": "90dc3e9ed6msh8255970dc0c9066p1c87f3jsn1b79351fbfb0",
+                "accepts": "json"
+            }
+        });
+
         let dataApi = await resDataApi.json();
 
         //===Tratando los datos===\\
@@ -16,21 +24,26 @@
             return res;
         });
 
+        console.log(dataApi);
         //===cambiarDatos===\\
-        let allDataApi = dataApi.map((d) => {
+        let basketApi = dataApi;
+        console.log(basketApi);
+        let allDataApi = basketApi.map((d) => {
             let res = {
-                name: d.country,
-                y: d.average,
-                z: d.year
+                name: d.title,
+                y: d.country_id,
+                z: d.created_at.slice(0,4)
             };
             return res;
         });
+
+
         let allData = allDataBasket.concat(allDataApi);
 
         console.log(allData);
 
         //===Grafica===\\
-        Highcharts.chart('container6', {
+        Highcharts.chart('container12', {
 
             chart: {
                 type: 'pie',
@@ -58,7 +71,7 @@
             tooltip: {
                 headerFormat: '',
                 pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-                    'Puntos(en caso de baloncesto) o Media de suicidios(en caso de Suicidios): <b>{point.y}</b><br/>' +
+                    'Puntos : <b>{point.y}</b><br/>' +
                     'Año: <b>{point.z}</b><br/>'
             },
 
@@ -75,5 +88,5 @@
 
 
 <main>
-    <div id='container6'></div>
+    <div id='container12'></div>
 </main>

@@ -69,7 +69,7 @@
             tooltip: {
                 headerFormat: '',
                 pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-                    'Puntos(en caso de baloncesto) : <b>{point.y}</b><br/>' +
+                    'Puntos : <b>{point.y}</b><br/>' +
                     'Año: <b>{point.z}</b><br/>'
             },
 

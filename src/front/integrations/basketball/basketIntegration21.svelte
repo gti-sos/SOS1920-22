@@ -3,7 +3,7 @@
     async function loadGraph() {
         const resData = await fetch("/api/v1/og-basket-stats");
         let dataBasket = await resData.json();
-        const resDataTraffic = await fetch("https://sos1920-21.herokuapp.com/api/v2/traffic-injuries");
+        const resDataTraffic = await fetch("/api/v2/traffic-injuries");
         let dataTraffic = await resDataTraffic.json();
 
         //===Tratando los datos===\\

@@ -54,12 +54,11 @@
     <br>
     <a href="#/integrations/coronavirusindia"> Integración con la API de Coronavirus India</a>
     <br>
-    <a href="#/integrations/videogamesrapidapi"> Integración con la API de RapidApiJuegos</a>
+    <a href="#/integrations/poblacion"> Integración con la API de poblacion</a>
     <br>
-    <a href="#/integrations/videogamesrapidapi"> Integración con la API de RapidApiJuegos</a>
+    <a href="#/integrations/futbolscore"> Integración con la API de futbol </a>
     <br>
-    <a href="#/integrations/videogamesrapidapi"> Integración con la API de RapidApiJuegos</a>
-    <br>
+ 
     <!--Baloncesto-->
     <!--Baloncesto-->
 
