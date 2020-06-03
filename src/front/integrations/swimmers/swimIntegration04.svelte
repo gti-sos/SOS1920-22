@@ -11,7 +11,7 @@
                 ]
         return res   
                     });
-    const resDataApi = await fetch("https://sos1920-04.herokuapp.com/api/v1/traffic_accidents");
+    const resDataApi = await fetch("/api/v1/traffic_accidents");
     let dataApi = await resDataApi.json();
     function Comparator(a, b) {
         if (a[0] < b[0]) return -1;
