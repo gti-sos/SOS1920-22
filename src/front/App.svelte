@@ -130,7 +130,7 @@
 		//HighChart Natación
 		"/analytics/highcharts-swim-stats": HighChartSwimmers,
 		//AwesomeChart Natación
-		"/analytics/awesomechart-swim-stats": AwesomeSwimmers,
+		"/analytics/awesome-swim-stats": AwesomeSwimmers,
 		//Integraciones Natación
 		"/integrations/poverty-stats01": swimIntegration01,
 		"/integrations/drug_offences": swimIntegration12,
