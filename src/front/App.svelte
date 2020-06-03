@@ -67,6 +67,7 @@
 	import swimIntegration04 from "./integrations/swimmers/swimIntegration04.svelte";
 	
 	import Analytics from "./analytics/Analytics.svelte"
+	import About from "./About.svelte"
 
 	const routes = {
 		"/": Home,
@@ -140,6 +141,8 @@
 
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
+		"/about": About,
+
 
 		"*": NotFound
 
