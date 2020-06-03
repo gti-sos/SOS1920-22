@@ -65,6 +65,8 @@
 	import swimIntegration28 from "./integrations/swimmers/swimIntegration28.svelte";
 	import swimIntegration30 from "./integrations/swimmers/swimIntegration30.svelte";
 	import swimIntegration04 from "./integrations/swimmers/swimIntegration04.svelte";
+	import swimIntegrationPokemon from "./integrations/swimmers/swimIntegrationPokemon.svelte";
+	import swimIntegrationIokse from "./integrations/swimmers/swimIntegrationIokse.svelte";
 	
 	import Analytics from "./analytics/Analytics.svelte"
 	import About from "./About.svelte"
@@ -137,7 +139,8 @@
 		"/integrations/ppas": swimIntegration28,
 		"/integrations/sugarconsume": swimIntegration30,
 		"/integrations/traffic_accidents": swimIntegration04,
-
+		"/integrations/external_pokemon_stats": swimIntegrationPokemon,
+		"/integrations/external_iokse_stats": swimIntegrationIokse,
 
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,

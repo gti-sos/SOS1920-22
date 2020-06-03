@@ -3,23 +3,35 @@
 </script>
 <main>
 
-	<h2 style="text-align: center;margin-bottom: 40px;">Project description</h2>
-	<h6 style="text-align: center;margin-bottom: 40px;">The sources of information chosen are aimed at analyzing the
-		relationship between the classification of:</h6>
-	<div style="text-align: center;">
-		<ul style="position: relative;
-		display:inline-block;">
-			<p><strong>Formula 1 drivers by nationality</strong></p>
-			<p><strong>Teams that lost the final game in Olympic basketball history</strong></p>
-			<p><strong>The swimming world records</strong></p>
-		</ul>
+	<h3 style="text-align: center;margin-bottom: 40px;">Proyecto conjunto</h3>
+	<h3 style="text-align: center;margin-bottom: 40px;">para el grupo 22 de SOS</h3>
+	<div class="row">
+		<div class="col-6">
+			<h2 style="text-align: center;margin-bottom: 40px;">Repository</h2>
+			<h4 style="text-align: center;margin-bottom: 40px;"><a
+					href="https://github.com/gti-sos/SOS1920-22">gti-sos/SOS1920-22</a></h4>
+		</div>
+		<div class="col-6">
+			<h2 style="text-align: center;margin-bottom: 40px;">URL</h2>
+			<h4 style="text-align: center;margin-bottom: 40px;"><a href="http://sos1920-22.herokuapp.com"
+					rel="nofollow">sos1920-22.herokuapp.com</a></h4>
+		</div>
 	</div>
-	<h2 style="text-align: center;margin-bottom: 40px;">Repository</h2>
-	<h4 style="text-align: center;margin-bottom: 40px;"><a
-			href="https://github.com/gti-sos/SOS1920-22">gti-sos/SOS1920-22</a></h4>
-	<h2 style="text-align: center;margin-bottom: 40px;">URL</h2>
-	<h4 style="text-align: center;margin-bottom: 40px;"><a href="http://sos1920-22.herokuapp.com"
-			rel="nofollow">http://sos1920-22.herokuapp.com</a></h4>
+	<h2 style="text-align: center;margin-bottom: 40px;">Integraciones</h2>
+	<h4 style="text-align: center;margin-bottom: 40px;"><a href="https://sos1920-22.herokuapp.com/#/integrations/"
+			rel="nofollow">sos1920-22.herokuapp.com/#/integrations</a></h4>
+	<div class="row">
+		<div class="col-6">
+			<h2 style="text-align: center;margin-bottom: 40px;">Analytics</h2>
+			<h4 style="text-align: center;margin-bottom: 40px;"><a
+					href="https://sos1920-22.herokuapp.com/#/analytics/">sos1920-22.herokuapp.com/#/analytics</a></h4>
+		</div>
+		<div class="col-6">
+			<h2 style="text-align: center;margin-bottom: 40px;">About</h2>
+			<h4 style="text-align: center;margin-bottom: 40px;"><a href="http://sos1920-22.herokuapp.com/#/about"
+					rel="nofollow">sos1920-22.herokuapp.com/#/about</a></h4>
+		</div>
+	</div>
 	<h2 style="text-align: center;margin-bottom: 40px;">Team</h2>
 	<div style="display:flex;align-items:center;justify-content: center;margin-bottom: 40px;">
 		<Box>
@@ -36,6 +48,16 @@
 			<span slot="apibutton">
 				<button type="button" style="background: white; color:black" class="btn btn-outline-success"
 					onclick="window.location.href='#/formula1API'"> API de Fórmula 1</button>
+			</span>
+			<span slot="chartbuttons">
+				<div class="btn-group" role="group" aria-label="">
+					<button type="button" class="btn btn-outline-danger" style="background: white; color:black"
+						onclick="window.location.href='#/analytics/highcharts-formula-stats'"><i
+							class='fas fa-leaf'></i> HighChart</button>
+					<button type="button" class="btn btn-outline-success" style="background: white; color:black"
+						onclick="window.location.href='#/analytics/awesome-formula-stats'"><i
+							class='fas fa-leaf'></i>AwesomeChart</button>
+				</div>
 			</span>
 		</Box>
 		<Box>
@@ -54,6 +76,16 @@
 				<button type="button" style="background: white; color:black" class="btn btn-outline-info"
 					onclick="window.location.href='#/basketAPI'"><i class='fas fa-leaf'></i> API de Baloncesto</button>
 			</span>
+			<span slot="chartbuttons">
+				<div class="btn-group" role="group" aria-label="">
+					<button type="button" class="btn btn-outline-danger" style="background: white; color:black"
+						onclick="window.location.href='#/analytics/highcharts-og-basket-stats'"><i
+							class='fas fa-leaf'></i> HighChart</button>
+					<button type="button" class="btn btn-outline-success" style="background: white; color:black"
+						onclick="window.location.href='#/analytics/awesome-og-basket-stats'"><i
+							class='fas fa-leaf'></i>AwesomeChart</button>
+				</div>
+			</span>
 		</Box>
 		<Box>
 			<span slot="name">
@@ -70,21 +102,16 @@
 				<button type="button" style="background: white; color:black" class="btn btn-outline-danger"
 					onclick="window.location.href='#/swimstatsAPI'"><i class='fas fa-leaf'></i> API de Natación</button>
 			</span>
+			<span slot="chartbuttons">
+				<div class="btn-group" role="group" aria-label="">
+					<button type="button" class="btn btn-outline-danger" style="background: white; color:black"
+						onclick="window.location.href='#/analytics/highcharts-swim-stats'"><i class='fas fa-leaf'></i>
+						HighChart</button>
+					<button type="button" class="btn btn-outline-success" style="background: white; color:black"
+						onclick="window.location.href='#/analytics/awesome-swim-stats'"><i
+							class='fas fa-leaf'></i>AwesomeChart</button>
+				</div>
+			</span>
 		</Box>
 	</div>
-
-	<div style="margin-bottom: 25px">
-		<div>
-			<a href="https://sos1920-22.herokuapp.com/#/integrations/" rel="nofollow">Integraciones</a>
-		</div>
-		<div>
-			<a href="https://sos1920-22.herokuapp.com/#/analytics/highcharts-og-basket-stats" rel="nofollow">Grafica
-				HighChart Baloncesto</a>
-		</div>
-		<div>
-			<a href="https://sos1920-22.herokuapp.com/#/analytics/awesome-og-basket-stats" rel="nofollow">Grafica
-				Awesome Chart Baloncesto</a>
-		</div>
-	</div>
-
 </main>

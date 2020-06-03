@@ -40,8 +40,9 @@
         line-height: 1.2;
         left:105px;
     }
-    .apibutton {
+    .apibutton, .chartbuttons {
         text-align: center;
+		margin-top: 20px;
     }
 
 	.pmaddress { background-image: url('https://www.postman.com/icons/icon-48x48.png?v=9a2f6f2a305951852f949fcec9a89efd') }
@@ -71,5 +72,13 @@
         <slot name="apibutton">
             <button type="button"></button>
         </slot>
-    </div>
+	</div>
+	<div class="chartbuttons">
+		<slot name="chartbuttons">
+			<div class="btn-group" role="group" aria-label="">
+				<button type="button" class="btn btn-danger">HighChart</button>
+				<button type="button" class="btn btn-success">AwesomeChart</button>
+			</div>
+		</slot>
+	</div>
 </article>
