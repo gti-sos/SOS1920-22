@@ -7,7 +7,7 @@
         //INTEGRADO
 
         const resDataFormula = await fetch("/api/v2/formula-stats");
-        const resDataFoot = await fetch("http://sos1920-26.herokuapp.com/api/v3/goalscorers");
+        const resDataFoot = await fetch("https://sos1920-26.herokuapp.com/api/v3/goalscorers");
 
         let formula = await resDataFormula.json();
         let foot = await resDataFoot.json();
