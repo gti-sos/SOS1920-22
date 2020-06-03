@@ -51,6 +51,10 @@
 	import basketIntegration24 from "./integrations/basketball/basketIntegration24.svelte";
 	import externalApiBasket from "./integrations/basketball/basketIntegrationExternalApi.svelte";
 	import externalApiBasket2 from "./integrations/basketball/basketIntegrationExternalApi2.svelte";
+	import externalApiBasket3 from "./integrations/basketball/basketIntegrationExternalApi3.svelte";
+//	import externalApiBasket4 from "./integrations/basketball/basketIntegrationExternalApi4.svelte";
+//	import externalApiBasket5 from "./integrations/basketball/basketIntegrationExternalApi5.svelte";
+//	import externalApiBasket6 from "./integrations/basketball/basketIntegrationExternalApi6.svelte";
 	
 
 	import Analytics from "./analytics/Analytics.svelte"
@@ -102,8 +106,12 @@
 		"/integrations/global-suicides": basketIntegration10,
 		"/integrations/atc-stats": basketIntegration24,
 		//===Api externa===\\
-		"/integrations/externalApiBasket": externalApiBasket,
-		"/integrations/externalApiBasket2": externalApiBasket2,
+		"/integrations/nbarapidapi": externalApiBasket,
+		"/integrations/videogamesrapidapi": externalApiBasket2,
+		"/integrations/coronavirusindia": externalApiBasket3,
+//		"/integrations/externalApiBasket4": externalApiBasket4,
+//		"/integrations/externalApiBasket5": externalApiBasket5,
+//		"/integrations/externalApiBasket6": externalApiBasket6,
 		
 		
 		//HighChart Natación

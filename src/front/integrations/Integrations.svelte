@@ -48,9 +48,17 @@
     <br>
     <a href="#/integrations/atc-stats"> Integración con la API de Coste medio de Matriculas - Grupo 24</a>
     <br>
-    <a href="#/integrations/externalApiBasket"> Integración con la API de RapidApiBaloncesto</a>
+    <a href="#/integrations/nbarapidapi"> Integración con la API de RapidApiBaloncesto</a>
     <br>
-    <a href="#/integrations/externalApiBasket2"> Integración con la API de RapidApiJuegos</a>
+    <a href="#/integrations/videogamesrapidapi"> Integración con la API de RapidApiJuegos</a>
+    <br>
+    <a href="#/integrations/coronavirusindia"> Integración con la API de Coronavirus India</a>
+    <br>
+    <a href="#/integrations/videogamesrapidapi"> Integración con la API de RapidApiJuegos</a>
+    <br>
+    <a href="#/integrations/videogamesrapidapi"> Integración con la API de RapidApiJuegos</a>
+    <br>
+    <a href="#/integrations/videogamesrapidapi"> Integración con la API de RapidApiJuegos</a>
     <br>
     <!--Baloncesto-->
     <!--Baloncesto-->
