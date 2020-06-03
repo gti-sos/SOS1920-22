@@ -97,10 +97,6 @@
 
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <p class="highcharts-description">
-            Gráfica que muestra los datos de las 3 APIs. Son los número de puntos totales en Fórmula 1 por nacionalidad,
-            el tiempo que se tarda en natación y el número de puntos por partido de baloncesto.
-        </p>
     </figure>
 
 </main>
