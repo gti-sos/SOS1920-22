@@ -67,7 +67,9 @@
 	import swimIntegration04 from "./integrations/swimmers/swimIntegration04.svelte";
 	import swimIntegrationPokemon from "./integrations/swimmers/swimIntegrationPokemon.svelte";
 	import swimIntegrationIokse from "./integrations/swimmers/swimIntegrationIokse.svelte";
-	
+	import swimIntegrationFinancial from "./integrations/swimmers/swimIntegrationFinancial.svelte";
+	import swimIntegrationMarket from "./integrations/swimmers/swimIntegrationMarket.svelte";
+
 	import Analytics from "./analytics/Analytics.svelte"
 	import About from "./About.svelte"
 
@@ -141,6 +143,8 @@
 		"/integrations/traffic_accidents": swimIntegration04,
 		"/integrations/external_pokemon_stats": swimIntegrationPokemon,
 		"/integrations/external_iokse_stats": swimIntegrationIokse,
+		"/integrations/external_financial_stats": swimIntegrationFinancial,
+		"/integrations/external_market_stats": swimIntegrationMarket,
 
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,

@@ -58,7 +58,35 @@
     <br>
     <a href="#/integrations/futbolscore"> Integración con la API de futbol </a>
     <br>
- 
+    <br>
+    <div> <b>Integraciones de la API de Natación</b></div>
+    <br>
+    <a href="#/integrations/poverty-stats01"> Integración con la API de índices de pobreza - Grupo 01</a>
+    <br>
+    <a href="#/integrations/drug_offences"> Integración con la API de delitos de narcotráfico - Grupo 12</a>
+    <br>
+    <a href="#/integrations/books-exports"> Integración con la API de exportaciones de libros - Grupo 05</a>
+    <br>
+    <a href="#/integrations/global_competitiveness_index"> Integración con la API de índices de competitividad global - Grupo 25</a>
+    <br>
+    <a href="#/integrations/poverty-stats27"> Integración con la API de índices de pobreza - Grupo 27</a>
+    <br>
+    <a href="#/integrations/economic-freedom-indexes"> Integración con la API de índices de libertad económica - Grupo 11</a>
+    <br>
+    <a href="#/integrations/ppas"> Integración con la API de PPA per capita - Grupo 28</a>
+    <br>
+    <a href="#/integrations/sugarconsume"> Integración con la API de consumo de azúcar global - Grupo 30</a>
+    <br>
+    <a href="#/integrations/traffic_accidents"> Integración con la API de accidentes de tráfico - Grupo 04</a>
+    <br>
+    <a href="#/integrations/external_pokemon_stats"> Integración con la API de Pokemon y su daño.</a>
+    <br>
+    <a href="#/integrations/external_iokse_stats"> Integración con la API de eventos de fútbol.</a>
+    <br>
+    <a href="#/integrations/external_financial_stats"> Integración con la API de situación financiera global. </a>
+    <br>
+    <a href="#/integrations/external_market_stats"> Integración con la API de situación mercantil global. </a>
+    <br>
     <!--Baloncesto-->
     <!--Baloncesto-->
 
