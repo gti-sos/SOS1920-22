@@ -21,6 +21,9 @@
 	import HighChartBasketball from "./analytics/basketball/HighChartBasketball.svelte";
 	import AwesomeBasketball from "./analytics/basketball/AwesomeBasketball.svelte";
 
+	//Imports charts de Natación
+	import AwesomeSwimmers from "./analytics/swimmers/AwesomeSwimmers.svelte";
+	import HighChartSwimmers from "./analytics/swimmers/HighChartSwimmers.svelte";
 	//Integraciones de la API de Fórmula 1
 	import Integrations from "./integrations/Integrations.svelte";
 	import Integration12 from "./integrations/formula1/Integration12.svelte";
@@ -103,8 +106,10 @@
 		"/integrations/externalApiBasket2": externalApiBasket2,
 		
 		
-		
-		
+		//HighChart Natación
+		"/analytics/highcharts-swim-stats": HighChartSwimmers,
+		//AwesomeChart Natación
+		"/analytics/awesomechart-swim-stats": AwesomeSwimmers,
 		//Esta es la gráfica común de los 3 miembros del grupo.
 		"/analytics": Analytics,
 
