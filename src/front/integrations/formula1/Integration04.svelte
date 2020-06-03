@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre el número de vehículos por provincia española y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre el número total de inmigrantes por país y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,

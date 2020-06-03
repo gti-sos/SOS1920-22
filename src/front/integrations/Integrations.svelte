@@ -3,7 +3,7 @@
     <br>
     <a href="#/integrations/olive-externalApi"> Integración con la API Externa del análisis de las aceitunas</a>
     <br>
-    <a href="#/integrations/digimon"> Integración con la API Externa de Digimon</a>
+    <a href="#/integrations/digimon"> Integración con la API Externa de ranking de anime</a>
     <br>
     <a href="#/integrations/overdose-deaths"> Integración con la API de Fallecimientos por sobresosis - Grupo 12</a>
     <br>

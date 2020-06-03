@@ -47,7 +47,7 @@
                 height: '100%'
             },
             title: {
-                text: 'Relación entre porcentaje total de uso de energías renovables y el número de puntos totales de pilotos de Fórmula 1'
+                text: 'Relación entre porcentaje total de paz y el número de puntos totales de pilotos de Fórmula 1'
             },
             tooltip: {
                 useHTML: true,
