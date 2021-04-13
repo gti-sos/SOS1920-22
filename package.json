@@ -38,6 +38,6 @@
     "request": "^2.88.2",
     "svelte-spa-router": "^2.1.0",
     "sveltestrap": "^3.3.3",
-    "vis-timeline": "^7.3.6"
+    "vis-timeline": "^7.4.4"
   }
 }
